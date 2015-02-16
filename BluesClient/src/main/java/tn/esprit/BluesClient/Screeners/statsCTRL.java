@@ -1,6 +1,8 @@
 package tn.esprit.BluesClient.Screeners;
 
 
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -137,7 +139,29 @@ public class statsCTRL implements Initializable, ControlledScreen {
 		profile.setScaleY(1.0);
 
 	}
-
+	public void showpopup()
+	{
+		FXMLLoader loader = new FXMLLoader(statsCTRL.class.getResource("../Screeners/Popup.fxml"));
+		try{  
+		Pane page = (Pane) loader.load();
+		    Stage dialogStage = new Stage();
+		    dialogStage.setTitle("détails");
+		    dialogStage.initModality(Modality.WINDOW_MODAL);
+		    
+		    Scene scene = new Scene(page);
+		    dialogStage.setScene(scene);
+		  
+		    
+	        dialogStage.setHeight(550);
+		    dialogStage.showAndWait();}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		
+		
+		    
+	}
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -172,29 +196,9 @@ public class statsCTRL implements Initializable, ControlledScreen {
 	private void Close() {
 		ScreensFramework.s.hide();
 	}
-	/*public void showpopup()
-	{
-		FXMLLoader loader = new FXMLLoader(statsCTRL.class.getResource("../fxml/PopUp.fxml"));
-		try{  
-		Pane page = (Pane) loader.load();
-		    Stage dialogStage = new Stage();
-		    dialogStage.setTitle("détails");
-		    dialogStage.initModality(Modality.WINDOW_MODAL);
-		    
-		    Scene scene = new Scene(page);
-		    dialogStage.setScene(scene);
-		  
-		    
-	        dialogStage.setHeight(550);
-		    dialogStage.showAndWait();}
-		catch(IOException e)
-		{
-			e.printStackTrace();
-		}
-		*/
-		
-		    
-	}
+	
+	
+}
 
 
 
