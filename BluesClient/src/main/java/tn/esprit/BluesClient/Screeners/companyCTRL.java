@@ -3,8 +3,6 @@ package tn.esprit.BluesClient.Screeners;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
-
 import tn.esprit.BluesClient.Main.ScreensFramework;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -160,6 +158,11 @@ public class companyCTRL implements Initializable, ControlledScreen {
 	@FXML
 	private void goToScreen6() {
 		myController.setScreen(ScreensFramework.screen6ID);
+	}
+
+	@FXML
+	private void goToScreen7() {
+		myController.setScreen(ScreensFramework.screen7ID);
 	}
 
 	@FXML

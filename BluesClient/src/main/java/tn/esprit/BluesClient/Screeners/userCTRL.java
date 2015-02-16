@@ -209,6 +209,11 @@ public class userCTRL implements Initializable, ControlledScreen {
 	}
 
 	@FXML
+	private void goToScreen7() {
+		myController.setScreen(ScreensFramework.screen7ID);
+	}
+
+	@FXML
 	private void Close() {
 		ScreensFramework.s.hide();
 	}
