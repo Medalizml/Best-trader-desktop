@@ -10,7 +10,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1370.0" styleClass="home" stylesheets="@desktop.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.BluesClient.Screeners.articleCTRL">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1370.0" styleClass="home" stylesheets="@desktop.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.BluesClient.Screeners.profileCTRL">
    <children>
       <Circle fill="#1f93ff00" layoutX="859.0" layoutY="89.0" radius="81.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0">
          <effect>
@@ -25,7 +25,7 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <ImageView fx:id="article" layoutX="437.0" layoutY="16.0" onMouseEntered="#zoomArticle" onMouseExited="#zoomOutArticle">
+      <ImageView fx:id="article" layoutX="437.0" layoutY="16.0"  onMouseClicked="#goToScreen2" onMouseEntered="#zoomArticle" onMouseExited="#zoomOutArticle">
          <image>
             <Image url="@../pic/News-128%20(1).png" />
          </image>
@@ -41,7 +41,7 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <ImageView fx:id="profile" layoutX="796.0" layoutY="14.0" onMouseClicked="#goToScreen4" onMouseEntered="#zoomProfile" onMouseExited="#zoomOutProfile">
+      <ImageView fx:id="profile" layoutX="796.0" layoutY="14.0" onMouseEntered="#zoomProfile" onMouseExited="#zoomOutProfile">
          <image>
             <Image url="@../pic/Identity-Card-128.png" />
          </image>

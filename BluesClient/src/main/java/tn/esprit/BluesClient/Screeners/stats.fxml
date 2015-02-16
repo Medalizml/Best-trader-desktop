@@ -20,7 +20,7 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <ImageView fx:id="article" layoutX="437.0" layoutY="16.0" onMouseEntered="#zoomArticle" onMouseExited="#zoomOutArticle">
+      <ImageView fx:id="article" layoutX="437.0" layoutY="16.0"  onMouseClicked="#goToScreen2" onMouseEntered="#zoomArticle" onMouseExited="#zoomOutArticle">
          <image>
             <Image url="@../pic/News-128%20(1).png" />
          </image>
