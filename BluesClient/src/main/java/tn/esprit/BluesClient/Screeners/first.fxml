@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import java.net.*?>
+
+<Pane prefHeight="720.0" prefWidth="1450.0" styleClass="first_pane" stylesheets="@desktop.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.BluesClient.Screeners.firstCTRL">
+   <children>
+      <ImageView fx:id="user" layoutX="663.0" layoutY="75.0" onMouseClicked="#goToScreen6" onMouseEntered="#zoomUser" onMouseExited="#zoomOutUser">
+         <image>
+            <Image url="@../pic/User-Group-128%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="article" layoutX="515.0" layoutY="139.0" onMouseClicked="#goToScreen2" onMouseEntered="#zoomArticle" onMouseExited="#zoomOutArticle">
+         <image>
+            <Image url="@../pic/News-128%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="company" layoutX="815.0" layoutY="130.0" onMouseClicked="#goToScreen3" onMouseEntered="#zoomCompany" onMouseExited="#zoomOutCompany">
+         <image>
+            <Image url="@../pic/Building-128.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="profile" layoutX="451.0" layoutY="287.0" onMouseClicked="#goToScreen4" onMouseEntered="#zoomProfile" onMouseExited="#zoomOutProfile">
+         <image>
+            <Image url="@../pic/Identity-Card-128.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="stats" layoutX="877.0" layoutY="285.0" onMouseClicked="#goToScreen5" onMouseEntered="#zoomStats" onMouseExited="#zoomOutStats">
+         <image>
+            <Image url="@../pic/Bar-Chart-128.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="logout" layoutX="669.0" layoutY="502.0" onMouseClicked="#Close" onMouseEntered="#zoomLogout" onMouseExited="#zoomOutLogout">
+         <image>
+            <Image url="@../pic/Logout-128.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="340.0" layoutY="162.0" prefHeight="65.0" prefWidth="194.0" text="Articles" textFill="#fcfcfc">
+         <font>
+            <Font name="Century Gothic Bold" size="31.0" />
+         </font>
+         <effect>
+            <DropShadow color="#1dbf56" spread="0.21" />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="251.0" layoutY="317.0" prefHeight="65.0" prefWidth="194.0" text="Estimations" textFill="#fcfcfc">
+         <effect>
+            <DropShadow color="#bd6a1e" spread="0.21" />
+         </effect>
+         <font>
+            <Font name="Century Gothic Bold" size="31.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="952.0" layoutY="162.0" prefHeight="65.0" prefWidth="194.0" text="Companies" textFill="#fcfcfc">
+         <effect>
+            <DropShadow spread="0.21" />
+         </effect>
+         <font>
+            <Font name="Century Gothic Bold" size="31.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="632.0" layoutY="8.0" prefHeight="65.0" prefWidth="194.0" text="Users" textFill="#fcfcfc">
+         <effect>
+            <DropShadow color="#bd1e1e" spread="0.21" />
+         </effect>
+         <font>
+            <Font name="Century Gothic Bold" size="31.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="989.0" layoutY="317.0" prefHeight="65.0" prefWidth="194.0" text="Statistics" textFill="#fcfcfc">
+         <effect>
+            <DropShadow color="#1eafbd" spread="0.21" />
+         </effect>
+         <font>
+            <Font name="Century Gothic Bold" size="31.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="632.0" layoutY="629.0" prefHeight="65.0" prefWidth="194.0" text="Logout" textFill="#fcfcfc">
+         <effect>
+            <DropShadow color="#383938" spread="0.21" />
+         </effect>
+         <font>
+            <Font name="Century Gothic Bold" size="31.0" />
+         </font>
+      </Label>
+   </children>
+ 
+</Pane>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1370.0" styleClass="home" stylesheets="@desktop.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.BluesClient.Screeners.articleCTRL">
+   <children>
+      <Circle fill="#1f93ff00" layoutX="322.0" layoutY="89.0" radius="81.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0">
+         <effect>
+            <DropShadow color="#832a2a" spread="0.7" />
+         </effect>
+      </Circle>
+      <ImageView fx:id="user" layoutX="257.0" layoutY="21.0" onMouseClicked="#goToScreen6" onMouseEntered="#zoomUser" onMouseExited="#zoomOutUser">
+         <image>
+            <Image url="@../pic/User-Group-128%20(1).png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="article" layoutX="437.0" layoutY="16.0" onMouseEntered="#zoomArticle" onMouseExited="#zoomOutArticle">
+         <image>
+            <Image url="@../pic/News-128%20(1).png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="company" layoutX="620.0" layoutY="12.0" onMouseClicked="#goToScreen3" onMouseEntered="#zoomCompany" onMouseExited="#zoomOutCompany">
+         <image>
+            <Image url="@../pic/Building-128.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="profile" layoutX="796.0" layoutY="14.0" onMouseClicked="#goToScreen4" onMouseEntered="#zoomProfile" onMouseExited="#zoomOutProfile">
+         <image>
+            <Image url="@../pic/Identity-Card-128.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="stats" layoutX="972.0" layoutY="14.0" onMouseClicked="#goToScreen5" onMouseEntered="#zoomStats" onMouseExited="#zoomOutStats">
+         <image>
+            <Image url="@../pic/Bar-Chart-128.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="logout" layoutX="1214.0" layoutY="12.0" onMouseClicked="#Close" onMouseEntered="#zoomLogout" onMouseExited="#zoomOutLogout">
+         <image>
+            <Image url="@../pic/Logout-128.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <Label layoutX="305.0" layoutY="111.0" text="Users" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="475.0" layoutY="112.0" text="Articles" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="649.0" layoutY="112.0" text="Companies" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="825.0" layoutY="112.0" text="Estimations" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="1010.0" layoutY="112.0" text="Statistics" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="1248.0" layoutY="112.0" text="Logout" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="home" layoutX="44.0" layoutY="12.0" onMouseClicked="#goToScreen1" onMouseEntered="#zoomHome" onMouseExited="#zoomOutHome">
+         <image>
+            <Image url="@../pic/Home-128%20(3).png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <Label layoutX="89.0" layoutY="111.0" text="Home" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <SplitPane blendMode="SCREEN" dividerPositions="0.5011406844106464" layoutX="26.0" layoutY="227.0" prefHeight="469.0" prefWidth="1317.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="278.0">
+               <children>
+                  <TabPane prefHeight="469.0" prefWidth="656.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="User List">
+                           <content>
+                        	        <TableView prefHeight="406.0" prefWidth="656.0">
+                                <columns>
+                                    <TableColumn prefWidth="46.333335876464844" text="Id" />
+                                  <TableColumn prefWidth="221.33331298828125" text="First Name" />
+                                  <TableColumn prefWidth="213.00003051757812" text="Last Name" />
+                                    <TableColumn minWidth="2.0" prefWidth="173.0" text="Portfolio Value" />
+                                </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                      <items>
+                                        <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                      </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                                 <tooltip>
+                                    <Tooltip text="Empty Tooltip" />
+                                 </tooltip>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <opaqueInsets>
+                                    <Insets right="55.0" top="54.0" />
+                                 </opaqueInsets>
+                              </TableView>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TabPane layoutX="-2.0" layoutY="-1.0" prefHeight="484.0" prefWidth="656.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Add User">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="49.0" layoutY="43.0" prefHeight="17.0" prefWidth="172.0" text="First Name   :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="40.0" />
+                                    <Label layoutX="49.0" layoutY="78.0" text="Last Name  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="80.0" />
+                                    <Label layoutX="49.0" layoutY="119.0" text="Address  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="120.0" />
+                                    <Label layoutX="49.0" layoutY="161.0" text="Nationality  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="160.0" />
+                                    <Label layoutX="49.0" layoutY="211.0" text="Job  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="200.0" />
+                                    <Label layoutX="49.0" layoutY="255.0" text="Email   :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="240.0" />
+                                    <Label layoutX="49.0" layoutY="298.0" text="Password   :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="280.0" />
+                                    <Label layoutX="49.0" layoutY="336.0" text="Phone Number    :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="320.0" />
+                                    <Label layoutX="49.0" layoutY="378.0" text="Picture     :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="360.0" />
+                                    <TextField layoutX="221.0" layoutY="36.0" prefHeight="25.0" prefWidth="209.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
+                                    <TextField layoutX="221.0" layoutY="76.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
+                                    <TextField layoutX="221.0" layoutY="116.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
+                                    <TextField layoutX="221.0" layoutY="156.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
+                                    <TextField layoutX="221.0" layoutY="196.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
+                                    <TextField layoutX="221.0" layoutY="236.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
+                                    <TextField layoutX="221.0" layoutY="276.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
+                                    <TextField layoutX="232.0" layoutY="316.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
+                                    <TextField layoutX="221.0" layoutY="356.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
+                                    <Button layoutX="515.0" layoutY="388.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Add" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab text="Details">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.27697262479871176" layoutX="2.0" layoutY="-3.0" prefHeight="444.0" prefWidth="653.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                             <children>
+                                                <SplitPane dividerPositions="0.34894613583138173" layoutY="-2.0" orientation="VERTICAL" prefHeight="469.0" prefWidth="176.0">
+                                                  <items>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                         <children>
+                                                            <ImageView fitHeight="133.0" fitWidth="127.0" layoutX="18.0" layoutY="5.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="5.0">
+                                                               <image>
+                                                                  <Image url="@../pic/1423951529_java-128.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </children>
+                                                      </AnchorPane>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="183.0" prefWidth="174.0">
+                                                         <children>
+                                                            <Label layoutX="35.0" layoutY="73.0" text="Job :" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="26.0" />
+                                                            <Label layoutX="37.0" layoutY="34.0" prefHeight="20.0" prefWidth="117.0" text="Nationality :" AnchorPane.bottomAnchor="247.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="34.0" />
+                                                            <Label layoutX="38.0" layoutY="108.0" text="Email :" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="26.0" />
+                                                            <Label layoutX="32.0" layoutY="150.0" text="Password :" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="26.0" />
+                                                            <Label layoutX="32.0" layoutY="196.0" text="Phone Number :" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="26.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </items>
+                                                </SplitPane>
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="428.0" prefWidth="100.0">
+                                             <children>
+                                                <SplitPane dividerPositions="0.34976525821596244" layoutX="-4.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="475.0" prefWidth="475.0">
+                                                  <items>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                         <children>
+                                                            <Label prefHeight="40.0" prefWidth="71.0" text="First Name :" AnchorPane.bottomAnchor="96.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="374.0" AnchorPane.topAnchor="26.0" />
+                                                            <Label layoutX="9.0" layoutY="72.0" prefHeight="17.0" prefWidth="112.0" text="Last Name :" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="333.0" />
+                                                            <Label layoutX="31.0" layoutY="104.0" text="Address    :" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="315.0" />
+                                                            <Label layoutX="94.0" layoutY="38.0" prefHeight="17.0" prefWidth="228.0" text="Med Ali" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="126.0" />
+                                                            <Label layoutX="109.0" layoutY="72.0" text="Ben Romdhane" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="126.0" />
+                                                            <Label layoutX="109.0" layoutY="104.0" text="11 Rue El Hamra" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="126.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="291.0" prefWidth="459.0">
+                                                         <children>
+                                                            <Label layoutX="55.0" layoutY="35.0" prefHeight="17.0" prefWidth="316.0" text="kjhblhbjkhjjkon" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="78.0" />
+                                                            <Label layoutX="55.0" layoutY="73.0" text="khjbvhjvb" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="78.0" />
+                                                            <Label layoutX="55.0" layoutY="104.0" text="lkgblkhj" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="78.0" />
+                                                            <Label layoutX="55.0" layoutY="151.0" text=",jvj,khv" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="78.0" />
+                                                            <Label layoutX="55.0" layoutY="193.0" text="khhgvhjgv" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="78.0" />
+                                                            <Button layoutX="263.0" layoutY="233.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="Update" />
+                                                            <Button layoutX="361.0" layoutY="233.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="Delete" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </items>
+                                                </SplitPane>
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</Pane>

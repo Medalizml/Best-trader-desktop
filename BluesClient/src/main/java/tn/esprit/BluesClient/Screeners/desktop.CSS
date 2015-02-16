@@ -1,0 +1,21 @@
+
+.home
+{
+	-fx-background-image : url("desktop.jpg");
+	
+}
+
+
+.first_pane
+{
+	-fx-background-image : url("fond.jpg");
+
+	
+}
+
+.login_pane
+{
+	-fx-background-image : url("login.jpg");
+
+	
+}

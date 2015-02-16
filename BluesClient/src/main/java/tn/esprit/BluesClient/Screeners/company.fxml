@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1370.0" styleClass="home" stylesheets="@desktop.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.BluesClient.Screeners.articleCTRL">
+   <children>
+      <Circle fill="#1f93ff00" layoutX="682.0" layoutY="89.0" radius="81.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0">
+         <effect>
+            <DropShadow color="#1c1e1c" spread="0.7" />
+         </effect>
+      </Circle>
+      <ImageView fx:id="user" layoutX="257.0" layoutY="21.0" onMouseClicked="#goToScreen6" onMouseEntered="#zoomUser" onMouseExited="#zoomOutUser">
+         <image>
+            <Image url="@../pic/User-Group-128%20(1).png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="article" layoutX="437.0" layoutY="16.0" onMouseEntered="#zoomArticle" onMouseExited="#zoomOutArticle">
+         <image>
+            <Image url="@../pic/News-128%20(1).png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="company" layoutX="620.0" layoutY="12.0" onMouseClicked="#goToScreen3" onMouseEntered="#zoomCompany" onMouseExited="#zoomOutCompany">
+         <image>
+            <Image url="@../pic/Building-128.png" />
+         </image>
+         <effect>
+            <Bloom />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="profile" layoutX="796.0" layoutY="14.0" onMouseClicked="#goToScreen4" onMouseEntered="#zoomProfile" onMouseExited="#zoomOutProfile">
+         <image>
+            <Image url="@../pic/Identity-Card-128.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="stats" layoutX="972.0" layoutY="14.0" onMouseClicked="#goToScreen5" onMouseEntered="#zoomStats" onMouseExited="#zoomOutStats">
+         <image>
+            <Image url="@../pic/Bar-Chart-128.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="logout" layoutX="1214.0" layoutY="12.0" onMouseClicked="#Close" onMouseEntered="#zoomLogout" onMouseExited="#zoomOutLogout">
+         <image>
+            <Image url="@../pic/Logout-128.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <Label layoutX="305.0" layoutY="111.0" text="Users" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="475.0" layoutY="112.0" text="Articles" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="649.0" layoutY="112.0" text="Companies" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="825.0" layoutY="112.0" text="Estimations" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="1010.0" layoutY="112.0" text="Statistics" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="1248.0" layoutY="112.0" text="Logout" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="home" layoutX="44.0" layoutY="12.0" onMouseClicked="#goToScreen1" onMouseEntered="#zoomHome" onMouseExited="#zoomOutHome">
+         <image>
+            <Image url="@../pic/Home-128%20(3).png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <Label layoutX="89.0" layoutY="111.0" text="Home" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
