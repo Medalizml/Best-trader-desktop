@@ -3,13 +3,26 @@ package tn.esprit.BluesClient.Screeners;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import tn.esprit.Blues.Services.CustomerServices;
+import tn.esprit.Blues.entities.Customer;
 import tn.esprit.BluesClient.Main.ScreensFramework;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 public class userCTRL implements Initializable, ControlledScreen {
 	ScreensController myController;
+	
+	  CustomerServices remote;
+	
+	
 
 	@FXML
 	ImageView user;
@@ -23,12 +36,46 @@ public class userCTRL implements Initializable, ControlledScreen {
 	ImageView stats;
 	@FXML
 	ImageView logout;
+	@FXML
+	TextField firstName;
+	@FXML
+	TextField lastName;
+	@FXML
+	TextField address;
+	@FXML
+	TextField nationality;
+	@FXML
+	TextField job;
+	@FXML
+	TextField email;
+	@FXML
+	TextField password;
+	@FXML
+	TextField phoneNumber;
+	@FXML
+	TextField picture;
+	@FXML
+	Button add;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 
 	}
+	
+	
+	public CustomerServices getContext(){
+		try {
+			Context context=new InitialContext();
+			remote = (CustomerServices) context.lookup("Blues/CustomerServicesImpl!"+CustomerServices.class.getCanonicalName());
+			return remote;
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return remote;
+		}
+		
+		}
 
 	@FXML
 	ImageView home;
@@ -162,7 +209,27 @@ public class userCTRL implements Initializable, ControlledScreen {
 	}
 
 	@FXML
+	private void goToScreen7() {
+		myController.setScreen(ScreensFramework.screen7ID);
+	}
+
+	@FXML
 	private void Close() {
 		ScreensFramework.s.hide();
 	}
+	
+	
+	public  void doAddCustomer(){
+		Customer c=new Customer();
+		c.setFirstName(firstName.getText());
+		c.setLastName(lastName.getText());
+		c.setAddress(address.getText());
+		c.setNationality(nationality.getText());
+		c.setJob(job.getText());
+		c.setEmail(email.getText());
+		c.setPassword(password.getText());
+		c.setPhoneNumber(Integer.parseInt(phoneNumber.getText()));
+		c.setProfilePicture(picture.getText());
+		this.getContext().add(c);
+		}
 }

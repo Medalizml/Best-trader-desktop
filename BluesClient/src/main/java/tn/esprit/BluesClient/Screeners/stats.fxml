@@ -53,7 +53,7 @@
             <Bloom />
          </effect>
       </ImageView>
-      <ImageView fx:id="logout" layoutX="1214.0" layoutY="12.0" onMouseClicked="#Close" onMouseEntered="#zoomLogout" onMouseExited="#zoomOutLogout">
+      <ImageView fx:id="logout" layoutX="1214.0" layoutY="12.0" onMouseClicked="#goToScreen7" onMouseEntered="#zoomLogout" onMouseExited="#zoomOutLogout">
          <image>
             <Image url="@../pic/Logout-128.png" />
          </image>

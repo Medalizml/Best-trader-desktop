@@ -1,11 +1,9 @@
 package tn.esprit.BluesClient.Screeners;
 
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -193,12 +191,15 @@ public class statsCTRL implements Initializable, ControlledScreen {
 	}
 
 	@FXML
-	private void Close() {
-		ScreensFramework.s.hide();
+	private void goToScreen7() {
+		myController.setScreen(ScreensFramework.screen7ID);
 	}
-	
-	
-}
 
+}
+	
+	
+	
+
+	
 
 

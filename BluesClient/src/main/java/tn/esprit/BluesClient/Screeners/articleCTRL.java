@@ -8,8 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 
-
-
 public class articleCTRL implements Initializable, ControlledScreen {
 	ScreensController myController;
 	@FXML
@@ -160,6 +158,11 @@ public class articleCTRL implements Initializable, ControlledScreen {
 	@FXML
 	private void goToScreen6() {
 		myController.setScreen(ScreensFramework.screen6ID);
+	}
+
+	@FXML
+	private void goToScreen7() {
+		myController.setScreen(ScreensFramework.screen7ID);
 	}
 
 	@FXML
