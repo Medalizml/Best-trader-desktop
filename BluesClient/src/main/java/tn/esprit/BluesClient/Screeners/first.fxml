@@ -41,7 +41,7 @@
             <Image url="@../pic/Bar-Chart-128.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="logout" layoutX="669.0" layoutY="502.0" onMouseClicked="#Close" onMouseEntered="#zoomLogout" onMouseExited="#zoomOutLogout">
+      <ImageView fx:id="logout" layoutX="669.0" layoutY="502.0" onMouseClicked="#goToScreen7" onMouseEntered="#zoomLogout" onMouseExited="#zoomOutLogout">
          <image>
             <Image url="@../pic/Logout-128.png" />
          </image>

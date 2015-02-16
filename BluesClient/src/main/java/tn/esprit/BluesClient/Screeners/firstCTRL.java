@@ -3,8 +3,6 @@ package tn.esprit.BluesClient.Screeners;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
-
 import tn.esprit.BluesClient.Main.ScreensFramework;
 //import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +11,7 @@ import javafx.scene.image.ImageView;
 
 public class firstCTRL implements Initializable, ControlledScreen {
 	ScreensController myController;
-	Sound s=new Sound();
+	Sound s = new Sound();
 
 	@FXML
 	ImageView user;
@@ -27,8 +25,6 @@ public class firstCTRL implements Initializable, ControlledScreen {
 	ImageView stats;
 	@FXML
 	ImageView logout;
-	
-	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -36,12 +32,10 @@ public class firstCTRL implements Initializable, ControlledScreen {
 
 	}
 
-		
 	public void zoomUser() {
 
 		user.setScaleX(1.2);
 		user.setScaleY(1.2);
-		
 
 	}
 
@@ -121,36 +115,46 @@ public class firstCTRL implements Initializable, ControlledScreen {
 		profile.setScaleY(1.0);
 
 	}
+
 	@Override
-	 public void setScreenParent(ScreensController screenParent){
-       myController = screenParent;
-   }
+	public void setScreenParent(ScreensController screenParent) {
+		myController = screenParent;
+	}
+
 	@FXML
-   private void goToScreen2(){
-      myController.setScreen(ScreensFramework.screen2ID);
-      s.playSomeSound();
-   }
-   
-   @FXML
-   private void goToScreen3(){
-      myController.setScreen(ScreensFramework.screen3ID);
-   }
-   @FXML
-   private void goToScreen4(){
-      myController.setScreen(ScreensFramework.screen4ID);
-   }
-   
-   @FXML
-   private void goToScreen5(){
-      myController.setScreen(ScreensFramework.screen5ID);
-   }
-   @FXML
-   private void goToScreen6(){
-      myController.setScreen(ScreensFramework.screen6ID);
-   }
-   @FXML
-   private void Close(){
-      ScreensFramework.s.hide();
-   }
+	private void goToScreen2() {
+		myController.setScreen(ScreensFramework.screen2ID);
+		s.playSomeSound();
+	}
+
+	@FXML
+	private void goToScreen3() {
+		myController.setScreen(ScreensFramework.screen3ID);
+	}
+
+	@FXML
+	private void goToScreen4() {
+		myController.setScreen(ScreensFramework.screen4ID);
+	}
+
+	@FXML
+	private void goToScreen5() {
+		myController.setScreen(ScreensFramework.screen5ID);
+	}
+
+	@FXML
+	private void goToScreen6() {
+		myController.setScreen(ScreensFramework.screen6ID);
+	}
+
+	@FXML
+	private void goToScreen7() {
+		myController.setScreen(ScreensFramework.screen7ID);
+	}
+
+	@FXML
+	private void Close() {
+		ScreensFramework.s.hide();
+	}
 
 }

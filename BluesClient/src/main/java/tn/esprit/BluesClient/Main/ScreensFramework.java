@@ -24,6 +24,8 @@ public class ScreensFramework extends Application {
     public static String screen5File = "stats.fxml";
     public static String screen6ID = "user";
     public static String screen6File = "user.fxml";
+    public static String screen7ID = "login";
+    public static String screen7File = "login.fxml";
     
     public static Stage s;
     
@@ -37,8 +39,9 @@ public class ScreensFramework extends Application {
         mainContainer.loadScreen(ScreensFramework.screen4ID, ScreensFramework.screen4File);
         mainContainer.loadScreen(ScreensFramework.screen5ID, ScreensFramework.screen5File);
         mainContainer.loadScreen(ScreensFramework.screen6ID, ScreensFramework.screen6File);
+        mainContainer.loadScreen(ScreensFramework.screen7ID, ScreensFramework.screen7File);
        // mainContainer.getStylesheets().add("tn.esprit.BluesClient.Screeners//desktop.css");
-        mainContainer.setScreen(ScreensFramework.screen1ID);
+        mainContainer.setScreen(ScreensFramework.screen7ID);
         
         Group root = new Group();
         root.getChildren().addAll(mainContainer);
