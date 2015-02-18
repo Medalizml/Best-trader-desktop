@@ -22,27 +22,25 @@
                   <Label layoutX="49.0" layoutY="100.0" prefHeight="17.0" prefWidth="129.0" text="Code STICODEVAM  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="478.0" AnchorPane.topAnchor="100.0" />
                   <Label layoutX="49.0" layoutY="140.0" prefHeight="17.0" prefWidth="104.0" text="Head of Office  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="503.0" AnchorPane.topAnchor="140.0" />
                   <Label layoutX="49.0" layoutY="180.0" prefHeight="17.0" prefWidth="89.0" text="Phone :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="518.0" AnchorPane.topAnchor="180.0" />
-                  <Label layoutX="49.0" layoutY="220.0" prefHeight="17.0" prefWidth="87.0" text="Sector" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="520.0" AnchorPane.topAnchor="220.0" />
-                  <Label layoutX="49.0" layoutY="260.0" prefHeight="17.0" prefWidth="124.0" text="LOGO : " AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="483.0" AnchorPane.topAnchor="260.0" />
+                  <Label layoutX="52.0" layoutY="240.0" prefHeight="17.0" prefWidth="124.0" text="LOGO : " AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="480.0" AnchorPane.topAnchor="240.0" />
                   <Label layoutX="49.0" layoutY="300.0" text="Social Capital :  " AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="300.0" />
                   <Label layoutX="49.0" layoutY="340.0" prefHeight="17.0" prefWidth="134.0" text="Number of shares :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="473.0" AnchorPane.topAnchor="340.0" />
-                  <TextField layoutX="207.0" layoutY="16.0" prefHeight="25.0" prefWidth="196.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="253.0" />
-                  <TextField layoutX="207.0" layoutY="96.0" prefHeight="25.0" prefWidth="197.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="252.0" />
-                  <TextField layoutX="205.0" layoutY="136.0" prefHeight="25.0" prefWidth="199.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="252.0" />
-                  <TextField layoutX="203.0" layoutY="176.0" prefHeight="25.0" prefWidth="202.0" AnchorPane.leftAnchor="203.0" AnchorPane.rightAnchor="251.0" />
-                  <TextField layoutX="207.0" layoutY="296.0" prefHeight="25.0" prefWidth="198.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="251.0" />
-                  <TextField layoutX="207.0" layoutY="336.0" prefHeight="25.0" prefWidth="201.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="248.0" />
-                  <Button layoutX="519.0" layoutY="406.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Add" />
-                  <DatePicker layoutX="207.0" layoutY="56.0" prefHeight="25.0" prefWidth="196.0" />
-                  <ChoiceBox layoutX="204.0" layoutY="216.0" prefHeight="25.0" prefWidth="200.0" />
+                  <TextField fx:id="nameBank" layoutX="207.0" layoutY="16.0" prefHeight="25.0" prefWidth="196.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="253.0" />
+                  <TextField fx:id="CodeBank" layoutX="207.0" layoutY="96.0" prefHeight="25.0" prefWidth="197.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="252.0" />
+                  <TextField fx:id="headBank" layoutX="205.0" layoutY="136.0" prefHeight="25.0" prefWidth="199.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="252.0" />
+                  <TextField fx:id="PhoneBank" layoutX="203.0" layoutY="180.0" prefHeight="25.0" prefWidth="202.0" AnchorPane.leftAnchor="203.0" AnchorPane.rightAnchor="251.0" />
+                  <TextField fx:id="socialBank" layoutX="205.0" layoutY="281.0" prefHeight="25.0" prefWidth="198.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="253.0" />
+                  <TextField fx:id="bankNbSahre" layoutX="204.0" layoutY="329.0" prefHeight="25.0" prefWidth="201.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="251.0" />
+                  <Button fx:id="addBankB" layoutX="519.0" layoutY="406.0" mnemonicParsing="false" onAction="#addBankPrivate" prefHeight="25.0" prefWidth="84.0" text="Add" />
+                  <DatePicker fx:id="DateBank" layoutX="207.0" layoutY="56.0" prefHeight="25.0" prefWidth="196.0" />
                   <ImageView fx:id="logoBank" fitHeight="82.0" fitWidth="131.0" layoutX="486.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../../../../../../../Pictures/2-08-2013-08-56-38bna.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="openButtonBank" layoutX="207.0" layoutY="256.0" mnemonicParsing="false" onAction="#openfileChooserBank" prefHeight="25.0" prefWidth="198.0" text="Choose Picture" />
+                  <Button fx:id="openButtonBank" layoutX="205.0" layoutY="234.0" mnemonicParsing="false" onAction="#openfileChooserBank" prefHeight="25.0" prefWidth="198.0" text="Choose Picture" />
                   <Label layoutX="45.0" layoutY="381.0" prefHeight="17.0" prefWidth="113.0" text="Share Value :" />
-                  <TextField layoutX="205.0" layoutY="377.0" prefHeight="25.0" prefWidth="201.0" />
+                  <TextField fx:id="bankShareValue" layoutX="205.0" layoutY="377.0" prefHeight="25.0" prefWidth="201.0" />
                </children>
             </AnchorPane>
          </content>

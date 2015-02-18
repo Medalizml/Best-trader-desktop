@@ -24,15 +24,15 @@
                         <Label layoutX="49.0" layoutY="260.0" prefHeight="17.0" prefWidth="124.0" text="LOGO : " AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="483.0" AnchorPane.topAnchor="260.0" />
                         <Label layoutX="49.0" layoutY="300.0" text="Social Capital :  " AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="300.0" />
                         <Label layoutX="49.0" layoutY="340.0" prefHeight="17.0" prefWidth="134.0" text="Number of shares :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="473.0" AnchorPane.topAnchor="340.0" />
-                        <TextField layoutX="207.0" layoutY="16.0" prefHeight="25.0" prefWidth="196.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="253.0" />
-                        <TextField layoutX="207.0" layoutY="96.0" prefHeight="25.0" prefWidth="197.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="252.0" />
-                        <TextField layoutX="205.0" layoutY="136.0" prefHeight="25.0" prefWidth="199.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="252.0" />
-                        <TextField layoutX="203.0" layoutY="176.0" prefHeight="25.0" prefWidth="202.0" AnchorPane.leftAnchor="203.0" AnchorPane.rightAnchor="251.0" />
-                        <TextField layoutX="207.0" layoutY="296.0" prefHeight="25.0" prefWidth="198.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="251.0" />
-                        <TextField layoutX="207.0" layoutY="336.0" prefHeight="25.0" prefWidth="201.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="248.0" />
-                        <Button layoutX="519.0" layoutY="406.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Add" />
-                        <DatePicker layoutX="207.0" layoutY="56.0" prefHeight="25.0" prefWidth="196.0" />
-                        <ChoiceBox layoutX="204.0" layoutY="216.0" prefHeight="25.0" prefWidth="200.0" />
+                        <TextField fx:id="namePrivateCompany" layoutX="207.0" layoutY="16.0" prefHeight="25.0" prefWidth="196.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="253.0" />
+                        <TextField fx:id="CodePrivateCompany" layoutX="207.0" layoutY="96.0" prefHeight="25.0" prefWidth="197.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="252.0" />
+                        <TextField fx:id="headPrivateCompany" layoutX="205.0" layoutY="136.0" prefHeight="25.0" prefWidth="199.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="252.0" />
+                        <TextField fx:id="PhonePrivateCompany" layoutX="203.0" layoutY="176.0" prefHeight="25.0" prefWidth="202.0" AnchorPane.leftAnchor="203.0" AnchorPane.rightAnchor="251.0" />
+                        <TextField fx:id="socialPrivateCompany" layoutX="207.0" layoutY="296.0" prefHeight="25.0" prefWidth="198.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="251.0" />
+                        <TextField fx:id="nbSahre" layoutX="207.0" layoutY="336.0" prefHeight="25.0" prefWidth="201.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="248.0" />
+                        <Button fx:id="addCompanyPrivateB" layoutX="519.0" layoutY="406.0" mnemonicParsing="false" onAction="#addCompanyPrivate" prefHeight="25.0" prefWidth="84.0" text="Add" />
+                        <DatePicker fx:id="DatePrivateCompany" layoutX="207.0" layoutY="56.0" prefHeight="25.0" prefWidth="196.0" />
+                        <ChoiceBox fx:id="SectorPrivateCompany" layoutX="204.0" layoutY="216.0" prefHeight="25.0" prefWidth="200.0" />
                         <ImageView fx:id="logoPrivate" fitHeight="82.0" fitWidth="131.0" focusTraversable="true" layoutX="486.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="399.5" AnchorPane.leftAnchor="486.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="26.5">
                            <image>
                               <Image url="@../../../../../../../../../../Pictures/2-08-2013-08-56-38bna.jpg" />
@@ -43,7 +43,7 @@
                         </ImageView>
                         <Button fx:id="openButtonPrivate" layoutX="207.0" layoutY="256.0" mnemonicParsing="false" onAction="#openfileChooserPrivate" prefHeight="25.0" prefWidth="198.0" text="Choose Picture" />
                         <Label layoutX="45.0" layoutY="381.0" prefHeight="17.0" prefWidth="113.0" text="Share Value :" />
-                        <TextField layoutX="205.0" layoutY="377.0" prefHeight="25.0" prefWidth="201.0" />
+                        <TextField fx:id="shareValue" layoutX="205.0" layoutY="377.0" prefHeight="25.0" prefWidth="201.0" />
                      </children>
                   </AnchorPane>
                </content>

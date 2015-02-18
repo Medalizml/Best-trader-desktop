@@ -204,6 +204,8 @@
                </children>
             </AnchorPane>
             <AnchorPane fx:id="dynamicPane" minHeight="0.0" minWidth="0.0" prefHeight="496.0" prefWidth="675.0" />
+            
+            
          </items>
       </SplitPane>
    </children>
