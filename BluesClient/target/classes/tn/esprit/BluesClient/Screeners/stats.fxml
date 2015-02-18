@@ -141,12 +141,10 @@
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <TableView prefHeight="468.0" prefWidth="598.0">
+            <TableView fx:id="tab1" prefHeight="468.0" prefWidth="598.0">
                <columns>
-                  <TableColumn prefWidth="46.333335876464844" text="Id" />
-                  <TableColumn prefWidth="221.33331298828125" text="First Name" />
-                  <TableColumn prefWidth="213.00003051757812" text="Last Name" />
-                  <TableColumn minWidth="2.0" prefWidth="173.0" text="Portfolio Value" />
+                  <TableColumn fx:id="dateOp" prefWidth="354.0" text="date" />
+                  <TableColumn fx:id="numberofshare" minWidth="2.0" prefWidth="290.0" text="number of share" />
                </columns>
                <contextMenu>
                   <ContextMenu>

@@ -5,18 +5,32 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import tn.esprit.Blues.Services.OperationServicesInterface;
+import tn.esprit.Blues.entities.Operation;
 import tn.esprit.BluesClient.Main.ScreensFramework;
 
 public class statsCTRL implements Initializable, ControlledScreen {
 	ScreensController myController;
+	
+
+	OperationServicesInterface remote;
 
 	@FXML
 	ImageView user;
@@ -30,12 +44,47 @@ public class statsCTRL implements Initializable, ControlledScreen {
 	ImageView stats;
 	@FXML
 	ImageView logout;
-
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+	@FXML
+	TableView<Operation> tab1;
+	
+	
+	@FXML
+	TableColumn<Operation, Float> dateOp;
+	@FXML
+	TableColumn<Operation, Integer> numberofshare;
+	
+	ObservableList<Operation> data = FXCollections.observableArrayList(this.getContext().afficherOperation());
+	
+	public OperationServicesInterface getContext() {
+		try {
+			Context context = new InitialContext();
+			remote = (OperationServicesInterface) context
+					.lookup("Blues/CustomerServicesImpl!"
+							+ OperationServicesInterface.class.getCanonicalName());
+			return remote;
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return remote;
+		}
 
 	}
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		
+		dateOp.setCellValueFactory(new
+	 PropertyValueFactory<Operation,Float>("sharePrice"));
+		numberofshare.setCellValueFactory(new
+		 PropertyValueFactory<Operation,Integer>("numberShares"));
+		// value.setCellValueFactory(new
+		// PropertyValueFactory<Customer,Float>("value"));
+		tab1.setItems(data);
+
+	}
+
+
+	
 
 	@FXML
 	ImageView home;
