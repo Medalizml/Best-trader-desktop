@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.*?>
@@ -10,7 +11,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1370.0" styleClass="home" stylesheets="@desktop.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.BluesClient.Screeners.companyCTRL">
+<Pane fx:id="CompanyPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1370.0" styleClass="home" stylesheets="@desktop.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.BluesClient.Screeners.companyCTRL">
    <children>
       <Circle fill="#1f93ff00" layoutX="682.0" layoutY="89.0" radius="81.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0">
          <effect>
@@ -108,5 +109,102 @@
             <Font size="14.0" />
          </font>
       </Label>
+      <SplitPane blendMode="SCREEN" dividerPositions="0.5011406844106464" layoutX="14.0" layoutY="208.0" prefHeight="497.0" prefWidth="1347.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="278.0">
+               <children>
+                  <TabPane prefHeight="497.0" prefWidth="659.0" tabClosingPolicy="UNAVAILABLE">
+                     <tabs>
+                        <Tab fx:id="PrivateCompanyList" onSelectionChanged="#loadPrivateCompany" text="Private Company List">
+                           <content>
+                              <TableView prefHeight="469.0" prefWidth="659.0">
+                                 <columns>
+                                    <TableColumn prefWidth="46.333335876464844" text="Id" />
+                                    <TableColumn prefWidth="221.33331298828125" text="Company Name" />
+                                    <TableColumn prefWidth="213.00003051757812" text="Sector" />
+                                    <TableColumn minWidth="2.0" prefWidth="173.0" text="Share value" />
+                                 </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                       </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <opaqueInsets>
+                                    <Insets right="55.0" top="54.0" />
+                                 </opaqueInsets>
+                                 <tooltip>
+                                    <Tooltip text="Empty Tooltip" />
+                                 </tooltip>
+                              </TableView>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="PublicCompanyList" onSelectionChanged="#loadPublicCompany" text="Public Company List">
+                           <content>
+                              <TableView prefHeight="438.0" prefWidth="660.0">
+                                 <columns>
+                                    <TableColumn prefWidth="46.333335876464844" text="Id" />
+                                    <TableColumn prefWidth="221.33331298828125" text="Company Name" />
+                                    <TableColumn prefWidth="213.00003051757812" text="Sector" />
+                                    <TableColumn minWidth="2.0" prefWidth="173.0" text="Share value" />
+                                 </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                       </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <opaqueInsets>
+                                    <Insets right="55.0" top="54.0" />
+                                 </opaqueInsets>
+                                 <tooltip>
+                                    <Tooltip text="Empty Tooltip" />
+                                 </tooltip>
+                              </TableView>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="BankList" onSelectionChanged="#loadBank" text="Bank List">
+                           <content>
+                              <TableView prefHeight="406.0" prefWidth="656.0">
+                                 <columns>
+                                    <TableColumn prefWidth="46.333335876464844" text="Id" />
+                                    <TableColumn prefWidth="142.66665649414062" text="Bank name" />
+                                    <TableColumn prefWidth="252.33334350585938" text="Performance(Daily)" />
+                                    <TableColumn minWidth="2.0" prefWidth="215.66665649414062" text="Share value" />
+                                 </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                       </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <opaqueInsets>
+                                    <Insets right="55.0" top="54.0" />
+                                 </opaqueInsets>
+                                 <tooltip>
+                                    <Tooltip text="Empty Tooltip" />
+                                 </tooltip>
+                              </TableView>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="dynamicPane" minHeight="0.0" minWidth="0.0" prefHeight="496.0" prefWidth="675.0" />
+         </items>
+      </SplitPane>
    </children>
 </Pane>
