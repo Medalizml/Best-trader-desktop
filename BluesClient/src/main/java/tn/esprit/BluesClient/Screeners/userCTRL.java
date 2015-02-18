@@ -110,6 +110,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 			remote = (CustomerServices) context
 					.lookup("Blues/CustomerServicesImpl!"
 							+ CustomerServices.class.getCanonicalName());
+			System.out.println(remote);
 			return remote;
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
