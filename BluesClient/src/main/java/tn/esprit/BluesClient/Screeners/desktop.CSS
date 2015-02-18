@@ -79,8 +79,58 @@
 .text-field {
     -fx-font-size: 12pt;
     -fx-font-family: "Segoe UI Semibold";
+   -fx-border-color: #B8B8E6;
+    -fx-border-radius: 10px; 
+    -fx-prompt-text-fill: grey ;
+     
+}
+.text-field:focused{
+	
+	-fx-border-color: -fx-focus-color;
+	 -fx-effect: innershadow(three-pass-box, -fx-focus-color, 12 , 0.5, 1, 1);
+	 
+	
+	
+}
+.button {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI Semibold";
+   
+   
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+   
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+    -fx-effect: innershadow( gaussian, rgba( 0, 0, 0, 0.9 ), 10, 0.1, 5, 5 );
+    -fx-border-color: white;
+    -fx-border-radius: 10px; 
+}
+.button:hover{
+	
+	-fx-border-color: -fx-focus-color;
+	 -fx-effect: innershadow(three-pass-box, -fx-focus-color, 12 , 0.5, 1, 1);
+	
+	 
+        
+	
+	
 }
 
+.choice-box {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI Semibold";
+   -fx-border-color: #B8B8E6;
+    -fx-border-radius: 10px; 
+}
+.choice-box:hover{
+	
+	-fx-border-color: -fx-focus-color;
+	 -fx-effect: innershadow(three-pass-box, -fx-focus-color, 12 , 0.5, 1, 1);
+	
+	
+}
 
 .tab-pane{
 	

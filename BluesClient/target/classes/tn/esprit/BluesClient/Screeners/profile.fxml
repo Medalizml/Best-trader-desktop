@@ -126,7 +126,7 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <ImageView fx:id="down" layoutX="980.0" layoutY="191.0" onMouseEntered="#zoomDown" onMouseExited="#zoomOutDown">
+                        <ImageView fx:id="down" layoutX="980.0" layoutY="191.0" onMouseClicked="#setEstimationb" onMouseEntered="#zoomDown" onMouseExited="#zoomOutDown">
                            <image>
                               <Image url="@../pic/Arrowhead-Down-128.png" />
                            </image>
@@ -134,7 +134,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fx:id="up" layoutX="1120.0" layoutY="181.0" onMouseEntered="#zoomUp" onMouseExited="#zoomOutUp">
+                        <ImageView fx:id="up" layoutX="1120.0" layoutY="181.0" onMouseClicked="#setEstimationa" onMouseEntered="#zoomUp" onMouseExited="#zoomOutUp">
                            <image>
                               <Image url="@../pic/Arrowhead-Up-128.png" />
                            </image>
@@ -144,7 +144,7 @@
                         </ImageView>
                         <Label layoutX="1021.0" layoutY="319.0" text="Decrease" />
                         <Label layoutX="1163.0" layoutY="319.0" text="Increase" />
-                        <TextField layoutX="976.0" layoutY="108.0" prefHeight="73.0" prefWidth="264.0" promptText="Estimation" />
+                        <TextField fx:id="estShare" layoutX="976.0" layoutY="108.0" prefHeight="73.0" prefWidth="264.0" promptText="Estimation" />
                      </children>
                   </AnchorPane>
             </content>

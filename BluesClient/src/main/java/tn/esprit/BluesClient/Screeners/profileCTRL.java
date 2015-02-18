@@ -18,13 +18,15 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class profileCTRL implements Initializable, ControlledScreen {
 	ScreensController myController;
 	SharesServices remote;
+	@FXML
+	TextField estShare;
 	@FXML
 	ImageView user;
 	@FXML
@@ -62,16 +64,21 @@ public class profileCTRL implements Initializable, ControlledScreen {
 	@FXML
 	TableColumn<Share, Float> closingPriceS;
 	@FXML
-	TableColumn<Share, ImageView> estimationS;
+	TableColumn<Share, Float> estimationS;
 	ObservableList<Share> data= FXCollections.observableArrayList(this.getContext().findAll());
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		companyNameS.setCellValueFactory(new PropertyValueFactory<Share, Float>("opningPrice"));
 		 companyLogoS.setCellValueFactory(new PropertyValueFactory<Share,Integer>("id"));
 		closingPriceS.setCellValueFactory(new PropertyValueFactory<Share,Float>("closingPrice"));
-		estimationS.setCellValueFactory(new PropertyValueFactory<Share,ImageView>("image"));
+		estimationS.setCellValueFactory(new PropertyValueFactory<Share,Float>("estimation"));
 		sharestab.setItems(data);
-
+		try{
+			System.out.println("laaaaaaaaaaaaaaaaaaaaaaaaa"+this.getContext().Sharestab());
+		}
+		catch(Exception ex){
+			System.out.println("ICIIIIIIIIIIIIIIIIIIII "+ex);
+		}
 	}
 
 	@FXML
@@ -314,5 +321,38 @@ public class profileCTRL implements Initializable, ControlledScreen {
 	private void Close() {
 		ScreensFramework.s.hide();
 	}
+	@FXML
+	private void setEstimationb(){
+		Share a=null;
+		String s=estShare.getText();
+		Float e;
+		e=Float.valueOf(s);
+		 a =data.get(sharestab.getSelectionModel().getSelectedIndex());
+		 System.out.println(a.getId());
+		 try{
+		 this.getContext().setEstimation(a,-e);
+		 data= FXCollections.observableArrayList(this.getContext().findAll());
+		 sharestab.setItems(data);
+		 }
+		catch(Exception ex){
+			System.out.println(ex);
+		}
+	}
+	@FXML
+	private void setEstimationa(){
+		Share a=null;
+		String s=estShare.getText();
+		Float e;
+		e=Float.valueOf(s);
+		 a =data.get(sharestab.getSelectionModel().getSelectedIndex());
+		 System.out.println(a.getId());
+		 try{
+		 this.getContext().setEstimation(a,e);
+		 data= FXCollections.observableArrayList(this.getContext().findAll());
+		 sharestab.setItems(data);
+		 }
+		catch(Exception ex){
+			System.out.println(ex);
+		}
+	}
 }
-

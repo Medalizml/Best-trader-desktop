@@ -174,7 +174,7 @@
                                     <TextField fx:id="picture" layoutX="221.0" layoutY="356.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
                                     <Button fx:id="add" layoutX="515.0" layoutY="388.0" mnemonicParsing="false" onAction="#doAddCustomer" prefHeight="25.0" prefWidth="84.0" text="Add" />
                                     <PasswordField fx:id="password" layoutX="223.0" layoutY="279.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" AnchorPane.topAnchor="276.0" />
-                                 </children>
+                                  </children>
                               </AnchorPane>
                         </content>
                       </Tab>
