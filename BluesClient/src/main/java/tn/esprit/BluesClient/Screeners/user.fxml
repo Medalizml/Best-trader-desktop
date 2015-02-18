@@ -117,12 +117,13 @@
                     <tabs>
                       <Tab text="User List">
                            <content>
-                        	        <TableView fx:id="tab" prefHeight="406.0" prefWidth="656.0">
+                        	        <TableView fx:id="tab" prefHeight="438.0" prefWidth="676.0">
                                 <columns>
                                     <TableColumn fx:id="id" prefWidth="46.333335876464844" text="Id" />
-                                  <TableColumn fx:id="Name" prefWidth="221.33331298828125" text="First Name" />
-                                  <TableColumn fx:id="LastName" prefWidth="213.00003051757812" text="Last Name" />
-                                    <TableColumn minWidth="2.0" prefWidth="173.0" text="Portfolio Value" />
+                                  <TableColumn fx:id="Name" prefWidth="162.0" text="First Name" />
+                                  <TableColumn fx:id="LastName" prefWidth="184.0" text="Last Name" />
+                                    <TableColumn fx:id="nationalitytab" minWidth="2.0" prefWidth="146.0" text="Nationality" />
+                                    <TableColumn fx:id="jobtab" minWidth="0.0" prefWidth="112.0" text="Job" />
                                 </columns>
                                  <contextMenu>
                                     <ContextMenu>

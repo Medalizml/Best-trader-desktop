@@ -2,9 +2,11 @@ package tn.esprit.BluesClient.Screeners;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +28,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import tn.esprit.Blues.Services.CustomerServices;
+import tn.esprit.Blues.Services.PortfolioServices;
 import tn.esprit.Blues.entities.Customer;
 import tn.esprit.BluesClient.Main.ScreensFramework;
 
@@ -33,6 +36,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 	ScreensController myController;
 
 	CustomerServices remote;
+	PortfolioServices remote1;
 
 	@FXML
 	ImageView user;
@@ -74,6 +78,8 @@ public class userCTRL implements Initializable, ControlledScreen {
 	Button delete;
 	@FXML
 	TableView<Customer> tab;
+	//@FXML
+	//TableView<Portfolio> tab1;
 	@FXML
 	TableColumn<Customer, Integer> id;
 	@FXML
@@ -81,10 +87,13 @@ public class userCTRL implements Initializable, ControlledScreen {
 	@FXML
 	TableColumn<Customer, String> LastName;
 	@FXML
-	TableColumn<Customer, Float> value;
+	TableColumn<Customer, String> nationalitytab;
+	@FXML
+	TableColumn<Customer, String> jobtab;
 	
-		
+	
 	ObservableList<Customer> data = FXCollections.observableArrayList(this.getContext().findAll());
+	//ObservableList<Portfolio> data1 = FXCollections.observableArrayList(this.getContextP().findAllP());
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -94,8 +103,12 @@ public class userCTRL implements Initializable, ControlledScreen {
 	 PropertyValueFactory<Customer,String>("firstName"));
 		 LastName.setCellValueFactory(new
 		 PropertyValueFactory<Customer,String>("lastName"));
-		// value.setCellValueFactory(new
-		// PropertyValueFactory<Customer,Float>("value"));
+		 nationalitytab.setCellValueFactory(new
+				 PropertyValueFactory<Customer,String>("nationality"));
+		 jobtab.setCellValueFactory(new
+				 PropertyValueFactory<Customer,String>("job"));
+		//value.setCellValueFactory(new PropertyValueFactory<Portfolio, Float>("capital"));
+				 
 		tab.setItems(data);
 
 	}
@@ -116,6 +129,22 @@ public class userCTRL implements Initializable, ControlledScreen {
 			e.printStackTrace();
 			return remote;
 		}
+		
+	}
+		
+		public PortfolioServices getContextP() {
+			try {
+				Context context = new InitialContext();
+				remote1 = (PortfolioServices) context
+						.lookup("Blues/PortfolioServicesImpl!"
+								+ PortfolioServices.class.getCanonicalName());
+				return remote1;
+			} catch (NamingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return remote1;
+			}
+		
 
 	}
 
