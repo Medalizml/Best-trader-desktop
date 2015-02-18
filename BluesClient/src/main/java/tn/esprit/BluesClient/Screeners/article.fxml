@@ -114,7 +114,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="278.0">
                <children>
                   <TabPane prefHeight="469.0" prefWidth="656.0" tabClosingPolicy="UNAVAILABLE" />
-                  <TableView fx:id="Table" layoutY="-12.0" prefHeight="484.0" prefWidth="666.0">
+                  <TableView fx:id="Table" layoutY="-12.0" onMouseClicked="#AfficheDetails" onMousePressed="#afficheDetail" prefHeight="484.0" prefWidth="666.0">
                      <columns>
                         <TableColumn fx:id="idTab" prefWidth="47.0" text="Id" />
                         <TableColumn prefWidth="220.6666717529297" text="Date" />
@@ -162,7 +162,7 @@
                               </AnchorPane>
                         </content>
                       </Tab>
-                        <Tab text="Details">
+                        <Tab fx:id="detail" text="Details">
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
@@ -175,13 +175,13 @@
                                           </AnchorPane>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                              <children>
-                                                <Label layoutX="5.0" layoutY="-4.0" prefHeight="38.0" prefWidth="652.0" text="title">
+                                                <Label fx:id="Aname" layoutX="5.0" layoutY="-4.0" prefHeight="38.0" prefWidth="652.0" text="title">
                                                    <font>
                                                       <Font size="25.0" />
                                                    </font>
                                                 </Label>
                                                 <Label layoutX="7.0" layoutY="27.0" text="Date" />
-                                                <TextArea layoutX="14.0" layoutY="48.0" prefHeight="212.0" prefWidth="633.0" text="topic&#10;" />
+                                                <TextArea fx:id="Atopic" layoutX="14.0" layoutY="48.0" prefHeight="212.0" prefWidth="633.0" text="topic&#10;" />
                                                 <Label layoutX="478.0" layoutY="264.0" prefHeight="17.0" prefWidth="172.0" text="Author" />
                                              </children>
                                           </AnchorPane>

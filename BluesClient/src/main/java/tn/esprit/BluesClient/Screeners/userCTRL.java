@@ -116,6 +116,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 			remote = (CustomerServices) context
 					.lookup("Blues/CustomerServicesImpl!"
 							+ CustomerServices.class.getCanonicalName());
+			System.out.println(remote);
 			return remote;
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -295,6 +296,8 @@ public class userCTRL implements Initializable, ControlledScreen {
 		c.setPhoneNumber(Integer.parseInt(phoneNumber.getText()));
 		c.setProfilePicture(picture.getText());
 		this.getContext().add(c);
+		 data= FXCollections.observableArrayList(this.getContext().findAll());
+		 tab.setItems(data);
 	}
 
 }
