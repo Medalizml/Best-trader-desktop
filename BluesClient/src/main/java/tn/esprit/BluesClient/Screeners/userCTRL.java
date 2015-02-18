@@ -3,6 +3,12 @@ package tn.esprit.BluesClient.Screeners;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -10,12 +16,6 @@ import javax.naming.NamingException;
 import tn.esprit.Blues.Services.CustomerServices;
 import tn.esprit.Blues.entities.Customer;
 import tn.esprit.BluesClient.Main.ScreensFramework;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 
 public class userCTRL implements Initializable, ControlledScreen {
 	ScreensController myController;
