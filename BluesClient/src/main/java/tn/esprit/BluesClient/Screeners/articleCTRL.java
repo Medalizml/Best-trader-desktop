@@ -1,15 +1,38 @@
 package tn.esprit.BluesClient.Screeners;
 
+
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
-import tn.esprit.BluesClient.Main.ScreensFramework;
+
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import tn.esprit.Blues.Services.ArticleServices;
+import tn.esprit.Blues.entities.Article;
+import tn.esprit.BluesClient.Main.ScreensFramework;
 
 public class articleCTRL implements Initializable, ControlledScreen {
 	ScreensController myController;
+
+	ArticleServices remote;
 	@FXML
 	ImageView user;
 	@FXML
@@ -23,15 +46,63 @@ public class articleCTRL implements Initializable, ControlledScreen {
 	@FXML
 	ImageView logout;
 
+	@FXML
+	TextField name;
+	@FXML
+	TextField author;
+	@FXML
+	TextField pic;
+	@FXML
+	TextArea topic;
+	@FXML
+	DatePicker dateAr;
+	
+	 @FXML
+	    private TableView<Article> Table;
+	 @FXML
+	    private TableColumn<Article, Integer> idTab;
+	    @FXML
+	    private TableColumn<Article, String> nameTab;
+	    @FXML
+	    private TableColumn<Article, Date> dateTab;
+
+		public ArticleServices getContext() {
+			try {
+				Context context = new InitialContext();
+				remote = (ArticleServices) context
+						.lookup("Blues/ArticleServicesImpl!"
+								+ ArticleServices.class.getCanonicalName());
+				return remote;
+			} catch (NamingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return remote;
+			}
+
+		}
+		
+		
+		ObservableList<Article> l= FXCollections.observableArrayList(this.getContext().findAll());
+		
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+
+		idTab.setCellValueFactory(new PropertyValueFactory<Article,Integer>("id"));
+		 nameTab.setCellValueFactory(new PropertyValueFactory<Article,String>("name"));
+	        
+	    Table.setItems(l);  
+		
+
+	        
+	        
 
 	}
 
+
+
 	@FXML
 	ImageView home;
-
+	
 	public void zoomHome() {
 
 		home.setScaleX(1.2);
@@ -168,5 +239,17 @@ public class articleCTRL implements Initializable, ControlledScreen {
 	@FXML
 	private void Close() {
 		ScreensFramework.s.hide();
+	}
+
+	public void doAddArticle() {
+		Article a = new Article();
+		a.setName(name.getText());
+		a.setPicture(pic.getText());
+		a.setAuthor(author.getText());
+		a.setTopic(topic.getText());
+		
+		
+		
+		this.getContext().add(a);
 	}
 }
