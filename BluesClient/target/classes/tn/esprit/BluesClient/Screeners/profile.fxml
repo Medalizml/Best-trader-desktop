@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.*?>
@@ -108,5 +109,148 @@
             <Font size="14.0" />
          </font>
       </Label>
+      <TabPane fx:id="tabp" layoutY="201.0" prefHeight="520.0" prefWidth="1370.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="shares" text="Shares">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="sharestab" prefHeight="455.0" prefWidth="836.0">
+                          <columns>
+                            <TableColumn fx:id="companyNameS" prefWidth="75.0" text="Company" />
+                            <TableColumn fx:id="companyLogoS" prefWidth="75.0" text="Logo" />
+                              <TableColumn fx:id="closingPriceS" prefWidth="110.0" text="Closing Price" />
+                              <TableColumn fx:id="estimationS" prefWidth="117.0" text="Estimation" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <ImageView fx:id="down" layoutX="980.0" layoutY="191.0" onMouseEntered="#zoomDown" onMouseExited="#zoomOutDown">
+                           <image>
+                              <Image url="@../pic/Arrowhead-Down-128.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="up" layoutX="1120.0" layoutY="181.0" onMouseEntered="#zoomUp" onMouseExited="#zoomOutUp">
+                           <image>
+                              <Image url="@../pic/Arrowhead-Up-128.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Label layoutX="1021.0" layoutY="319.0" text="Decrease" />
+                        <Label layoutX="1163.0" layoutY="319.0" text="Increase" />
+                        <TextField layoutX="976.0" layoutY="108.0" prefHeight="73.0" prefWidth="264.0" promptText="Estimation" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="bonds" text="Bonds">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="bondstab" prefHeight="455.0" prefWidth="836.0">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <columns>
+                              <TableColumn fx:id="companyNameB" prefWidth="75.0" text="Company" />
+                              <TableColumn fx:id="comapnyLogoB" prefWidth="75.0" text="Logo" />
+                              <TableColumn fx:id="closingPriceB" prefWidth="110.0" text="Closing Price" />
+                              <TableColumn fx:id="estimationB" prefWidth="117.0" text="Estimation" />
+                           </columns>
+                        </TableView>
+                        <ImageView fx:id="down1" layoutX="980.0" layoutY="191.0" onMouseEntered="#zoomDown1" onMouseExited="#zoomOutDown1">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <image>
+                              <Image url="@../pic/Arrowhead-Down-128.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="up1" layoutX="1120.0" layoutY="181.0" onMouseEntered="#zoomUp1" onMouseExited="#zoomOutUp1">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <image>
+                              <Image url="@../pic/Arrowhead-Up-128.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="1021.0" layoutY="319.0" text="Decrease" />
+                        <Label layoutX="1163.0" layoutY="319.0" text="Increase" />
+                        <TextField layoutX="976.0" layoutY="108.0" prefHeight="73.0" prefWidth="264.0" promptText="Estimation" />
+                     </children>
+                  </AnchorPane>
+               </content>
+          </Tab>
+            <Tab fx:id="curr" text="Currency Pairs">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="currtab" prefHeight="455.0" prefWidth="836.0">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <columns>
+                              <TableColumn fx:id="pairs" prefWidth="75.0" text="Pair" />
+                              <TableColumn fx:id="closingPriceP" prefWidth="110.0" text="Closing Price" />
+                              <TableColumn fx:id="estiamtionP" prefWidth="117.0" text="Estimation" />
+                           </columns>
+                        </TableView>
+                        <ImageView fx:id="down2" layoutX="980.0" layoutY="191.0" onMouseEntered="#zoomDown2" onMouseExited="#zoomOutDown2">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <image>
+                              <Image url="@../pic/Arrowhead-Down-128.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="up2" layoutX="1120.0" layoutY="181.0" onMouseEntered="#zoomUp2" onMouseExited="#zoomOutUp2">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <image>
+                              <Image url="@../pic/Arrowhead-Up-128.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="1021.0" layoutY="319.0" text="Decrease" />
+                        <Label layoutX="1163.0" layoutY="319.0" text="Increase" />
+                        <TextField layoutX="976.0" layoutY="108.0" prefHeight="73.0" prefWidth="264.0" promptText="Estimation" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="banks" text="Banks">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="bankstab" layoutX="4.0" layoutY="1.0" prefHeight="470.0" prefWidth="254.0">
+                          <columns>
+                            <TableColumn fx:id="bankName" prefWidth="75.0" text="Bank" />
+                            <TableColumn fx:id="bankLogo" prefWidth="75.0" text="Logo" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <TableView fx:id="curbtabB" layoutX="260.0" layoutY="1.0" prefHeight="470.0" prefWidth="1087.0">
+                          <columns>
+                            <TableColumn fx:id="currName" prefWidth="75.0" text="Currency" />
+                            <TableColumn fx:id="buyingPrice" prefWidth="75.0" text="Buying Price" />
+                              <TableColumn fx:id="sellingPrice" prefWidth="75.0" text="Selling Price" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </Pane>
