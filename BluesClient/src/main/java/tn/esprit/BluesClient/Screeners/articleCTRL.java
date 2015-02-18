@@ -86,7 +86,12 @@ public class articleCTRL implements Initializable, ControlledScreen {
 		
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-	 remplirTab();
+
+		idTab.setCellValueFactory(new PropertyValueFactory<Article,Integer>("id"));
+		 nameTab.setCellValueFactory(new PropertyValueFactory<Article,String>("name"));
+	        
+	    Table.setItems(l);  
+		
 
 	        
 	        
@@ -98,16 +103,6 @@ public class articleCTRL implements Initializable, ControlledScreen {
 	@FXML
 	ImageView home;
 	
-	public void remplirTab()
-	{
-
-		idTab.setCellValueFactory(new PropertyValueFactory<Article,Integer>("id"));
-		 nameTab.setCellValueFactory(new PropertyValueFactory<Article,String>("name"));
-	        
-	    Table.setItems(l);  
-		
-	}
-
 	public void zoomHome() {
 
 		home.setScaleX(1.2);
