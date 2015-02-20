@@ -6,10 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="635.0" stylesheets="@desktop.CSS" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#popupDetails" prefHeight="588.0" prefWidth="635.0" stylesheets="@desktop.CSS" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.BluesClient.Screeners.articleCTRL">
    <children>
-      <ImageView fitHeight="598.0" fitWidth="635.0">
+      <ImageView fitHeight="598.0" fitWidth="635.0" onMouseEntered="#popupDetails">
          <image>
             <Image url="@UpdateUser.jpg" />
          </image>
@@ -18,29 +17,21 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Label layoutX="51.0" layoutY="33.0" prefHeight="17.0" prefWidth="96.0" text="FirstName" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="13.0" />
-                  <Label layoutX="52.0" layoutY="91.0" prefHeight="17.0" prefWidth="96.0" text="LastName" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="13.0" />
-                  <Label layoutX="49.0" layoutY="134.0" text="Address" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="31.0" />
-                  <Label layoutX="49.0" layoutY="182.0" text="Nationality" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="31.0" />
-                  <Label layoutX="47.0" layoutY="229.0" text="Job" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="31.0" />
-                  <Label layoutX="52.0" layoutY="279.0" text="Email" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="31.0" />
-                  <Label layoutX="53.0" layoutY="329.0" text="Password" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="31.0" />
-                  <Label layoutX="50.0" layoutY="373.0" text="PhoneNumber" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="31.0" />
+                  <Label layoutX="51.0" layoutY="33.0" prefHeight="17.0" prefWidth="96.0" text="Title" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="13.0" />
+                  <Label layoutX="52.0" layoutY="91.0" prefHeight="17.0" prefWidth="96.0" text="Date" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="13.0" />
+                  <Label layoutX="49.0" layoutY="134.0" text="Topic" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="31.0" />
+                  <Label layoutX="50.0" layoutY="373.0" text="Author" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="31.0" />
                   <Label layoutX="52.0" layoutY="419.0" text="Picture" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="13.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="368.0">
                <children>
-                  <TextField layoutX="83.0" layoutY="25.0" prefHeight="27.0" prefWidth="183.0" AnchorPane.bottomAnchor="433.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="25.0" />
-                  <TextField layoutX="83.0" layoutY="77.0" prefHeight="27.0" prefWidth="183.0" AnchorPane.bottomAnchor="381.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="77.0" />
-                  <TextField layoutX="83.0" layoutY="125.0" prefHeight="27.0" prefWidth="183.0" AnchorPane.bottomAnchor="333.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="125.0" />
-                  <TextField layoutX="83.0" layoutY="171.0" prefHeight="27.0" prefWidth="183.0" AnchorPane.bottomAnchor="287.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="171.0" />
-                  <TextField layoutX="83.0" layoutY="222.0" prefHeight="27.0" prefWidth="183.0" AnchorPane.bottomAnchor="236.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="222.0" />
-                  <TextField layoutX="83.0" layoutY="272.0" prefHeight="27.0" prefWidth="183.0" AnchorPane.bottomAnchor="186.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="272.0" />
-                  <TextField layoutX="83.0" layoutY="319.0" prefHeight="27.0" prefWidth="183.0" AnchorPane.bottomAnchor="139.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="319.0" />
-                  <TextField layoutX="83.0" layoutY="365.0" prefHeight="27.0" prefWidth="183.0" AnchorPane.bottomAnchor="93.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="365.0" />
-                  <TextField layoutX="83.0" layoutY="411.0" prefHeight="27.0" prefWidth="183.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="411.0" />
+                  <TextField fx:id="Dname" layoutX="83.0" layoutY="25.0" prefHeight="27.0" prefWidth="183.0" AnchorPane.bottomAnchor="433.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="25.0" />
+                  <TextField fx:id="Dauthor" layoutX="83.0" layoutY="365.0" prefHeight="27.0" prefWidth="183.0" AnchorPane.bottomAnchor="93.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="365.0" />
+                  <TextField fx:id="Dimage" layoutX="83.0" layoutY="411.0" prefHeight="27.0" prefWidth="183.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="411.0" />
                   <Button layoutX="274.0" layoutY="452.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Button" />
+                  <DatePicker layoutX="83.0" layoutY="86.0" prefHeight="39.0" prefWidth="183.0" />
+                  <TextArea fx:id="Dtopic" layoutX="14.0" layoutY="133.0" prefHeight="216.0" prefWidth="344.0" />
                </children>
             </AnchorPane>
         </items>

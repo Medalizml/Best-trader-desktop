@@ -124,7 +124,7 @@ public class firstCTRL implements Initializable, ControlledScreen {
 	@FXML
 	private void goToScreen2() {
 		myController.setScreen(ScreensFramework.screen2ID);
-		s.playSomeSound();
+	//	s.playSomeSound();
 	}
 
 	@FXML
