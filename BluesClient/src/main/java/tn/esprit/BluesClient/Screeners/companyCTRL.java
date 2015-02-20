@@ -1,12 +1,28 @@
 package tn.esprit.BluesClient.Screeners;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.imageio.ImageIO;
+
 import tn.esprit.BluesClient.Main.ScreensFramework;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class companyCTRL implements Initializable, ControlledScreen {
 	ScreensController myController;
@@ -22,10 +38,33 @@ public class companyCTRL implements Initializable, ControlledScreen {
 	ImageView stats;
 	@FXML
 	ImageView logout;
+	@FXML
+	AnchorPane dynamicPane;
+	@FXML
+	Tab PrivateCompanyList;
+	@FXML
+	Tab PublicCompanyList;
+	@FXML
+	Tab BankList;
+	FileChooser fileChooser;
+	File file;
+	@FXML
+	Button openButtonPublic;
+	@FXML
+	Button openButtonPrivate;
+	@FXML
+	Button openButtonBank;
+	@FXML
+	ImageView logoPrivate;
+	@FXML
+	ImageView logoBank;
+	@FXML
+	ImageView logoPublic;
+	@FXML
+	Pane CompanyPane;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -166,7 +205,117 @@ public class companyCTRL implements Initializable, ControlledScreen {
 	}
 
 	@FXML
+	private void loadPrivateCompany() {
+
+		try {
+
+			dynamicPane.getChildren().setAll(
+					FXMLLoader.load(getClass().getResource(
+							"CompanyPrivateTabpane.fxml")));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		}
+
+	}
+
+	@FXML
+	private void loadPublicCompany() {
+
+		try {
+
+			dynamicPane.getChildren().setAll(
+					FXMLLoader.load(getClass().getResource(
+							"CompanyPublicTabpane.fxml")));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		}
+
+	}
+
+	@FXML
+	private void loadBank() {
+
+		try {
+
+			dynamicPane.getChildren()
+					.setAll(FXMLLoader.load(getClass().getResource(
+							"BankTabpane.fxml")));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		}
+
+	}
+
+	@FXML
+	private void openfileChooserBank(ActionEvent event) {
+		System.out.println("hello1");
+		Node node = (Node) event.getSource();
+		System.out.println(node.getScene().getWindow().toString());
+		fileChooser=new FileChooser();
+		file = fileChooser.showOpenDialog(node.getScene().getWindow());
+		System.out.println("hello11");
+		try {
+			System.out.println("hello2");
+			BufferedImage bufferedImage = ImageIO.read(file);
+			System.out.println("hello3");
+			Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+			logoBank.setImage(image);
+		} catch (IOException ex) {
+			System.out.println("image erreur");
+
+		}
+
+	}
+	@FXML
+	private void openfileChooserPrivate(ActionEvent event) {
+		System.out.println("hello1");
+		Node node = (Node) event.getSource();
+		System.out.println(node.getScene().getWindow().toString());
+		fileChooser=new FileChooser();
+		file = fileChooser.showOpenDialog(node.getScene().getWindow());
+		System.out.println("hello11");
+		try {
+			System.out.println("hello2");
+			BufferedImage bufferedImage = ImageIO.read(file);
+			System.out.println("hello3");
+			Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+			logoPrivate.setImage(image);
+		} catch (IOException ex) {
+			System.out.println("image erreur");
+
+		}
+
+	}
+	@FXML
+	private void openfileChooserPublic(ActionEvent event) {
+		System.out.println("hello1");
+		Node node = (Node) event.getSource();
+		System.out.println(node.getScene().getWindow().toString());
+		fileChooser=new FileChooser();
+		file = fileChooser.showOpenDialog(node.getScene().getWindow());
+		System.out.println("hello11");
+		try {
+			System.out.println("hello2");
+			BufferedImage bufferedImage = ImageIO.read(file);
+			System.out.println("hello3");
+			Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+			logoPublic.setImage(image);
+		} catch (IOException ex) {
+			System.out.println("image erreur");
+
+		}
+
+	}
+
+	@FXML
 	private void Close() {
 		ScreensFramework.s.hide();
 	}
+
 }
