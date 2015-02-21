@@ -134,7 +134,7 @@ public class profileCTRL implements Initializable, ControlledScreen {
 	ObservableList<Bond> bdata= FXCollections.observableArrayList(remotebd.findAll());
 	ObservableList<Paircurrency> cdata= FXCollections.observableArrayList(remotecurr.findAll());
 	ObservableList<Bank> badata= FXCollections.observableArrayList(remoteba.findAll());
-	ObservableList<Currencybank> cbdata= FXCollections.observableArrayList(remotecb.findAll());
+	//ObservableList<Currencybank> cbdata= FXCollections.observableArrayList(remotecb.findAll());
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		companyNameS.setCellValueFactory(new Callback<CellDataFeatures<Share, String>, ObservableValue<String>>() {
@@ -557,6 +557,9 @@ public class profileCTRL implements Initializable, ControlledScreen {
 	}
 	@FXML
 	private void remplirTab(){
+		Bank a=null;
+		a =(Bank)badata.get(bankstab.getSelectionModel().getSelectedIndex());
+		ObservableList<Currencybank> cbdata= FXCollections.observableArrayList(remotecb.findByid(a.getId()));
 		currName.setCellValueFactory(new Callback<CellDataFeatures<Currencybank, String>, ObservableValue<String>>() {
 	        @Override
 	        public ObservableValue<String> call(CellDataFeatures<Currencybank, String> c) {

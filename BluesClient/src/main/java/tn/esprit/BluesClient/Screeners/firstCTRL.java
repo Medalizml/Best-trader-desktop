@@ -119,6 +119,7 @@ public class firstCTRL implements Initializable, ControlledScreen {
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
+		s.playSomeSound();
 	}
 
 	@FXML
@@ -130,26 +131,31 @@ public class firstCTRL implements Initializable, ControlledScreen {
 	@FXML
 	private void goToScreen3() {
 		myController.setScreen(ScreensFramework.screen3ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen4() {
 		myController.setScreen(ScreensFramework.screen4ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen5() {
 		myController.setScreen(ScreensFramework.screen5ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen6() {
 		myController.setScreen(ScreensFramework.screen6ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen7() {
 		myController.setScreen(ScreensFramework.screen7ID);
+		s.playSomeSound();
 	}
 
 	@FXML
