@@ -13,7 +13,6 @@ import tn.esprit.Blues.Services.PaircurrencyServices;
 import tn.esprit.Blues.Services.SharesServices;
 import tn.esprit.Blues.entities.Bank;
 import tn.esprit.Blues.entities.Bond;
-import tn.esprit.Blues.entities.Company;
 import tn.esprit.Blues.entities.Currencybank;
 import tn.esprit.Blues.entities.Paircurrency;
 import tn.esprit.Blues.entities.Share;
@@ -24,10 +23,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
@@ -35,7 +32,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
 public class profileCTRL implements Initializable, ControlledScreen {
