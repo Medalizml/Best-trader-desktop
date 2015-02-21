@@ -48,6 +48,7 @@ public class profileCTRL implements Initializable, ControlledScreen {
 	PaircurrencyServices remotecurr=(PaircurrencyServices)ServiceLocator.getInstance().getProxy(CurrSer);
 	CurrencybankServices remotecb=(CurrencybankServices)ServiceLocator.getInstance().getProxy(CurbSer);
 	CompanyServices remotec=(CompanyServices)ServiceLocator.getInstance().getProxy(CompanySer);
+	Sound s;
 	@FXML
 	ImageView home;
 	@FXML
@@ -368,31 +369,37 @@ public class profileCTRL implements Initializable, ControlledScreen {
 	@FXML
 	private void goToScreen2() {
 		myController.setScreen(ScreensFramework.screen2ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen3() {
 		myController.setScreen(ScreensFramework.screen3ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen1() {
 		myController.setScreen(ScreensFramework.screen1ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen5() {
 		myController.setScreen(ScreensFramework.screen5ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen6() {
 		myController.setScreen(ScreensFramework.screen6ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen7() {
 		myController.setScreen(ScreensFramework.screen7ID);
+		s.playSomeSound();
 	}
 
 	@FXML
@@ -409,7 +416,7 @@ public class profileCTRL implements Initializable, ControlledScreen {
 			catch(Exception ex){
 				@SuppressWarnings("unused")
 				JOptionPane jp = new JOptionPane();
-				JOptionPane.showMessageDialog(null, " saisissez un nombre ", "ERROR",
+				JOptionPane.showMessageDialog(null, "Please Type a number", "ERROR",
 						JOptionPane.ERROR_MESSAGE);
 				System.out.println(ex);
 				e=(float) 0;
@@ -435,7 +442,7 @@ public class profileCTRL implements Initializable, ControlledScreen {
 			catch(Exception ex){
 				@SuppressWarnings("unused")
 				JOptionPane jp = new JOptionPane();
-				JOptionPane.showMessageDialog(null, " saisissez un nombre ", "ERROR",
+				JOptionPane.showMessageDialog(null, "Please Type a number", "ERROR",
 						JOptionPane.ERROR_MESSAGE);
 				System.out.println(ex);
 				e=(float) 0;
@@ -461,7 +468,7 @@ public class profileCTRL implements Initializable, ControlledScreen {
 			catch(Exception ex){
 				@SuppressWarnings("unused")
 				JOptionPane jp = new JOptionPane();
-				JOptionPane.showMessageDialog(null, " saisissez un nombre ", "ERROR",
+				JOptionPane.showMessageDialog(null, "Please Type a number", "ERROR",
 						JOptionPane.ERROR_MESSAGE);
 				System.out.println(ex);
 				e=(float) 0;
@@ -487,7 +494,7 @@ public class profileCTRL implements Initializable, ControlledScreen {
 			catch(Exception ex){
 				@SuppressWarnings("unused")
 				JOptionPane jp = new JOptionPane();
-				JOptionPane.showMessageDialog(null, " saisissez un nombre ", "ERROR",
+				JOptionPane.showMessageDialog(null, "Please Type a number", "ERROR",
 						JOptionPane.ERROR_MESSAGE);
 				System.out.println(ex);
 				e=(float) 0;
@@ -513,7 +520,7 @@ public class profileCTRL implements Initializable, ControlledScreen {
 			catch(Exception ex){
 				@SuppressWarnings("unused")
 				JOptionPane jp = new JOptionPane();
-				JOptionPane.showMessageDialog(null, " saisissez un nombre ", "ERROR",
+				JOptionPane.showMessageDialog(null, "Please Type a number", "ERROR",
 						JOptionPane.ERROR_MESSAGE);
 				System.out.println(ex);
 				e=(float) 0;
@@ -539,7 +546,7 @@ public class profileCTRL implements Initializable, ControlledScreen {
 		catch(Exception ex){
 			@SuppressWarnings("unused")
 			JOptionPane jp = new JOptionPane();
-			JOptionPane.showMessageDialog(null, " saisissez un nombre ", "ERROR",
+			JOptionPane.showMessageDialog(null, " Please Type a number ", "ERROR",
 					JOptionPane.ERROR_MESSAGE);
 			System.out.println(ex);
 			e=(float) 0;
