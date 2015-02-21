@@ -16,7 +16,7 @@ public class Sound {
 
 	public void playSomeSound(){
 	    try{
-	    	final File file = new File("src/main/java/tn/esprit/BluesClient/Screeners/sound.mp3");  
+	    	final File file = new File("src/main/java/tn/esprit/BluesClient/Screeners/sound.wav");  
 	    	final Media media = new Media(file.toURI().toString());
 	        playMedia(media);
 	    }catch(Exception ex){

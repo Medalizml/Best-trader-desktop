@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -17,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
@@ -38,6 +40,7 @@ import javax.imageio.ImageIO;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.swing.JOptionPane;
 
 import tn.esprit.Blues.Services.ArticleServices;
 import tn.esprit.Blues.entities.Article;
@@ -81,6 +84,7 @@ public class articleCTRL implements Initializable, ControlledScreen {
 	@FXML
 	private TableColumn<Article, String> dateTab;
 
+	Sound s = new Sound();
 
 	public ArticleServices getContext() {
 		try {
@@ -231,47 +235,67 @@ public class articleCTRL implements Initializable, ControlledScreen {
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen1() {
 		myController.setScreen(ScreensFramework.screen1ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen3() {
 		myController.setScreen(ScreensFramework.screen3ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen4() {
 		myController.setScreen(ScreensFramework.screen4ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen5() {
 		myController.setScreen(ScreensFramework.screen5ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen6() {
 		myController.setScreen(ScreensFramework.screen6ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen7() {
 		myController.setScreen(ScreensFramework.screen7ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void Close() {
 		ScreensFramework.s.hide();
 	}
-	Article a = new Article();
+	Article a = new Article() ;
+	@FXML
+	Label champVide;
+
 	public void doAddArticle() {
 		
-		a.setName(name.getText());
 	
+		
+		if(name.getText().isEmpty() || author.getText().isEmpty() || topic.getText().isEmpty())
+		{
+			@SuppressWarnings("unused")
+			JOptionPane jp = new JOptionPane();
+			JOptionPane.showMessageDialog(null, " Champ Vide ", "ERROR",
+					JOptionPane.INFORMATION_MESSAGE);
+		}
+		else
+		{	
+		a.setName(name.getText());
 		a.setAuthor(author.getText());
 		a.setTopic(topic.getText());
 		Integer year =dateAr.getValue().getYear();
@@ -283,7 +307,7 @@ public class articleCTRL implements Initializable, ControlledScreen {
 		this.getContext().add(a);
 		l = FXCollections.observableArrayList(this.getContext().findAll());
 		Table.setItems(l);
-
+		}
 	}
 
 	@FXML
@@ -299,10 +323,17 @@ public class articleCTRL implements Initializable, ControlledScreen {
 
 	@FXML
 	Label Aauthor;
+	@FXML
+	Button updateButton;
+	@FXML
+	Button deleteButton ; 
+	
 
 	public void AfficheDetails() {
 		Article a = new Article();
 		Article b = new Article();
+		updateButton.setDisable(false);
+		deleteButton.setDisable(false);
 
 		a = l.get(Table.getSelectionModel().getSelectedIndex());
 		b = this.getContext().findById(a.getId());
@@ -365,7 +396,9 @@ public class articleCTRL implements Initializable, ControlledScreen {
 			Scene scene = new Scene(page);
 			dialogStage.setScene(scene);
 
-			dialogStage.setHeight(630);
+			dialogStage.setHeight(588);
+			dialogStage.setWidth(635);
+			dialogStage.setResizable(false);
 			dialogStage.showAndWait();
 		} catch (IOException e) {
 			e.printStackTrace();
