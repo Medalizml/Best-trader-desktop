@@ -143,6 +143,25 @@
                <children>
                   <TabPane layoutX="-2.0" layoutY="-1.0" prefHeight="484.0" prefWidth="656.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
+                      <Tab text="Add User">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="49.0" layoutY="43.0" prefHeight="17.0" prefWidth="172.0" text="Title  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="40.0" />
+                                    <Label layoutX="49.0" layoutY="78.0" text="Date  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="80.0" />
+                                    <Label layoutX="49.0" layoutY="119.0" text="Author  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="120.0" />
+                                    <Label layoutX="49.0" layoutY="161.0" text="Topic  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="160.0" />
+                                    <Label layoutX="49.0" layoutY="378.0" text="Picture     :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="360.0" />
+                                    <TextField fx:id="name" layoutX="221.0" layoutY="36.0" prefHeight="25.0" prefWidth="209.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
+                                    <TextField fx:id="author" layoutX="221.0" layoutY="116.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
+                                    <Button layoutX="515.0" layoutY="388.0" mnemonicParsing="false" onAction="#doAddArticle" prefHeight="25.0" prefWidth="84.0" text="Add" />
+                                    <DatePicker fx:id="dateAr" layoutX="221.0" layoutY="76.0" prefHeight="25.0" prefWidth="209.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
+                                    <TextArea fx:id="topic" layoutX="221.0" layoutY="161.0" prefHeight="183.0" prefWidth="421.0" />
+                                    <Button layoutX="221.0" layoutY="354.0" mnemonicParsing="false" onAction="#openfile" prefHeight="29.0" prefWidth="220.0" text="Choose picture" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
                         <Tab fx:id="detail" text="Details">
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -156,16 +175,16 @@
                                           </AnchorPane>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                              <children>
-                                                <Label fx:id="Aname" layoutX="5.0" layoutY="-4.0" prefHeight="38.0" prefWidth="652.0">
+                                                <Label fx:id="Aname" layoutX="5.0" layoutY="-4.0" prefHeight="38.0" prefWidth="652.0" text="title">
                                                    <font>
                                                       <Font size="25.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Adate" layoutX="7.0" layoutY="27.0" />
-                                                <TextArea fx:id="Atopic" editable="false" layoutX="14.0" layoutY="48.0" prefHeight="212.0" prefWidth="633.0" text="&#10;&#10;" />
-                                                <Label fx:id="Aauthor" layoutX="14.0" layoutY="274.0" prefHeight="17.0" prefWidth="172.0" />
-                                                <Button fx:id="updateButton" disable="true" layoutX="513.0" layoutY="270.0" mnemonicParsing="false" onAction="#popupUpdate" text="Update" />
-                                                <Button fx:id="deleteButton" disable="true" layoutX="593.0" layoutY="270.0" mnemonicParsing="false" onAction="#doDeleteArticle" text="Delete" />
+                                                <Label fx:id="Adate" layoutX="7.0" layoutY="27.0" text="Date" />
+                                                <TextArea fx:id="Atopic" editable="false" layoutX="14.0" layoutY="48.0" prefHeight="212.0" prefWidth="633.0" text="topic&#10;" />
+                                                <Label fx:id="Aauthor" layoutX="14.0" layoutY="274.0" prefHeight="17.0" prefWidth="172.0" text="Author" />
+                                                <Button layoutX="513.0" layoutY="270.0" mnemonicParsing="false" onAction="#popupUpdate" text="Update" />
+                                                <Button layoutX="593.0" layoutY="270.0" mnemonicParsing="false" onAction="#doDeleteArticle" text="Delete" />
                                              </children>
                                           </AnchorPane>
                                       </items>
@@ -174,26 +193,6 @@
                               </AnchorPane>
                           </content>
                         </Tab>
-                      <Tab text="Add article">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <Label layoutX="49.0" layoutY="43.0" prefHeight="17.0" prefWidth="172.0" text="Title  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="40.0" />
-                                    <Label layoutX="49.0" layoutY="78.0" text="Date  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="80.0" />
-                                    <Label layoutX="49.0" layoutY="119.0" text="Author  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="120.0" />
-                                    <Label layoutX="49.0" layoutY="161.0" text="Topic  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="160.0" />
-                                    <Label layoutX="49.0" layoutY="378.0" text="Picture     :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="360.0" />
-                                    <TextField fx:id="name" depthTest="DISABLE" layoutX="221.0" layoutY="36.0" prefHeight="25.0" prefWidth="209.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
-                                    <TextField fx:id="author" layoutX="221.0" layoutY="116.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
-                                    <Button layoutX="515.0" layoutY="388.0" mnemonicParsing="false" onAction="#doAddArticle" prefHeight="25.0" prefWidth="84.0" text="Add" />
-                                    <DatePicker fx:id="dateAr" layoutX="221.0" layoutY="76.0" prefHeight="25.0" prefWidth="209.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
-                                    <TextArea fx:id="topic" layoutX="221.0" layoutY="161.0" prefHeight="183.0" prefWidth="421.0" />
-                                    <Button layoutX="221.0" layoutY="354.0" mnemonicParsing="false" onAction="#openfile" prefHeight="29.0" prefWidth="220.0" text="Choose picture" />
-                                    <Label fx:id="champVide" layoutX="487.0" layoutY="360.0" prefHeight="17.0" prefWidth="175.0" />
-                                 </children>
-                              </AnchorPane>
-                        </content>
-                      </Tab>
                     </tabs>
                   </TabPane>
                </children>

@@ -164,7 +164,7 @@
                                                   <items>
                                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                                          <children>
-                                                            <ImageView fitHeight="133.0" fitWidth="127.0" layoutX="18.0" layoutY="5.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="5.0">
+                                                            <ImageView fx:id="pic" fitHeight="133.0" fitWidth="127.0" layoutX="18.0" layoutY="5.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="5.0">
                                                                <image>
                                                                   <Image url="@../pic/1423951529_java-128.png" />
                                                                </image>
@@ -269,8 +269,8 @@
                                     <TextField fx:id="nationality" layoutX="221.0" layoutY="156.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
                                     <TextField fx:id="job" layoutX="221.0" layoutY="196.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
                                     <TextField fx:id="email" layoutX="221.0" layoutY="236.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
+                                    <Button layoutX="221.0" layoutY="360.0" mnemonicParsing="false" onAction="#openfile" prefHeight="29.0" prefWidth="209.0" text="Choose picture" />
                                     <TextField fx:id="phoneNumber" layoutX="232.0" layoutY="316.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
-                                    <TextField fx:id="picture" layoutX="221.0" layoutY="356.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
                                     <Button fx:id="add" layoutX="515.0" layoutY="388.0" mnemonicParsing="false" onAction="#doAddCustomer" prefHeight="25.0" prefWidth="84.0" text="Add" />
                                     <PasswordField fx:id="password" layoutX="223.0" layoutY="279.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" AnchorPane.topAnchor="276.0" />
                                  </children>

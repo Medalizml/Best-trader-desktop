@@ -1,19 +1,21 @@
 package tn.esprit.BluesClient.Screeners;
 
-import java.awt.Dialog;
-import java.awt.Label;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -25,32 +27,38 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import javax.imageio.ImageIO;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.print.attribute.standard.MediaSize.Engineering;
 import javax.swing.JOptionPane;
 
-import com.sun.mail.iap.ParsingException;
-
+import tn.esprit.Blues.Services.CompanyServices;
 import tn.esprit.Blues.Services.CustomerServices;
 import tn.esprit.Blues.Services.PortfolioServices;
-import tn.esprit.Blues.entities.Article;
+import tn.esprit.Blues.Services.SharesServices;
 import tn.esprit.Blues.entities.Customer;
 import tn.esprit.Blues.entities.Portfolio;
 import tn.esprit.BluesClient.Main.ScreensFramework;
 
 public class userCTRL implements Initializable, ControlledScreen {
+	
+	String User="Blues/CustomerServicesImpl!"+ CustomerServices.class.getCanonicalName();
+	String Portfolio="Blues/PortfolioServicesImp!"+ PortfolioServices.class.getCanonicalName();
+
 	ScreensController myController;
 	Sound s = new Sound();
 
-	CustomerServices remote;
-	PortfolioServices remoteP;
+	CustomerServices remote=(CustomerServices)ServiceLocator.getInstance().getProxy(User);
+	PortfolioServices remoteP=(PortfolioServices)ServiceLocator.getInstance().getProxy(Portfolio);
+
 	public static Integer id12;
+	/*********************** Les images de la barre Menu ***********************/
 	@FXML
 	ImageView user;
 	@FXML
@@ -65,6 +73,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 	ImageView logout;
 	@FXML
 	ImageView home;
+	/**************** Les champs texte de la barre Add ***************/
 	@FXML
 	TextField firstName;
 	@FXML
@@ -82,14 +91,19 @@ public class userCTRL implements Initializable, ControlledScreen {
 	@FXML
 	TextField phoneNumber;
 	@FXML
+	ImageView pic;
+	@FXML
 	TextField picture;
 	@FXML
+	/************************* Les differents bouttons ******************************************/
 	Button add;
 	@FXML
 	Button update;
 	@FXML
 	Button delete;
-
+	@FXML
+	Button addBonus;
+	/************************ Les champs texte du Personal Details ******************************/
 	@FXML
 	TextField sname;
 	@FXML
@@ -106,6 +120,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 	TextField pass;
 	@FXML
 	TextField phonenum;
+	/**************************** Les champs texte du Portfolio Details ***************************/
 	@FXML
 	TextField fpname;
 	@FXML
@@ -115,12 +130,11 @@ public class userCTRL implements Initializable, ControlledScreen {
 	@FXML
 	TextField pshare;
 	@FXML
-	ImageView pic;
+	TextField bonus;
 
+	/**************************** Les Columns du tableau d'affichage *************************/
 	@FXML
 	TableView<Customer> tab;
-	// @FXML
-	// TableView<Portfolio> tab1;
 	@FXML
 	TableColumn<Customer, Integer> id;
 	@FXML
@@ -134,12 +148,11 @@ public class userCTRL implements Initializable, ControlledScreen {
 	@FXML
 	TableColumn<Customer, String> value;
 
-	ObservableList<Customer> data = FXCollections.observableArrayList(this
-			.getContext().findAll());
+	/**********************************************************************/
+	ObservableList<Customer> data = FXCollections.observableArrayList(
+			remote.findAll());
 
-	// ObservableList<Portfolio> data1 =
-	// FXCollections.observableArrayList(this.getContextP().findAllP());
-
+	/**********************************************************************/
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -151,9 +164,6 @@ public class userCTRL implements Initializable, ControlledScreen {
 		nationalitytab
 				.setCellValueFactory(new PropertyValueFactory<Customer, String>(
 						"nationality"));
-		// jobtab.setCellValueFactory(new
-		// PropertyValueFactory<Customer,String>("job"));
-
 		value.setCellValueFactory(new Callback<CellDataFeatures<Customer, String>, ObservableValue<String>>() {
 			@Override
 			public ObservableValue<String> call(
@@ -162,48 +172,12 @@ public class userCTRL implements Initializable, ControlledScreen {
 						.getPortfolio().getValue()));
 			}
 		});
-
-		// value.setCellValueFactory(new PropertyValueFactory<Portfolio,
-		// Float>("capital"));
-
 		tab.setItems(data);
-
 	}
 
-	public void affiche() {
-
-	}
-
-	public CustomerServices getContext() {
-		try {
-			Context context = new InitialContext();
-			remote = (CustomerServices) context
-					.lookup("Blues/CustomerServicesImpl!"
-							+ CustomerServices.class.getCanonicalName());
-			return remote;
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return remote;
-		}
-
-	}
 	
-	public PortfolioServices getContextP() {
-		try {
-			Context context = new InitialContext();
-			remoteP = (PortfolioServices) context
-					.lookup("Blues/PortfolioServicesImp!"
-							+ PortfolioServices.class.getCanonicalName());
-			return remoteP;
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return remoteP;
-		}
 
-	}
-
+	/*********************** Fenetre de l'update d'un user ****************************/
 	public void popupUpdate() {
 
 		FXMLLoader loader = new FXMLLoader(
@@ -229,9 +203,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 
 	}
 
-	
-	
-	
+	/************************ L'animation des images de la barre Menu ***************************/
 	public void zoomHome() {
 
 		home.setScaleX(1.2);
@@ -330,6 +302,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 
 	}
 
+	/****************** Le mapping entre les differentes fenetres *************************/
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -376,37 +349,104 @@ public class userCTRL implements Initializable, ControlledScreen {
 		ScreensFramework.s.hide();
 	}
 
+	/***************** Instansiation d'un customer *************************/
+	Customer c = new Customer();
+
+	/***************** La methode d'ajout d'un user ************************/
 	public void doAddCustomer() {
-		Customer c = new Customer();
-		Portfolio p= new Portfolio();
-		c.setFirstName(firstName.getText());
-		c.setLastName(lastName.getText());
-		c.setAddress(address.getText());
-		c.setNationality(nationality.getText());
-		c.setJob(job.getText());
-		c.setEmail(email.getText());
-		c.setPassword(password.getText());
-		c.setPhoneNumber(Integer.parseInt(phoneNumber.getText()));
-		c.setProfilePicture(picture.getText());
-		p.setValue(10000);
-		p.setSharesNumber(0);
-		p.setCustomer(c);
-		this.getContext().add(c,p);
-		data = FXCollections.observableArrayList(this.getContext().findAll());
-		tab.setItems(data);
-		JOptionPane jp = new JOptionPane();
-		jp.showMessageDialog(null, "Ajout Réussi", "Message d'erreur",
-				JOptionPane.INFORMATION_MESSAGE);
+
+		Portfolio p = new Portfolio();
+
+		if (firstName.getText().isEmpty() || lastName.getText().isEmpty()
+				|| address.getText().isEmpty()
+				|| nationality.getText().isEmpty() || job.getText().isEmpty()
+				|| email.getText().isEmpty() || password.getText().isEmpty()
+				|| phoneNumber.getText().isEmpty() || !isInteger(phoneNumber.getText())) {
+			@SuppressWarnings("unused")
+			JOptionPane jp = new JOptionPane();
+			JOptionPane.showMessageDialog(null, " Field empty or Phone Number Field is not Integer ", "ERROR",
+					JOptionPane.INFORMATION_MESSAGE);
+		}
+		 else {
+			c.setFirstName(firstName.getText());
+			c.setLastName(lastName.getText());
+			c.setAddress(address.getText());
+			c.setNationality(nationality.getText());
+			c.setJob(job.getText());
+			c.setEmail(email.getText());
+			c.setPassword(password.getText());
+			c.setPhoneNumber(Integer.parseInt(phoneNumber.getText()));
+
+			p.setValue(10000);
+			p.setSharesNumber(0);
+			p.setCustomer(c);
+			remote.add(c, p);
+			data = FXCollections.observableArrayList(remote
+					.findAll());
+			tab.setItems(data);
+
+			firstName.clear();
+			lastName.clear();
+			address.clear();
+			nationality.clear();
+			job.clear();
+			email.clear();
+			password.clear();
+			phoneNumber.clear();
+
+			@SuppressWarnings("unused")
+			JOptionPane jp = new JOptionPane();
+			JOptionPane.showMessageDialog(null, " Successful ", "Add",
+					JOptionPane.INFORMATION_MESSAGE);
+		}
 	}
 
+	/******************** Méthode retourne un entier *******************/
+	public boolean isInteger(String chaine) {
+		try {
+			Integer.parseInt(chaine);
+		} catch (NumberFormatException e) {
+			return false;
+		}
+
+		return true;
+	}
+	
+	/******************** Méthode retourne un float *******************/
+	public boolean isFloat(String chaine) {
+		try {
+			Float.parseFloat(chaine);
+		} catch (NumberFormatException e) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/********************** Méthode de al récupération d'un fichier ******************************/
+	FileChooser fileChooser;
+	File file;
+
+	public void openfile(ActionEvent event) {
+		System.out.println("hello1");
+		Node node = (Node) event.getSource();
+		System.out.println(node.getScene().getWindow().toString());
+		fileChooser = new FileChooser();
+
+		file = fileChooser.showOpenDialog(node.getScene().getWindow());
+		c.setProfilePicture(file.getPath());
+
+	}
+
+	/*********************** Méthode de l'affichage dans un tableau **************************/
 	public void AfficheDetails() {
-		
+
 		Customer c = new Customer();
 		Customer c1 = new Customer();
-		
+
 		c = data.get(tab.getSelectionModel().getSelectedIndex());
 
-		c1 = this.getContext().findById(c.getId());
+		c1 = remote.findById(c.getId());
 
 		sname.setText(c1.getFirstName());
 		lname.setText(c1.getLastName());
@@ -418,41 +458,65 @@ public class userCTRL implements Initializable, ControlledScreen {
 		phonenum.setText(Integer.toString(c1.getPhoneNumber()));
 
 		id12 = c1.getId();
-		
+
 		fpname.setText(c1.getFirstName());
 		pjob.setText(c1.getJob());
 		pvalue.setText(Float.toString(c1.getPortfolio().getValue()));
 		pshare.setText(Float.toString(c1.getPortfolio().getSharesNumber()));
-		
+
 		update.setDisable(false);
 		delete.setDisable(false);
 
+		File file1 = new File(c1.getProfilePicture());
+		BufferedImage bufferedImage;
+		try {
+			bufferedImage = ImageIO.read(file1);
+			Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+
+			pic.setImage(image);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		data = FXCollections.observableArrayList(remote
+				.findAll());
+		tab.setItems(data);
+
 	}
 
+	/******************** Méthode de la suppression d'un user ***************************/
 	public void doDeleteCustomer() {
 
-		Customer c = this.getContext().findById(id12);
+		Customer c = remote.findById(id12);
 
-		this.getContext().remove(c);
-		data = FXCollections.observableArrayList(this.getContext().findAll());
+		remote.remove(c);
+		data = FXCollections.observableArrayList(remote.findAll());
 		tab.setItems(data);
 	}
-	
-	@FXML
-	TextField bonus;
-	@FXML
-	Button addBonus;
-	
-	
-	public void doAddBonus()
-	{
-		Portfolio p = this.getContext().findById(id12).getPortfolio();
-		p.setValue(p.getValue() + Float.parseFloat(bonus.getText()));
-		this.getContextP().updatePortfolio(p);
-		pvalue.setText(p.getValue()+"");
-		data = FXCollections.observableArrayList(this.getContext().findAll());
-		tab.setItems(data);
+
+	/************************* Méthode de l'ajout d'un Bonus ****************************/
+	public void doAddBonus() {
+		Portfolio p = remote.findById(id12).getPortfolio();
+
+		if (bonus.getText().isEmpty() || !isFloat(bonus.getText())) {
+
+			@SuppressWarnings("unused")
+			JOptionPane jp = new JOptionPane();
+			JOptionPane.showMessageDialog(null, " Field empty or not Float ", "ERROR",
+					JOptionPane.INFORMATION_MESSAGE);
+		} 
 		
+		else {
+			p.setValue(p.getValue() + Float.parseFloat(bonus.getText()));
+			remoteP.updatePortfolio(p);
+			pvalue.setText(p.getValue() + "");
+			data = FXCollections.observableArrayList(remote
+					.findAll());
+			tab.setItems(data);
+			bonus.clear();
+		}
+
 	}
 
 }
