@@ -38,19 +38,24 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.swing.JOptionPane;
 
+import tn.esprit.Blues.Services.CompanyServices;
 import tn.esprit.Blues.Services.CustomerServices;
 import tn.esprit.Blues.Services.PortfolioServices;
+import tn.esprit.Blues.Services.SharesServices;
 import tn.esprit.Blues.entities.Customer;
 import tn.esprit.Blues.entities.Portfolio;
 import tn.esprit.BluesClient.Main.ScreensFramework;
 
 public class userCTRL implements Initializable, ControlledScreen {
+	
+	String User="Blues/CustomerServicesImpl!"+ CustomerServices.class.getCanonicalName();
+	String Portfolio="Blues/PortfolioServicesImp!"+ PortfolioServices.class.getCanonicalName();
 
 	ScreensController myController;
 	Sound s = new Sound();
 
-	CustomerServices remote;
-	PortfolioServices remoteP;
+	CustomerServices remote=(CustomerServices)ServiceLocator.getInstance().getProxy(User);
+	PortfolioServices remoteP=(PortfolioServices)ServiceLocator.getInstance().getProxy(Portfolio);
 
 	public static Integer id12;
 	/*********************** Les images de la barre Menu ***********************/
@@ -144,8 +149,8 @@ public class userCTRL implements Initializable, ControlledScreen {
 	TableColumn<Customer, String> value;
 
 	/**********************************************************************/
-	ObservableList<Customer> data = FXCollections.observableArrayList(this
-			.getContext().findAll());
+	ObservableList<Customer> data = FXCollections.observableArrayList(
+			remote.findAll());
 
 	/**********************************************************************/
 	@Override
@@ -170,37 +175,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 		tab.setItems(data);
 	}
 
-	/****************************************************************************/
-	public CustomerServices getContext() {
-		try {
-			Context context = new InitialContext();
-			remote = (CustomerServices) context
-					.lookup("Blues/CustomerServicesImpl!"
-							+ CustomerServices.class.getCanonicalName());
-			return remote;
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return remote;
-		}
-
-	}
-
-	/**************************************************************************/
-	public PortfolioServices getContextP() {
-		try {
-			Context context = new InitialContext();
-			remoteP = (PortfolioServices) context
-					.lookup("Blues/PortfolioServicesImp!"
-							+ PortfolioServices.class.getCanonicalName());
-			return remoteP;
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return remoteP;
-		}
-
-	}
+	
 
 	/*********************** Fenetre de l'update d'un user ****************************/
 	public void popupUpdate() {
@@ -405,8 +380,8 @@ public class userCTRL implements Initializable, ControlledScreen {
 			p.setValue(10000);
 			p.setSharesNumber(0);
 			p.setCustomer(c);
-			this.getContext().add(c, p);
-			data = FXCollections.observableArrayList(this.getContext()
+			remote.add(c, p);
+			data = FXCollections.observableArrayList(remote
 					.findAll());
 			tab.setItems(data);
 
@@ -471,7 +446,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 
 		c = data.get(tab.getSelectionModel().getSelectedIndex());
 
-		c1 = this.getContext().findById(c.getId());
+		c1 = remote.findById(c.getId());
 
 		sname.setText(c1.getFirstName());
 		lname.setText(c1.getLastName());
@@ -503,22 +478,26 @@ public class userCTRL implements Initializable, ControlledScreen {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		data = FXCollections.observableArrayList(remote
+				.findAll());
+		tab.setItems(data);
 
 	}
 
 	/******************** Méthode de la suppression d'un user ***************************/
 	public void doDeleteCustomer() {
 
-		Customer c = this.getContext().findById(id12);
+		Customer c = remote.findById(id12);
 
-		this.getContext().remove(c);
-		data = FXCollections.observableArrayList(this.getContext().findAll());
+		remote.remove(c);
+		data = FXCollections.observableArrayList(remote.findAll());
 		tab.setItems(data);
 	}
 
 	/************************* Méthode de l'ajout d'un Bonus ****************************/
 	public void doAddBonus() {
-		Portfolio p = this.getContext().findById(id12).getPortfolio();
+		Portfolio p = remote.findById(id12).getPortfolio();
 
 		if (bonus.getText().isEmpty() || !isFloat(bonus.getText())) {
 
@@ -530,9 +509,9 @@ public class userCTRL implements Initializable, ControlledScreen {
 		
 		else {
 			p.setValue(p.getValue() + Float.parseFloat(bonus.getText()));
-			this.getContextP().updatePortfolio(p);
+			remoteP.updatePortfolio(p);
 			pvalue.setText(p.getValue() + "");
-			data = FXCollections.observableArrayList(this.getContext()
+			data = FXCollections.observableArrayList(remote
 					.findAll());
 			tab.setItems(data);
 			bonus.clear();
