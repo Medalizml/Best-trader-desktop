@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -14,18 +16,42 @@
             <Image url="@UpdateUser.jpg" />
          </image>
       </ImageView>
-      <SplitPane dividerPositions="0.30654205607476637" layoutX="53.0" layoutY="63.0" prefHeight="492.0" prefWidth="535.0">
+      <SplitPane blendMode="SCREEN" dividerPositions="0.30654205607476637" layoutX="53.0" layoutY="63.0" prefHeight="492.0" prefWidth="535.0" style="-fx-background-color: #6b6b6b;">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Label layoutX="33.0" layoutY="145.0" prefHeight="17.0" prefWidth="96.0" text="Address" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="32.0" />
-                  <Label layoutX="33.0" layoutY="193.0" prefHeight="17.0" prefWidth="96.0" text="Nationality" />
-                  <Label layoutX="33.0" layoutY="252.0" prefHeight="17.0" prefWidth="96.0" text="Job" />
-                  <Label layoutX="33.0" layoutY="304.0" prefHeight="17.0" prefWidth="96.0" text="Email" />
-                  <Label layoutX="33.0" layoutY="354.0" prefHeight="17.0" prefWidth="96.0" text="Password" />
-                  <Label layoutX="34.0" layoutY="402.0" prefHeight="17.0" prefWidth="96.0" text="Phone Number" />
-                  <Label layoutX="33.0" layoutY="89.0" prefHeight="17.0" prefWidth="96.0" text="Last Name" />
-                  <Label layoutX="33.0" layoutY="42.0" prefHeight="17.0" prefWidth="96.0" text="First Name" />
+                  <Label layoutX="33.0" layoutY="145.0" prefHeight="17.0" prefWidth="96.0" text="Address" textFill="#140101" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="32.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label layoutX="33.0" layoutY="193.0" prefHeight="17.0" prefWidth="96.0" text="Nationality" textFill="#0d0202">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label layoutX="33.0" layoutY="252.0" prefHeight="17.0" prefWidth="96.0" text="Job" textFill="#070101">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label layoutX="33.0" layoutY="304.0" prefHeight="17.0" prefWidth="96.0" text="Email" textFill="#070101">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label layoutX="33.0" layoutY="354.0" prefHeight="17.0" prefWidth="96.0" text="Password" textFill="#0a0202">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label layoutX="34.0" layoutY="402.0" prefHeight="25.0" prefWidth="121.0" text="Phone Number" textFill="#0a0101">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label layoutX="33.0" layoutY="89.0" prefHeight="17.0" prefWidth="96.0" text="Last Name" textFill="#140202" textOverrun="CLIP">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label layoutX="33.0" layoutY="42.0" prefHeight="17.0" prefWidth="96.0" text="First Name" textFill="#030303">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="368.0">
