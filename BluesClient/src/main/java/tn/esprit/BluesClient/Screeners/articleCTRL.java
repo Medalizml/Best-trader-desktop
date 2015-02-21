@@ -307,6 +307,10 @@ public class articleCTRL implements Initializable, ControlledScreen {
 		this.getContext().add(a);
 		l = FXCollections.observableArrayList(this.getContext().findAll());
 		Table.setItems(l);
+		name.clear();
+		author.clear();
+		topic.clear();
+		
 		}
 	}
 
