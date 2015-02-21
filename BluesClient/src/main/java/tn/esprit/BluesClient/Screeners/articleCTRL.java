@@ -50,7 +50,8 @@ public class articleCTRL implements Initializable, ControlledScreen {
 	ScreensController myController;
 
 	static Integer i;
-	ArticleServices remote;
+	String aSer = "Blues/ArticleServicesImpl!"+ ArticleServices.class.getCanonicalName();
+	ArticleServices remote = (ArticleServices)ServiceLocator.getInstance().getProxy(aSer);
 	@FXML
 	ImageView user;
 	@FXML
@@ -86,23 +87,11 @@ public class articleCTRL implements Initializable, ControlledScreen {
 
 	Sound s = new Sound();
 
-	public ArticleServices getContext() {
-		try {
-			Context context = new InitialContext();
-			remote = (ArticleServices) context
-					.lookup("Blues/ArticleServicesImpl!"
-							+ ArticleServices.class.getCanonicalName());
-			return remote;
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return remote;
-		}
+	
 
-	}
+	
 
-	ObservableList<Article> l = FXCollections.observableArrayList(this
-			.getContext().findAll());
+	ObservableList<Article> l = FXCollections.observableArrayList(remote.findAll());
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -112,18 +101,21 @@ public class articleCTRL implements Initializable, ControlledScreen {
 
 	void remplirTab() {
 
-		idTab.setCellValueFactory(new PropertyValueFactory<Article, Integer>("id"));
-		nameTab.setCellValueFactory(new PropertyValueFactory<Article, String>("name"));
+		idTab.setCellValueFactory(new PropertyValueFactory<Article, Integer>(
+				"id"));
+		nameTab.setCellValueFactory(new PropertyValueFactory<Article, String>(
+				"name"));
 		dateTab.setCellValueFactory(new Callback<CellDataFeatures<Article, String>, ObservableValue<String>>() {
-	        @Override
-	        public ObservableValue<String> call(CellDataFeatures<Article, String> c) {
-	            return new SimpleStringProperty(c.getValue().getDate().toString());                
-	        }
-	});
-		
-		
+			@Override
+			public ObservableValue<String> call(
+					CellDataFeatures<Article, String> c) {
+				return new SimpleStringProperty(c.getValue().getDate()
+						.toString());
+			}
+		});
+
 		Table.setItems(l);
-		l.removeAll(this.getContext().findAll());
+		l.removeAll(remote.findAll());
 
 	}
 
@@ -278,39 +270,36 @@ public class articleCTRL implements Initializable, ControlledScreen {
 	private void Close() {
 		ScreensFramework.s.hide();
 	}
-	Article a = new Article() ;
+
+	Article a = new Article();
 	@FXML
 	Label champVide;
 
 	public void doAddArticle() {
-		
-	
-		
-		if(name.getText().isEmpty() || author.getText().isEmpty() || topic.getText().isEmpty())
-		{
+
+		if (name.getText().isEmpty() || author.getText().isEmpty()
+				|| topic.getText().isEmpty()) {
 			@SuppressWarnings("unused")
 			JOptionPane jp = new JOptionPane();
 			JOptionPane.showMessageDialog(null, " Champ Vide ", "ERROR",
 					JOptionPane.INFORMATION_MESSAGE);
-		}
-		else
-		{	
-		a.setName(name.getText());
-		a.setAuthor(author.getText());
-		a.setTopic(topic.getText());
-		Integer year =dateAr.getValue().getYear();
-		Integer month =dateAr.getValue().getMonthValue();
-		Integer day = dateAr.getValue().getDayOfMonth();
-		java.sql.Date date = new java.sql.Date(year-1900, month-1, day);
-		a.setDate(date);
-		//System.out.println(a.getDate().toString());
-		this.getContext().add(a);
-		l = FXCollections.observableArrayList(this.getContext().findAll());
-		Table.setItems(l);
-		name.clear();
-		author.clear();
-		topic.clear();
-		
+		} else {
+			a.setName(name.getText());
+			a.setAuthor(author.getText());
+			a.setTopic(topic.getText());
+			Integer year = dateAr.getValue().getYear();
+			Integer month = dateAr.getValue().getMonthValue();
+			Integer day = dateAr.getValue().getDayOfMonth();
+			java.sql.Date date = new java.sql.Date(year - 1900, month - 1, day);
+			a.setDate(date);
+			// System.out.println(a.getDate().toString());
+			remote.add(a);
+			l = FXCollections.observableArrayList(remote.findAll());
+			Table.setItems(l);
+			name.clear();
+			author.clear();
+			topic.clear();
+
 		}
 	}
 
@@ -330,8 +319,7 @@ public class articleCTRL implements Initializable, ControlledScreen {
 	@FXML
 	Button updateButton;
 	@FXML
-	Button deleteButton ; 
-	
+	Button deleteButton;
 
 	public void AfficheDetails() {
 		Article a = new Article();
@@ -340,12 +328,12 @@ public class articleCTRL implements Initializable, ControlledScreen {
 		deleteButton.setDisable(false);
 
 		a = l.get(Table.getSelectionModel().getSelectedIndex());
-		b = this.getContext().findById(a.getId());
+		b = remote.findById(a.getId());
 		Aname.setText(b.getName());
 		Adate.setText(b.getDate().toString());
 		Atopic.setText(b.getTopic());
 		Aauthor.setText(b.getAuthor());
-		
+
 		i = b.getId();
 		File file1 = new File(b.getPicture());
 		BufferedImage bufferedImage;
@@ -354,17 +342,14 @@ public class articleCTRL implements Initializable, ControlledScreen {
 			Image image = SwingFXUtils.toFXImage(bufferedImage, null);
 			Aimage.setOpacity(1);
 			Aimage.setImage(image);
-	
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-
 
 	}
-	
+
 	FileChooser fileChooser;
 	File file;
 
@@ -372,18 +357,18 @@ public class articleCTRL implements Initializable, ControlledScreen {
 		System.out.println("hello1");
 		Node node = (Node) event.getSource();
 		System.out.println(node.getScene().getWindow().toString());
-		fileChooser=new FileChooser();
+		fileChooser = new FileChooser();
 
 		file = fileChooser.showOpenDialog(node.getScene().getWindow());
 		a.setPicture(file.getPath());
-		
+
 	}
 
 	public void doDeleteArticle() {
 
-		Article a = this.getContext().findById(i);
-		this.getContext().remove(a);
-		l = FXCollections.observableArrayList(this.getContext().findAll());
+		Article a =remote.findById(i);
+		remote.remove(a);
+		l = FXCollections.observableArrayList(remote.findAll());
 		Table.setItems(l);
 
 	}
