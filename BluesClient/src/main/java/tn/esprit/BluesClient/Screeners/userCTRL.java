@@ -365,7 +365,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 			@SuppressWarnings("unused")
 			JOptionPane jp = new JOptionPane();
 			JOptionPane.showMessageDialog(null, " Field empty or Phone Number Field is not Integer ", "ERROR",
-					JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.ERROR_MESSAGE);
 		}
 		 else {
 			c.setFirstName(firstName.getText());
@@ -504,7 +504,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 			@SuppressWarnings("unused")
 			JOptionPane jp = new JOptionPane();
 			JOptionPane.showMessageDialog(null, " Field empty or not Float ", "ERROR",
-					JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.ERROR_MESSAGE);
 		} 
 		
 		else {
