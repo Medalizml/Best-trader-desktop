@@ -376,6 +376,8 @@ public class articleCTRL implements Initializable, ControlledScreen {
 			e.printStackTrace();
 		}
 
+		l = FXCollections.observableArrayList(remote.findAll());
+		Table.setItems(l);
 	}
 
 	/**

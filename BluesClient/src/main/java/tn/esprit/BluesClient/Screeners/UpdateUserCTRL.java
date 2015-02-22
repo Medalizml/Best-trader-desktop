@@ -9,14 +9,17 @@ import javax.naming.NamingException;
 import javax.swing.JOptionPane;
 
 import tn.esprit.Blues.Services.CustomerServices;
+import tn.esprit.Blues.Services.PortfolioServices;
 import tn.esprit.Blues.entities.Customer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class UpdateUserCTRL implements Initializable, ControlledScreen {
- CustomerServices remote;
+	String User="Blues/CustomerServicesImpl!"+ CustomerServices.class.getCanonicalName();
+	CustomerServices remote=(CustomerServices)ServiceLocator.getInstance().getProxy(User);
  
  
  @FXML
@@ -35,6 +38,7 @@ public class UpdateUserCTRL implements Initializable, ControlledScreen {
 	TextField pass;
 	@FXML
 	TextField phonenum;
+	@FXML private javafx.scene.control.Button closeButton;
 	@Override
 	public void setScreenParent(ScreensController screenPage) {
 		// TODO Auto-generated method stub
@@ -44,7 +48,7 @@ public class UpdateUserCTRL implements Initializable, ControlledScreen {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
-		Customer c=this.getContext().findById(userCTRL.id12);
+		Customer c=remote.findById(userCTRL.id12);
 		
 			
 			
@@ -59,23 +63,11 @@ public class UpdateUserCTRL implements Initializable, ControlledScreen {
 		
 		
 	}
-	public CustomerServices getContext() {
-		try {
-			Context context = new InitialContext();
-			remote = (CustomerServices) context
-					.lookup("Blues/CustomerServicesImpl!"
-							+ CustomerServices.class.getCanonicalName());
-			return remote;
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return remote;
-		}
-	}
+
 		
 		public void doUpdateCustomer() {
 			
-			Customer c=this.getContext().findById(userCTRL.id12);
+			Customer c=remote.findById(userCTRL.id12);
 			c.setFirstName(sname.getText());
 			c.setLastName(lname.getText());
 			c.setAddress(addrss.getText());
@@ -90,17 +82,9 @@ public class UpdateUserCTRL implements Initializable, ControlledScreen {
 			JOptionPane.showMessageDialog(null, " Successful ", "Update",
 					JOptionPane.INFORMATION_MESSAGE);
 			
-			this.getContext().update(c);
-			
-			
-			sname.clear();
-			lname.clear();
-			addrss.clear();
-			nat.clear();
-			jobb.clear();
-			mail.clear();
-			pass.clear();
-			phonenum.clear();
+		    remote.update(c);
+			Stage stage = (Stage) closeButton.getScene().getWindow();
+			 stage.close();
 			
 
 

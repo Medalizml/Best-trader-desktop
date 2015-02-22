@@ -57,7 +57,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="368.0">
                <children>
                   <TextField fx:id="sname" layoutX="83.0" layoutY="33.0" prefHeight="27.0" prefWidth="183.0" AnchorPane.bottomAnchor="420.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="33.0" />
-                  <Button layoutX="274.0" layoutY="452.0" mnemonicParsing="false" onAction="#doUpdateCustomer" prefHeight="25.0" prefWidth="72.0" text="Submit" />
+                  <Button fx:id="closeButton" layoutX="274.0" layoutY="452.0" mnemonicParsing="false" onAction="#doUpdateCustomer" prefHeight="25.0" prefWidth="72.0" text="Submit" />
                   <TextField fx:id="phonenum" layoutX="83.0" layoutY="393.0" prefHeight="17.0" prefWidth="183.0" AnchorPane.bottomAnchor="61.0" AnchorPane.topAnchor="393.0" />
                   <TextField fx:id="lname" layoutX="83.0" layoutY="85.0" prefHeight="29.0" prefWidth="183.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="85.0" />
                   <TextField fx:id="addrss" layoutX="83.0" layoutY="137.0" prefHeight="17.0" prefWidth="183.0" />

@@ -25,8 +25,12 @@ import javafx.stage.Window;
 
 public class updateArticleCTRL implements Initializable, ControlledScreen{
 	
-	ArticleServices remote;
-	Article a=this.getContext().findById(articleCTRL.i);
+	
+	String aSer = "Blues/ArticleServicesImpl!"
+			+ ArticleServices.class.getCanonicalName();
+	ArticleServices remote = (ArticleServices) ServiceLocator.getInstance()
+			.getProxy(aSer);
+	Article a=remote.findById(articleCTRL.i);
 	@FXML
 	TextField Dname;
 	@FXML
@@ -59,20 +63,6 @@ public class updateArticleCTRL implements Initializable, ControlledScreen{
 		
 	}
 	
-	public ArticleServices getContext() {
-		try {
-			Context context = new InitialContext();
-			remote = (ArticleServices) context
-					.lookup("Blues/ArticleServicesImpl!"
-							+ ArticleServices.class.getCanonicalName());
-			return remote;
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return remote;
-		}
-
-	}
 	
 	@FXML private javafx.scene.control.Button closeButton;
 	
@@ -94,7 +84,7 @@ public class updateArticleCTRL implements Initializable, ControlledScreen{
 		}
 		
 			
-		this.getContext().update(a);
+		remote.update(a);
 		 Stage stage = (Stage) closeButton.getScene().getWindow();
 		 stage.close();
 		 
