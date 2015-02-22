@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 /**
  * this controller manages the barchart graph of company's yield.

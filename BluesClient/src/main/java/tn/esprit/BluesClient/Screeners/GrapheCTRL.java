@@ -1,14 +1,7 @@
 package tn.esprit.BluesClient.Screeners;
 
 import java.net.URL;
-import java.text.DateFormatSymbols;
-import java.util.Arrays;
-import java.util.Locale;
-import java.util.Random;
 import java.util.ResourceBundle;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.CategoryAxis;

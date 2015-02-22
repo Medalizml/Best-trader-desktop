@@ -4,7 +4,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -37,9 +36,6 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import javax.imageio.ImageIO;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -314,6 +310,7 @@ public class articleCTRL implements Initializable, ControlledScreen {
 	 * remote service. Finally we refresh the Observablelist of the articles to
 	 * add this new article on the table.
 	 */
+	@SuppressWarnings("deprecation")
 	public void doAddArticle() {
 
 		if (name.getText().isEmpty() || author.getText().isEmpty()

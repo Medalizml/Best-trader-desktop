@@ -4,24 +4,18 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-
 import tn.esprit.Blues.Services.ArticleServices;
 import tn.esprit.Blues.entities.Article;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 public class updateArticleCTRL implements Initializable, ControlledScreen{
 	
@@ -66,6 +60,7 @@ public class updateArticleCTRL implements Initializable, ControlledScreen{
 	
 	@FXML private javafx.scene.control.Button closeButton;
 	
+	@SuppressWarnings("deprecation")
 	public void doUpdateArticl(){
 		
 	

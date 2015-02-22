@@ -173,6 +173,7 @@ public class firstCTRL implements Initializable, ControlledScreen {
 	private void Close() {
 		ScreensFramework.s.hide();
 	}
+	@SuppressWarnings("static-access")
 	@FXML
 	private void adminset(){
 		admin.setText(myController.A.getFirstName()+" "+myController.A.getLastName());

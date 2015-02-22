@@ -2,11 +2,6 @@ package tn.esprit.BluesClient.Screeners;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormatSymbols;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -16,11 +11,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Side;
 import javafx.scene.Scene;
-import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
@@ -30,16 +22,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-
-import com.sun.prism.image.CompoundTexture;
-
-import tn.esprit.Blues.Services.CustomerServices;
 import tn.esprit.Blues.Services.OperationServices;
-import tn.esprit.Blues.Services.PortfolioServices;
 import tn.esprit.Blues.entities.Company;
 import tn.esprit.Blues.entities.Customer;
 import tn.esprit.Blues.entities.Operation;

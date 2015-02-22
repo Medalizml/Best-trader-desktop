@@ -4,14 +4,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import tn.esprit.Blues.Services.BondServices;
 import tn.esprit.Blues.Services.PaircurrencyServices;
-import tn.esprit.Blues.Services.SharesServices;
-import tn.esprit.Blues.entities.Bond;
-import tn.esprit.Blues.entities.Company;
 import tn.esprit.Blues.entities.Paircurrency;
-import tn.esprit.Blues.entities.Share;
-
 public class Main {
 
 	public static void main(String[] args) {
