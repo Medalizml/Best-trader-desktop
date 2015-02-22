@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1370.0" styleClass="login_pane" stylesheets="@desktop.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.BluesClient.Screeners.loginCTRL">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#Enterkey" prefHeight="720.0" prefWidth="1370.0" styleClass="login_pane" stylesheets="@desktop.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.BluesClient.Screeners.loginCTRL">
    <children>
-      <ImageView fx:id="login" fitHeight="78.0" fitWidth="78.0" layoutX="498.0" layoutY="594.0" onMouseClicked="#Authentification">
+      <ImageView fx:id="login" fitHeight="78.0" fitWidth="78.0" layoutX="498.0" layoutY="594.0" onMouseClicked="#Authentification" onMouseEntered="#zoomLogin" onMouseExited="#zoomOutlogin">
          <image>
             <Image url="@../pic/Login-02-128.png" />
          </image>
@@ -22,7 +22,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="quit" fitHeight="78.0" fitWidth="78.0" layoutX="841.0" layoutY="597.0" onMouseClicked="#Close">
+      <ImageView fx:id="quit" fitHeight="78.0" fitWidth="78.0" layoutX="841.0" layoutY="597.0" onMouseClicked="#Close" onMouseEntered="#zoomQuit" onMouseExited="#zoomOutQuit">
          <image>
             <Image url="@../pic/Close-128.png" />
          </image>

@@ -114,7 +114,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="278.0">
                <children>
                   <TabPane prefHeight="469.0" prefWidth="656.0" tabClosingPolicy="UNAVAILABLE" />
-                  <TableView fx:id="Table" layoutY="-12.0" onMouseClicked="#AfficheDetails" onMousePressed="#afficheDetail" prefHeight="484.0" prefWidth="666.0">
+                  <TableView fx:id="Table" layoutY="-12.0" onMouseClicked="#AfficheDetails"  prefHeight="484.0" prefWidth="666.0">
                      <columns>
                         <TableColumn fx:id="idTab" prefWidth="47.0" text="Id" />
                         <TableColumn fx:id="dateTab" prefWidth="149.0" text="Date" />
@@ -174,7 +174,7 @@
                               </AnchorPane>
                           </content>
                         </Tab>
-                      <Tab text="Add User">
+                      <Tab text="Add article">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>

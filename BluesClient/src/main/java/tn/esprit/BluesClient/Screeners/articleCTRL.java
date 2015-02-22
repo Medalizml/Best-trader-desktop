@@ -40,6 +40,7 @@ import javax.imageio.ImageIO;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import tn.esprit.Blues.Services.ArticleServices;
@@ -49,9 +50,19 @@ import tn.esprit.BluesClient.Main.ScreensFramework;
 public class articleCTRL implements Initializable, ControlledScreen {
 	ScreensController myController;
 
+	/**
+	 * this static integer will take the value of an article id to delete or
+	 * update it later
+	 */
 	static Integer i;
-	String aSer = "Blues/ArticleServicesImpl!"+ ArticleServices.class.getCanonicalName();
-	ArticleServices remote = (ArticleServices)ServiceLocator.getInstance().getProxy(aSer);
+
+	// ................Declaration the ServiceLocator..................///
+	String aSer = "Blues/ArticleServicesImpl!"
+			+ ArticleServices.class.getCanonicalName();
+	ArticleServices remote = (ArticleServices) ServiceLocator.getInstance()
+			.getProxy(aSer);
+
+	// declaration of the JAVAFX component imageView//
 	@FXML
 	ImageView user;
 	@FXML
@@ -75,7 +86,27 @@ public class articleCTRL implements Initializable, ControlledScreen {
 	TextArea topic;
 	@FXML
 	DatePicker dateAr;
+	@FXML
+	ImageView home;
+	@FXML
+	Tab detail;
+	@FXML
+	Label Aname;
+	@FXML
+	TextArea Atopic;
+	@FXML
+	ImageView Aimage;
+	@FXML
+	Label Adate;
 
+	@FXML
+	Label Aauthor;
+	@FXML
+	Button updateButton;
+	@FXML
+	Button deleteButton;
+
+	// declaration of the javaFX components Tableview and culumns//
 	@FXML
 	private TableView<Article> Table;
 	@FXML
@@ -85,19 +116,26 @@ public class articleCTRL implements Initializable, ControlledScreen {
 	@FXML
 	private TableColumn<Article, String> dateTab;
 
+	// Instance of the sound class with witch we obtain our sound click music//
 	Sound s = new Sound();
 
-	
+	// ..........initializing the values of the JAVAFX component
+	// ObservalList.........//
 
-	
-
-	ObservableList<Article> l = FXCollections.observableArrayList(remote.findAll());
+	ObservableList<Article> l = FXCollections.observableArrayList(remote
+			.findAll());
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		remplirTab();
 
 	}
+
+	/**
+	 * remplirTab() fill the table with data provided from the Observablelist we
+	 * set the value of each columns : here we have id, name and the date of the
+	 * article
+	 */
 
 	void remplirTab() {
 
@@ -119,13 +157,7 @@ public class articleCTRL implements Initializable, ControlledScreen {
 
 	}
 
-	@FXML
-	ImageView home;
-
-	public void afficheDetail() {
-
-	}
-
+	// ..................Animations'functions............//
 	public void zoomHome() {
 
 		home.setScaleX(1.2);
@@ -224,6 +256,7 @@ public class articleCTRL implements Initializable, ControlledScreen {
 
 	}
 
+	// .............................Windows mapping functions.................//
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -271,10 +304,16 @@ public class articleCTRL implements Initializable, ControlledScreen {
 		ScreensFramework.s.hide();
 	}
 
+	// ...........Instansiation of an article that we will add later........//
 	Article a = new Article();
-	@FXML
-	Label champVide;
 
+	/**
+	 * when we click on the add button a test is launched : if there is empty
+	 * fields an error window will appear else we recuperate the fields' text
+	 * and the datepicker's then add the article in the database through the
+	 * remote service. Finally we refresh the Observablelist of the articles to
+	 * add this new article on the table.
+	 */
 	public void doAddArticle() {
 
 		if (name.getText().isEmpty() || author.getText().isEmpty()
@@ -303,23 +342,12 @@ public class articleCTRL implements Initializable, ControlledScreen {
 		}
 	}
 
-	@FXML
-	Tab detail;
-	@FXML
-	Label Aname;
-	@FXML
-	TextArea Atopic;
-	@FXML
-	ImageView Aimage;
-	@FXML
-	Label Adate;
-
-	@FXML
-	Label Aauthor;
-	@FXML
-	Button updateButton;
-	@FXML
-	Button deleteButton;
+	/**
+	 * when we click on an article from the table this function get his index
+	 * and get his id from the observable list, then we recuperate the article
+	 * from the database through the remote service "findById" and the field's
+	 * will be filled by its informations
+	 */
 
 	public void AfficheDetails() {
 		Article a = new Article();
@@ -350,6 +378,11 @@ public class articleCTRL implements Initializable, ControlledScreen {
 
 	}
 
+	/**
+	 * this function display a filechhoser window to choose a picture for an
+	 * article after choosing a picture we get his path to assign it to an
+	 * article that we will add later
+	 */
 	FileChooser fileChooser;
 	File file;
 
@@ -363,15 +396,26 @@ public class articleCTRL implements Initializable, ControlledScreen {
 		a.setPicture(file.getPath());
 
 	}
+	/**
+	 * when we click on the delete button we recuperate the article's id and delete it through the remote service "remove"
+	 * and finally we refesh the articles' list to remove the deleted article from the tableView
+	 */
 
 	public void doDeleteArticle() {
 
-		Article a =remote.findById(i);
+		if(JOptionPane.showConfirmDialog(new JFrame(),"Do you want to delete this user ?", "Title",
+		        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+		Article a = remote.findById(i);
 		remote.remove(a);
 		l = FXCollections.observableArrayList(remote.findAll());
-		Table.setItems(l);
+		Table.setItems(l); }
 
 	}
+
+	/**
+	 * when we click on the update button this function displays a popup in
+	 * which we will find textfields to update an article
+	 */
 
 	public void popupUpdate() {
 		FXMLLoader loader = new FXMLLoader(
