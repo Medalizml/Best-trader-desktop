@@ -402,7 +402,7 @@ public class articleCTRL implements Initializable, ControlledScreen {
 
 	public void doDeleteArticle() {
 
-		if(JOptionPane.showConfirmDialog(new JFrame(),"Do you want to delete this user ?", "Title",
+		if(JOptionPane.showConfirmDialog(new JFrame(),"Do you want to delete this article ?", "Title",
 		        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
 		Article a = remote.findById(i);
 		remote.remove(a);
