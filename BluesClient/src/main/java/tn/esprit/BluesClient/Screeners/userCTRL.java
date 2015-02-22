@@ -36,6 +36,7 @@ import javax.imageio.ImageIO;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import tn.esprit.Blues.Services.CompanyServices;
@@ -48,17 +49,19 @@ import tn.esprit.BluesClient.Main.ScreensFramework;
 
 public class userCTRL implements Initializable, ControlledScreen {
 	
+	/*****************Declaration the ServiceLocator*******************/
 	String User="Blues/CustomerServicesImpl!"+ CustomerServices.class.getCanonicalName();
 	String Portfolio="Blues/PortfolioServicesImp!"+ PortfolioServices.class.getCanonicalName();
-
+	CustomerServices remote=(CustomerServices)ServiceLocator.getInstance().getProxy(User);
+	PortfolioServices remoteP=(PortfolioServices)ServiceLocator.getInstance().getProxy(Portfolio);
+	
 	ScreensController myController;
 	Sound s = new Sound();
 
-	CustomerServices remote=(CustomerServices)ServiceLocator.getInstance().getProxy(User);
-	PortfolioServices remoteP=(PortfolioServices)ServiceLocator.getInstance().getProxy(Portfolio);
+	
 
 	public static Integer id12;
-	/*********************** Les images de la barre Menu ***********************/
+	/*********************** Declaration of the FXML component imageView ***********************/
 	@FXML
 	ImageView user;
 	@FXML
@@ -73,7 +76,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 	ImageView logout;
 	@FXML
 	ImageView home;
-	/**************** Les champs texte de la barre Add ***************/
+	/**************** Declaration of the FXML textField references to the ADD ***************/
 	@FXML
 	TextField firstName;
 	@FXML
@@ -95,7 +98,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 	@FXML
 	TextField picture;
 	@FXML
-	/************************* Les differents bouttons ******************************************/
+	/*************************  Declaration of the FXML button  ******************************************/
 	Button add;
 	@FXML
 	Button update;
@@ -103,7 +106,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 	Button delete;
 	@FXML
 	Button addBonus;
-	/************************ Les champs texte du Personal Details ******************************/
+	/****************** Declaration of the FXML textFieald references to the PersonalDetails **********************/
 	@FXML
 	TextField sname;
 	@FXML
@@ -120,7 +123,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 	TextField pass;
 	@FXML
 	TextField phonenum;
-	/**************************** Les champs texte du Portfolio Details ***************************/
+	/*****************  Declaration of the FXML textField references to the PortfolioDetails ******************/
 	@FXML
 	TextField fpname;
 	@FXML
@@ -132,7 +135,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 	@FXML
 	TextField bonus;
 
-	/**************************** Les Columns du tableau d'affichage *************************/
+	/***********************  Declaration of the FXML tableColumns *************************/
 	@FXML
 	TableView<Customer> tab;
 	@FXML
@@ -148,13 +151,19 @@ public class userCTRL implements Initializable, ControlledScreen {
 	@FXML
 	TableColumn<Customer, String> value;
 
-	/**********************************************************************/
+	/**********Initializing the values of the JAVAFX component  ObservableList *******************/
 	ObservableList<Customer> data = FXCollections.observableArrayList(
 			remote.findAll());
 
 	/**********************************************************************/
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		/**
+		 *initialize method is specified to the controller of a fxml file this method is the first one to run 
+		 * when we start the page interface in this the userCTRL this method will be charged of filling in 
+		 * the values in the different TableCells witch are Customer and Portfolio	
+		*/
 
 		id.setCellValueFactory(new PropertyValueFactory<Customer, Integer>("id"));
 		Name.setCellValueFactory(new PropertyValueFactory<Customer, String>(
@@ -177,7 +186,11 @@ public class userCTRL implements Initializable, ControlledScreen {
 
 	
 
-	/*********************** Fenetre de l'update d'un user ****************************/
+	/*********************** The Update PopUp ****************************/
+	/**
+	 * Whene we click on the update button in the PersonalDetails this fonction displays a popup
+	 * in wich we will find the different textField to update an user 
+	 */
 	public void popupUpdate() {
 
 		FXMLLoader loader = new FXMLLoader(
@@ -203,7 +216,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 
 	}
 
-	/************************ L'animation des images de la barre Menu ***************************/
+	/************************ Animation's fonctions ***************************/
 	public void zoomHome() {
 
 		home.setScaleX(1.2);
@@ -302,7 +315,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 
 	}
 
-	/****************** Le mapping entre les differentes fenetres *************************/
+	/****************** Windows Mapping *************************/
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -349,10 +362,17 @@ public class userCTRL implements Initializable, ControlledScreen {
 		ScreensFramework.s.hide();
 	}
 
-	/***************** Instansiation d'un customer *************************/
+	/*****************  Customer Instansiation  *************************/
 	Customer c = new Customer();
 
-	/***************** La methode d'ajout d'un user ************************/
+	/***************** Implementation of the Add Method ************************/
+	/**
+	 * when we click on the add button a test is launched : if there is empty
+	 * fields or the PhoneNumber field is not an INTEGER an error window will appear else we recuperate the fields' text , 
+	 * we initialize also the portfolioValue and the shares number for each portfolio relited to an user. 
+	 * then add the user in the database through the remote service with a successful message.
+	 * Finally we refresh the Observablelist of the users to add this new user on the table.
+	 */
 	public void doAddCustomer() {
 
 		Portfolio p = new Portfolio();
@@ -365,7 +385,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 			@SuppressWarnings("unused")
 			JOptionPane jp = new JOptionPane();
 			JOptionPane.showMessageDialog(null, " Field empty or Phone Number Field is not Integer ", "ERROR",
-					JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.ERROR_MESSAGE);
 		}
 		 else {
 			c.setFirstName(firstName.getText());
@@ -401,7 +421,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 		}
 	}
 
-	/******************** Méthode retourne un entier *******************/
+	/**************** Method wich test if a string is an integer or not  *******************/
 	public boolean isInteger(String chaine) {
 		try {
 			Integer.parseInt(chaine);
@@ -412,7 +432,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 		return true;
 	}
 	
-	/******************** Méthode retourne un float *******************/
+	/******************** Method wich test if a string is a float or not  *******************/
 	public boolean isFloat(String chaine) {
 		try {
 			Float.parseFloat(chaine);
@@ -423,7 +443,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 		return true;
 	}
 
-	/********************** Méthode de al récupération d'un fichier ******************************/
+	/********************** File method ******************************/
 	FileChooser fileChooser;
 	File file;
 
@@ -438,7 +458,13 @@ public class userCTRL implements Initializable, ControlledScreen {
 
 	}
 
-	/*********************** Méthode de l'affichage dans un tableau **************************/
+	/*********************** Details display **************************/
+	/**
+	 * when we click on a user from the table this function get his index
+	 * and get his id from the observable list, then we recuperate the user and the portfolio relited to this user
+	 * from the database through the remote service "findById" so the field's and image
+	 * will be filled by its informations
+	 */
 	public void AfficheDetails() {
 
 		Customer c = new Customer();
@@ -485,17 +511,31 @@ public class userCTRL implements Initializable, ControlledScreen {
 
 	}
 
-	/******************** Méthode de la suppression d'un user ***************************/
+	/******************** Delete Method ***************************/
+	/**
+	 * when we click on the delete button a confirmDialog will be apper ,if we click yes ,
+	 * we recuperate the user's id and delete it through the remote service "remove"
+	 * and finally we refesh the users' list to remove the deleted user from the tableView
+	 */
 	public void doDeleteCustomer() {
 
 		Customer c = remote.findById(id12);
-
+		if(JOptionPane.showConfirmDialog(new JFrame(),"Do you want to delete this user ?", "Delete",
+		        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
 		remote.remove(c);
 		data = FXCollections.observableArrayList(remote.findAll());
 		tab.setItems(data);
+		}
 	}
 
-	/************************* Méthode de l'ajout d'un Bonus ****************************/
+	/************************* Add Bonus method ****************************/
+	/**
+	 * when we click on the + button a test is launched : if there is empty
+	 * field or the bonus field is not a float an error window will appear else we recuperate the field's text ,  
+	 * then add the bonus to the portfoliovalue in the database through the remote service.
+	 * Finally we refresh the value textfield and the Observablelist of the user to add this new portfolioValue on the table.
+	 * 
+	 */
 	public void doAddBonus() {
 		Portfolio p = remote.findById(id12).getPortfolio();
 
@@ -504,7 +544,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 			@SuppressWarnings("unused")
 			JOptionPane jp = new JOptionPane();
 			JOptionPane.showMessageDialog(null, " Field empty or not Float ", "ERROR",
-					JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.ERROR_MESSAGE);
 		} 
 		
 		else {
