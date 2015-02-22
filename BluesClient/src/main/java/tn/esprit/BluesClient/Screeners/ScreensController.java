@@ -1,6 +1,8 @@
 package tn.esprit.BluesClient.Screeners;
 
 import java.util.HashMap;
+
+import tn.esprit.Blues.entities.Administrator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -18,6 +20,7 @@ import javafx.util.Duration;
  *
  */
 public class ScreensController  extends StackPane {
+	public static Administrator A;
     //Holds the screens to be displayed
 
     private HashMap<String, Node> screens = new HashMap<>();
@@ -41,15 +44,10 @@ public class ScreensController  extends StackPane {
     public boolean loadScreen(String name, String resource) {
         try {
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource(resource));
-            System.out.println("1");
             Parent loadScreen = (Parent) myLoader.load();
-            System.out.println("2");
             ControlledScreen myScreenControler = ((ControlledScreen) myLoader.getController());
-            System.out.println("3");
             myScreenControler.setScreenParent(this);
-            System.out.println("4");
             addScreen(name, loadScreen);
-            System.out.println("5");
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage()+" erreur");
@@ -105,4 +103,12 @@ public class ScreensController  extends StackPane {
             return true;
         }
     }
+
+	public static Administrator getA() {
+		return A;
+	}
+
+	public static void setA(Administrator a) {
+		A = a;
+	}
 }

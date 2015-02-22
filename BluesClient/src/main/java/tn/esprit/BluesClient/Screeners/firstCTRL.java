@@ -7,10 +7,14 @@ import tn.esprit.BluesClient.Main.ScreensFramework;
 //import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
 public class firstCTRL implements Initializable, ControlledScreen {
 	ScreensController myController;
+	
+	
 	Sound s = new Sound();
 
 	@FXML
@@ -25,11 +29,14 @@ public class firstCTRL implements Initializable, ControlledScreen {
 	ImageView stats;
 	@FXML
 	ImageView logout;
+	@FXML
+	Label admin;
+	@FXML
+	Pane first;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-
 	}
 
 	public void zoomUser() {
@@ -119,6 +126,7 @@ public class firstCTRL implements Initializable, ControlledScreen {
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
+		s.playSomeSound();
 	}
 
 	@FXML
@@ -127,34 +135,49 @@ public class firstCTRL implements Initializable, ControlledScreen {
 		s.playSomeSound();
 	}
 
+	
 	@FXML
 	private void goToScreen3() {
 		myController.setScreen(ScreensFramework.screen3ID);
+	
+	
+		
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen4() {
 		myController.setScreen(ScreensFramework.screen4ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen5() {
 		myController.setScreen(ScreensFramework.screen5ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen6() {
 		myController.setScreen(ScreensFramework.screen6ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void goToScreen7() {
 		myController.setScreen(ScreensFramework.screen7ID);
+		s.playSomeSound();
 	}
 
 	@FXML
 	private void Close() {
 		ScreensFramework.s.hide();
+	}
+	@SuppressWarnings("static-access")
+	@FXML
+	private void adminset(){
+		admin.setText(myController.A.getFirstName()+" "+myController.A.getLastName());
+		
 	}
 
 }

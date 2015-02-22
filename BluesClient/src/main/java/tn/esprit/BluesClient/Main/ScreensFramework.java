@@ -24,7 +24,7 @@ public class ScreensFramework extends Application {
     public static String screen5File = "stats.fxml";
     public static String screen6ID = "user";
     public static String screen6File = "user.fxml";
-    public static String screen7ID = "login";
+    public static String screen7ID = "login1";
     public static String screen7File = "login.fxml";
     
     public static Stage s;

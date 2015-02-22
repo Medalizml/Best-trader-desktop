@@ -115,14 +115,15 @@
                <children>
                   <TabPane prefHeight="469.0" prefWidth="656.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
-                      <Tab text="User List">
+                      <Tab text="Customer List">
                            <content>
-                        	        <TableView fx:id="tab" prefHeight="406.0" prefWidth="656.0">
+                        	        <TableView fx:id="tab" onMouseClicked="#AfficheDetails" onMousePressed="#AfficheDetails" prefHeight="438.0" prefWidth="676.0">
                                 <columns>
                                     <TableColumn fx:id="id" prefWidth="46.333335876464844" text="Id" />
-                                  <TableColumn fx:id="Name" prefWidth="221.33331298828125" text="First Name" />
-                                  <TableColumn fx:id="LastName" prefWidth="213.00003051757812" text="Last Name" />
-                                    <TableColumn minWidth="2.0" prefWidth="173.0" text="Portfolio Value" />
+                                  <TableColumn fx:id="Name" prefWidth="162.0" text="First Name" />
+                                  <TableColumn fx:id="LastName" prefWidth="184.0" text="Last Name" />
+                                    <TableColumn fx:id="nationalitytab" minWidth="2.0" prefWidth="146.0" text="Nationality" />
+                                    <TableColumn fx:id="value" minWidth="0.0" prefWidth="112.0" text="value" />
                                 </columns>
                                  <contextMenu>
                                     <ContextMenu>
@@ -151,6 +152,104 @@
                <children>
                   <TabPane layoutX="-2.0" layoutY="-1.0" prefHeight="484.0" prefWidth="656.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
+                        <Tab text="Personal Details">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.27697262479871176" layoutX="2.0" layoutY="-3.0" prefHeight="444.0" prefWidth="653.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                             <children>
+                                                <SplitPane dividerPositions="0.34894613583138173" layoutY="-2.0" orientation="VERTICAL" prefHeight="469.0" prefWidth="176.0">
+                                                  <items>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                         <children>
+                                                            <ImageView fx:id="pic" fitHeight="133.0" fitWidth="127.0" layoutX="18.0" layoutY="5.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="5.0">
+                                                               <image>
+                                                                  <Image url="@../pic/1423951529_java-128.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </children>
+                                                      </AnchorPane>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="183.0" prefWidth="174.0">
+                                                         <children>
+                                                            <Label layoutX="35.0" layoutY="73.0" text="Job :" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="26.0" />
+                                                            <Label layoutX="37.0" layoutY="34.0" prefHeight="20.0" prefWidth="117.0" text="Nationality :" AnchorPane.bottomAnchor="247.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="34.0" />
+                                                            <Label layoutX="38.0" layoutY="108.0" text="Email :" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="26.0" />
+                                                            <Label layoutX="32.0" layoutY="150.0" text="Password :" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="26.0" />
+                                                            <Label layoutX="29.0" layoutY="185.0" text="Phone Number :" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="28.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </items>
+                                                </SplitPane>
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="428.0" prefWidth="100.0">
+                                             <children>
+                                                <SplitPane dividerPositions="0.34976525821596244" layoutX="-4.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="475.0" prefWidth="475.0">
+                                                  <items>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                         <children>
+                                                            <Label layoutX="28.0" layoutY="39.0" prefHeight="20.0" prefWidth="114.0" text="First Name :" AnchorPane.bottomAnchor="104.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="333.0" AnchorPane.topAnchor="39.0" />
+                                                            <Label layoutX="28.0" layoutY="74.0" prefHeight="17.0" prefWidth="112.0" text="Last Name :" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="333.0" />
+                                                            <Label layoutX="28.0" layoutY="109.0" text="Address    :" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="315.0" />
+                                                            <TextField fx:id="sname" editable="false" layoutX="126.0" layoutY="34.0" prefHeight="20.0" prefWidth="208.0" AnchorPane.bottomAnchor="100.0" AnchorPane.topAnchor="34.0" />
+                                                            <TextField fx:id="lname" editable="false" layoutX="126.0" layoutY="68.0" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="141.0" AnchorPane.topAnchor="68.0" />
+                                                            <TextField fx:id="addrss" editable="false" layoutX="126.0" layoutY="102.0" prefHeight="27.0" prefWidth="208.0" AnchorPane.bottomAnchor="31.0" AnchorPane.topAnchor="102.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="291.0" prefWidth="459.0">
+                                                         <children>
+                                                            <Button fx:id="update" disable="true" layoutX="263.0" layoutY="233.0" mnemonicParsing="false" onAction="#popupUpdate" prefHeight="25.0" prefWidth="78.0" text="Update" />
+                                                            <Button fx:id="delete" disable="true" layoutX="361.0" layoutY="233.0" mnemonicParsing="false" onAction="#doDeleteCustomer" prefHeight="25.0" prefWidth="78.0" text="Delete" />
+                                                            <TextField fx:id="nat" editable="false" layoutX="76.0" layoutY="22.0" prefHeight="33.0" prefWidth="208.0" AnchorPane.bottomAnchor="251.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="191.0" AnchorPane.topAnchor="22.0" />
+                                                            <TextField fx:id="jobb" editable="false" layoutX="76.0" layoutY="60.0" AnchorPane.bottomAnchor="213.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="191.0" AnchorPane.topAnchor="60.0" />
+                                                            <TextField fx:id="mail" editable="false" layoutX="76.0" layoutY="98.0" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="191.0" AnchorPane.topAnchor="98.0" />
+                                                            <TextField fx:id="pass" editable="false" layoutX="76.0" layoutY="137.0" AnchorPane.bottomAnchor="136.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="191.0" AnchorPane.topAnchor="137.0" />
+                                                            <TextField fx:id="phonenum" editable="false" layoutX="76.0" layoutY="175.0" AnchorPane.bottomAnchor="98.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="191.0" AnchorPane.topAnchor="175.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </items>
+                                                </SplitPane>
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="Portfolio Details">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.6657824933687002" layoutX="69.0" layoutY="33.0" orientation="VERTICAL" prefHeight="378.0" prefWidth="530.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                             <children>
+                                                <Label layoutX="58.0" layoutY="38.0" text="First Name" />
+                                                <Label layoutX="58.0" layoutY="98.0" prefHeight="17.0" prefWidth="45.0" text="Job" />
+                                                <Label layoutX="58.0" layoutY="175.0" text="Shares Number" />
+                                                <TextField fx:id="fpname" editable="false" layoutX="170.0" layoutY="28.0" prefHeight="37.0" prefWidth="208.0" AnchorPane.bottomAnchor="183.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="152.0" AnchorPane.topAnchor="28.0" />
+                                                <TextField fx:id="pjob" editable="false" layoutX="170.0" layoutY="88.0" prefHeight="40.0" prefWidth="208.0" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="152.0" AnchorPane.topAnchor="88.0" />
+                                                <TextField fx:id="pshare" editable="false" layoutX="170.0" layoutY="164.0" />
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                             <children>
+                                                <Button fx:id="addBonus" layoutX="420.0" layoutY="75.0" mnemonicParsing="false" onAction="#doAddBonus" prefHeight="29.0" prefWidth="69.0" text="+" />
+                                                <TextField fx:id="pvalue" editable="false" layoutX="179.0" layoutY="13.0" />
+                                                <Label layoutX="54.0" layoutY="22.0" text="Portfolio Value" />
+                                                <TextField fx:id="bonus" layoutX="179.0" layoutY="70.0" prefHeight="20.0" prefWidth="208.0" promptText="                Bonus" />
+                                                <Label layoutX="54.0" layoutY="81.0" prefHeight="17.0" prefWidth="87.0" text="Add Bonus" />
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
                       <Tab text="Add User">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -170,81 +269,14 @@
                                     <TextField fx:id="nationality" layoutX="221.0" layoutY="156.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
                                     <TextField fx:id="job" layoutX="221.0" layoutY="196.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
                                     <TextField fx:id="email" layoutX="221.0" layoutY="236.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
+                                    <Button layoutX="221.0" layoutY="360.0" mnemonicParsing="false" onAction="#openfile" prefHeight="29.0" prefWidth="209.0" text="Choose picture" />
                                     <TextField fx:id="phoneNumber" layoutX="232.0" layoutY="316.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
-                                    <TextField fx:id="picture" layoutX="221.0" layoutY="356.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" />
                                     <Button fx:id="add" layoutX="515.0" layoutY="388.0" mnemonicParsing="false" onAction="#doAddCustomer" prefHeight="25.0" prefWidth="84.0" text="Add" />
                                     <PasswordField fx:id="password" layoutX="223.0" layoutY="279.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="226.0" AnchorPane.topAnchor="276.0" />
-                                  </children>
+                                 </children>
                               </AnchorPane>
                         </content>
                       </Tab>
-                        <Tab text="Details">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <SplitPane dividerPositions="0.27697262479871176" layoutX="2.0" layoutY="-3.0" prefHeight="444.0" prefWidth="653.0">
-                                      <items>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                             <children>
-                                                <SplitPane dividerPositions="0.34894613583138173" layoutY="-2.0" orientation="VERTICAL" prefHeight="469.0" prefWidth="176.0">
-                                                  <items>
-                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                                         <children>
-                                                            <ImageView fitHeight="133.0" fitWidth="127.0" layoutX="18.0" layoutY="5.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="5.0">
-                                                               <image>
-                                                                  <Image url="@../pic/1423951529_java-128.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </children>
-                                                      </AnchorPane>
-                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="183.0" prefWidth="174.0">
-                                                         <children>
-                                                            <Label layoutX="35.0" layoutY="73.0" text="Job :" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="26.0" />
-                                                            <Label layoutX="37.0" layoutY="34.0" prefHeight="20.0" prefWidth="117.0" text="Nationality :" AnchorPane.bottomAnchor="247.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="34.0" />
-                                                            <Label layoutX="38.0" layoutY="108.0" text="Email :" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="26.0" />
-                                                            <Label layoutX="32.0" layoutY="150.0" text="Password :" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="26.0" />
-                                                            <Label layoutX="32.0" layoutY="196.0" text="Phone Number :" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="26.0" />
-                                                         </children>
-                                                      </AnchorPane>
-                                                  </items>
-                                                </SplitPane>
-                                             </children>
-                                          </AnchorPane>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="428.0" prefWidth="100.0">
-                                             <children>
-                                                <SplitPane dividerPositions="0.34976525821596244" layoutX="-4.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="475.0" prefWidth="475.0">
-                                                  <items>
-                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                                         <children>
-                                                            <Label prefHeight="40.0" prefWidth="71.0" text="First Name :" AnchorPane.bottomAnchor="96.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="374.0" AnchorPane.topAnchor="26.0" />
-                                                            <Label layoutX="9.0" layoutY="72.0" prefHeight="17.0" prefWidth="112.0" text="Last Name :" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="333.0" />
-                                                            <Label layoutX="31.0" layoutY="104.0" text="Address    :" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="315.0" />
-                                                            <Label layoutX="94.0" layoutY="38.0" prefHeight="17.0" prefWidth="228.0" text="Med Ali" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="126.0" />
-                                                            <Label layoutX="109.0" layoutY="72.0" text="Ben Romdhane" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="126.0" />
-                                                            <Label layoutX="109.0" layoutY="104.0" text="11 Rue El Hamra" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="126.0" />
-                                                         </children>
-                                                      </AnchorPane>
-                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="291.0" prefWidth="459.0">
-                                                         <children>
-                                                            <Label layoutX="55.0" layoutY="35.0" prefHeight="17.0" prefWidth="316.0" text="kjhblhbjkhjjkon" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="78.0" />
-                                                            <Label layoutX="55.0" layoutY="73.0" text="khjbvhjvb" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="78.0" />
-                                                            <Label layoutX="55.0" layoutY="104.0" text="lkgblkhj" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="78.0" />
-                                                            <Label layoutX="55.0" layoutY="151.0" text=",jvj,khv" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="78.0" />
-                                                            <Label layoutX="55.0" layoutY="193.0" text="khhgvhjgv" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="78.0" />
-                                                            <Button fx:id="update" layoutX="263.0" layoutY="233.0" mnemonicParsing="false" onAction="#popupUpdate" prefHeight="25.0" prefWidth="78.0" text="Update" />
-                                                            <Button layoutX="361.0" layoutY="233.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="Delete" />
-                                                         </children>
-                                                      </AnchorPane>
-                                                  </items>
-                                                </SplitPane>
-                                             </children>
-                                          </AnchorPane>
-                                      </items>
-                                    </SplitPane>
-                                 </children>
-                              </AnchorPane>
-                          </content>
-                        </Tab>
                     </tabs>
                   </TabPane>
                </children>
