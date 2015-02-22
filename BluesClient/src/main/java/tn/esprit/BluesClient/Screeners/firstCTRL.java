@@ -11,6 +11,8 @@ import javafx.scene.image.ImageView;
 
 public class firstCTRL implements Initializable, ControlledScreen {
 	ScreensController myController;
+	
+	
 	Sound s = new Sound();
 
 	@FXML
@@ -127,9 +129,13 @@ public class firstCTRL implements Initializable, ControlledScreen {
 		s.playSomeSound();
 	}
 
+	
 	@FXML
 	private void goToScreen3() {
 		myController.setScreen(ScreensFramework.screen3ID);
+	
+	
+		
 	}
 
 	@FXML
