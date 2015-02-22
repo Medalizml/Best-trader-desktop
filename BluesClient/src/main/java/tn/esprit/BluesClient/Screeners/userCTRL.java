@@ -394,6 +394,7 @@ public class userCTRL implements Initializable, ControlledScreen {
 
 			p.setValue(10000);
 			p.setSharesNumber(0);
+			p.setGain(0);
 			p.setCustomer(c);
 			remote.add(c, p);
 			data = FXCollections.observableArrayList(remote
