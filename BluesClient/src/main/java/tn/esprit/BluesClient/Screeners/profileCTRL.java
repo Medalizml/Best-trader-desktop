@@ -348,8 +348,8 @@ public class profileCTRL implements Initializable, ControlledScreen {
 		 System.out.println(a.getId());
 		 try{
 		 this.getContext().setEstimation(a,e);
-		 data= FXCollections.observableArrayList(this.getContext().findAll());
-		 sharestab.setItems(data);
+		data= FXCollections.observableArrayList(this.getContext().findAll());
+		sharestab.setItems(data);
 		 }
 		catch(Exception ex){
 			System.out.println(ex);
