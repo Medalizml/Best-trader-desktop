@@ -3,19 +3,15 @@ package tn.esprit.BluesClient.Screeners;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.swing.JOptionPane;
-
-import tn.esprit.Blues.Services.CustomerServices;
-import tn.esprit.Blues.Services.PortfolioServices;
-import tn.esprit.Blues.entities.Customer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import javax.swing.JOptionPane;
+
+import tn.esprit.Blues.Services.CustomerServices;
+import tn.esprit.Blues.entities.Customer;
 
 public class UpdateUserCTRL implements Initializable, ControlledScreen {
 	String User="Blues/CustomerServicesImpl!"+ CustomerServices.class.getCanonicalName();

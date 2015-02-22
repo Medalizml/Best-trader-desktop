@@ -33,16 +33,11 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import javax.imageio.ImageIO;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import tn.esprit.Blues.Services.CompanyServices;
 import tn.esprit.Blues.Services.CustomerServices;
 import tn.esprit.Blues.Services.PortfolioServices;
-import tn.esprit.Blues.Services.SharesServices;
 import tn.esprit.Blues.entities.Customer;
 import tn.esprit.Blues.entities.Portfolio;
 import tn.esprit.BluesClient.Main.ScreensFramework;
