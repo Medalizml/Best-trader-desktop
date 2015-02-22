@@ -10,8 +10,9 @@
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<Pane fx:id="CompanyPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1370.0" styleClass="home" stylesheets="@desktop.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.BluesClient.Screeners.companyCTRL">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1370.0" styleClass="home" stylesheets="@desktop.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.BluesClient.Screeners.companyCTRL">
    <children>
       <Circle fill="#1f93ff00" layoutX="682.0" layoutY="89.0" radius="81.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0">
          <effect>
@@ -109,101 +110,516 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <SplitPane blendMode="SCREEN" dividerPositions="0.5011406844106464" layoutX="14.0" layoutY="208.0" prefHeight="497.0" prefWidth="1347.0">
+      <SplitPane blendMode="SCREEN" layoutX="6.0" layoutY="187.0" prefHeight="518.0" prefWidth="1347.0">
          <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="278.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="496.0" prefWidth="825.0">
                <children>
-                  <TabPane prefHeight="497.0" prefWidth="659.0" tabClosingPolicy="UNAVAILABLE">
+                  <TabPane prefHeight="521.0" prefWidth="1335.0" tabClosingPolicy="UNAVAILABLE">
                      <tabs>
-                        <Tab fx:id="PrivateCompanyList" onSelectionChanged="#loadPrivateCompany" text="Private Company List">
+                        <Tab fx:id="PrivateCompanyListTab" text="Private Company List">
                            <content>
-                              <TableView prefHeight="469.0" prefWidth="659.0">
-                                 <columns>
-                                    <TableColumn prefWidth="46.333335876464844" text="Id" />
-                                    <TableColumn prefWidth="221.33331298828125" text="Company Name" />
-                                    <TableColumn prefWidth="213.00003051757812" text="Sector" />
-                                    <TableColumn minWidth="2.0" prefWidth="173.0" text="Share value" />
-                                 </columns>
-                                 <contextMenu>
-                                    <ContextMenu>
-                                       <items>
-                                          <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                                       </items>
-                                    </ContextMenu>
-                                 </contextMenu>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <opaqueInsets>
-                                    <Insets right="55.0" top="54.0" />
-                                 </opaqueInsets>
-                                 <tooltip>
-                                    <Tooltip text="Empty Tooltip" />
-                                 </tooltip>
-                              </TableView>
+                              <AnchorPane prefHeight="497.0" prefWidth="1292.0">
+                                 <children>
+                                    <TableView fx:id="TablePrivate" onMouseClicked="#afficheDetailPrivate" onMousePressed="#afficheDetailPrivate" prefHeight="467.0" prefWidth="672.0">
+                                       <columns>
+                                          <TableColumn fx:id="idTabPrivate" prefWidth="46.333335876464844" text="Id" />
+                                          <TableColumn fx:id="nameTabPrivate" prefWidth="221.33331298828125" text="Company Name" />
+                                          <TableColumn fx:id="SectorTabPrivate" prefWidth="213.00003051757812" text="Sector" />
+                                          <TableColumn fx:id="SharesValueTabPrivate" minWidth="2.0" prefWidth="173.0" text="Share Value" />
+                                       </columns>
+                                       <contextMenu>
+                                          <ContextMenu>
+                                             <items>
+                                                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                             </items>
+                                          </ContextMenu>
+                                       </contextMenu>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <opaqueInsets>
+                                          <Insets right="55.0" top="54.0" />
+                                       </opaqueInsets>
+                                       <tooltip>
+                                          <Tooltip text="Empty Tooltip" />
+                                       </tooltip>
+                                    </TableView>
+                                    <TabPane layoutX="668.0" layoutY="1.0" prefHeight="497.0" prefWidth="664.0" tabClosingPolicy="UNAVAILABLE">
+                                       <tabs>
+                                          <Tab text="Add Private Company">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="439.0" prefWidth="664.0">
+                                                   <children>
+                                                      <Label layoutX="49.0" layoutY="20.0" prefHeight="17.0" prefWidth="172.0" text="Name  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="20.0" />
+                                                      <Label layoutX="49.0" layoutY="60.0" text="Date of Incorporation  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="60.0" />
+                                                      <Label layoutX="49.0" layoutY="100.0" prefHeight="17.0" prefWidth="129.0" text="Code STICODEVAM  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="478.0" AnchorPane.topAnchor="100.0" />
+                                                      <Label layoutX="49.0" layoutY="140.0" prefHeight="17.0" prefWidth="104.0" text="Head of Office  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="503.0" AnchorPane.topAnchor="140.0" />
+                                                      <Label layoutX="49.0" layoutY="180.0" prefHeight="17.0" prefWidth="89.0" text="Phone :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="518.0" AnchorPane.topAnchor="180.0" />
+                                                      <Label layoutX="49.0" layoutY="220.0" prefHeight="17.0" prefWidth="87.0" text="Sector" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="520.0" AnchorPane.topAnchor="220.0" />
+                                                      <Label layoutX="49.0" layoutY="260.0" prefHeight="17.0" prefWidth="124.0" text="LOGO : " AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="483.0" AnchorPane.topAnchor="260.0" />
+                                                      <Label layoutX="49.0" layoutY="300.0" text="Social Capital :  " AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="300.0" />
+                                                      <Label layoutX="49.0" layoutY="340.0" prefHeight="17.0" prefWidth="134.0" text="Number of shares :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="473.0" AnchorPane.topAnchor="340.0" />
+                                                      <TextField fx:id="namePrivateCompany" layoutX="207.0" layoutY="16.0" prefHeight="25.0" prefWidth="196.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="253.0" />
+                                                      <TextField fx:id="CodePrivateCompany" layoutX="207.0" layoutY="96.0" prefHeight="25.0" prefWidth="197.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="252.0" />
+                                                      <TextField fx:id="headPrivateCompany" layoutX="205.0" layoutY="136.0" prefHeight="25.0" prefWidth="199.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="252.0" />
+                                                      <TextField fx:id="PhonePrivateCompany" layoutX="203.0" layoutY="176.0" prefHeight="25.0" prefWidth="202.0" AnchorPane.leftAnchor="203.0" AnchorPane.rightAnchor="251.0" />
+                                                      <TextField fx:id="socialPrivateCompany" layoutX="207.0" layoutY="296.0" prefHeight="25.0" prefWidth="198.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="251.0" />
+                                                      <TextField fx:id="nbSahre" layoutX="207.0" layoutY="336.0" prefHeight="25.0" prefWidth="201.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="248.0" />
+                                                      <Button fx:id="addCompanyPrivateB" layoutX="519.0" layoutY="406.0" mnemonicParsing="false" onAction="#addCompanyPrivate" prefHeight="25.0" prefWidth="84.0" text="Add" />
+                                                      <DatePicker fx:id="DatePrivateCompany" layoutX="207.0" layoutY="56.0" prefHeight="25.0" prefWidth="196.0" />
+                                                      <ImageView fx:id="logoPrivate" fitHeight="82.0" fitWidth="131.0" focusTraversable="true" layoutX="486.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="399.5" AnchorPane.leftAnchor="486.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="26.5">
+                                                         <effect>
+                                                            <Reflection fraction="0.61" topOpacity="0.19" />
+                                                         </effect>
+                                                      </ImageView>
+                                                      <Button fx:id="openButtonPrivate" layoutX="207.0" layoutY="256.0" mnemonicParsing="false" onAction="#openfileChooserPrivate" prefHeight="25.0" prefWidth="198.0" text="Choose Picture" />
+                                                      <Label layoutX="45.0" layoutY="381.0" prefHeight="17.0" prefWidth="113.0" text="Share Value :" />
+                                                      <TextField fx:id="shareValue" layoutX="205.0" layoutY="377.0" prefHeight="25.0" prefWidth="201.0" />
+                                                      <ComboBox fx:id="SectorPrivateCompany" layoutX="207.0" layoutY="216.0" prefHeight="25.0" prefWidth="196.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="Details">
+                                             <content>
+                                                <AnchorPane fx:id="pDetails1" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <SplitPane dividerPositions="0.27697262479871176" layoutX="2.0" layoutY="-3.0" prefHeight="499.0" prefWidth="653.0">
+                                                         <items>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <SplitPane dividerPositions="0.3504273504273504" layoutY="-2.0" orientation="VERTICAL" prefHeight="469.0" prefWidth="176.0">
+                                                                     <items>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                                           <children>
+                                                                              <ImageView fx:id="detailPicturePrivate" fitHeight="133.0" fitWidth="127.0" layoutX="18.0" layoutY="5.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="5.0">
+                                                                                 <image>
+                                                                                    <Image url="@../pic/1423951529_java-128.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="176.0">
+                                                                           <children>
+                                                                              <Label layoutX="18.0" layoutY="17.0" prefHeight="20.0" prefWidth="117.0" text="Head office:" AnchorPane.bottomAnchor="264.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="17.0" />
+                                                                              <Label layoutX="20.0" layoutY="81.0" text="Phone Number :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="37.0" />
+                                                                              <TextField fx:id="headOfficeUpdatePr" layoutX="10.0" layoutY="38.0" prefHeight="39.0" prefWidth="156.0" />
+                                                                              <TextField fx:id="PhoneNumberUpdatePr" layoutX="10.0" layoutY="106.0" prefHeight="39.0" prefWidth="156.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </items>
+                                                                  </SplitPane>
+                                                               </children>
+                                                            </AnchorPane>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="499.0" prefWidth="489.0">
+                                                               <children>
+                                                                  <SplitPane dividerPositions="0.34810126582278483" layoutX="-4.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="443.0" prefWidth="475.0">
+                                                                     <items>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="92.0" prefWidth="475.0">
+                                                                           <children>
+                                                                              <Label layoutX="22.0" layoutY="14.0" prefHeight="40.0" prefWidth="103.0" text="Company name :" AnchorPane.bottomAnchor="108.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="348.0" AnchorPane.topAnchor="14.0" />
+                                                                              <Label layoutX="22.0" layoutY="73.0" text="Date of Incorporation    :" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="321.0" />
+                                                                              <Label layoutX="13.0" layoutY="121.0" prefHeight="17.0" prefWidth="123.0" text="CODE STICODEVAM :" />
+                                                                              <TextField fx:id="CmpanyNameUpdatePr" layoutX="142.0" layoutY="15.0" />
+                                                                              <TextField fx:id="dateofIncorUpdatePr" layoutX="142.0" layoutY="62.0" />
+                                                                              <TextField fx:id="codeSticoUpdatePr" layoutX="142.0" layoutY="110.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="315.0" prefWidth="473.0">
+                                                                           <children>
+                                                                              <Label layoutX="18.0" layoutY="35.0" prefHeight="17.0" prefWidth="102.0" text="Social Capital :" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="355.0" />
+                                                                              <Label layoutX="11.0" layoutY="80.0" prefHeight="17.0" prefWidth="109.0" text="Number of shares :" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="355.0" />
+                                                                              <Label layoutX="14.0" layoutY="128.0" prefHeight="17.0" prefWidth="71.0" text="Share Value :" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="390.0" />
+                                                                              <Button fx:id="updatePrivateCompany" layoutX="320.0" layoutY="238.0" mnemonicParsing="false" onAction="#updatePrivateCompany" prefHeight="25.0" prefWidth="78.0" text="Update" />
+                                                                              <Label layoutX="14.0" layoutY="179.0" prefHeight="17.0" prefWidth="94.0" text=" Quoted Share:" />
+                                                                              <Label layoutX="10.0" layoutY="225.0" prefHeight="17.0" prefWidth="102.0" text="No Quoted Share :" />
+                                                                              <Label layoutX="243.0" layoutY="35.0" prefHeight="17.0" prefWidth="119.0" text="Share heighest Price :" />
+                                                                              <Label layoutX="243.0" layoutY="80.0" prefHeight="17.0" prefWidth="119.0" text="Share lowest Price :" />
+                                                                              <Label layoutX="243.0" layoutY="128.0" prefHeight="17.0" prefWidth="119.0" text="Opening Price :" />
+                                                                              <Label layoutX="243.0" layoutY="179.0" prefHeight="17.0" prefWidth="119.0" text="Closing Price :" />
+                                                                              <TextField fx:id="SocialCapitalUpdatePr" layoutX="120.0" layoutY="24.0" prefHeight="29.0" prefWidth="107.0" />
+                                                                              <TextField fx:id="NumberShareUpdatePr" layoutX="119.0" layoutY="69.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="shareValueUpdatePr" layoutX="119.0" layoutY="117.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="QuotedShareUpdatePr" layoutX="119.0" layoutY="168.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="noQuotedShareUpdatePr" layoutX="119.0" layoutY="214.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="ShareHeighPriceUpdatePr" layoutX="361.0" layoutY="24.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="SharelowPriceUpdatePr" layoutX="361.0" layoutY="69.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="opningPriceUpdatePr" layoutX="361.0" layoutY="117.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="ClosinfPriceUpdatePr" layoutX="361.0" layoutY="168.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </items>
+                                                                  </SplitPane>
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </items>
+                                                      </SplitPane>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                       </tabs>
+                                    </TabPane>
+                                 </children>
+                              </AnchorPane>
                            </content>
                         </Tab>
-                        <Tab fx:id="PublicCompanyList" onSelectionChanged="#loadPublicCompany" text="Public Company List">
+                        <Tab fx:id="PublicCompanyListTab" text="Public Company List">
                            <content>
-                              <TableView prefHeight="438.0" prefWidth="660.0">
-                                 <columns>
-                                    <TableColumn prefWidth="46.333335876464844" text="Id" />
-                                    <TableColumn prefWidth="221.33331298828125" text="Company Name" />
-                                    <TableColumn prefWidth="213.00003051757812" text="Sector" />
-                                    <TableColumn minWidth="2.0" prefWidth="173.0" text="Share value" />
-                                 </columns>
-                                 <contextMenu>
-                                    <ContextMenu>
-                                       <items>
-                                          <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                                       </items>
-                                    </ContextMenu>
-                                 </contextMenu>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <opaqueInsets>
-                                    <Insets right="55.0" top="54.0" />
-                                 </opaqueInsets>
-                                 <tooltip>
-                                    <Tooltip text="Empty Tooltip" />
-                                 </tooltip>
-                              </TableView>
+                              <AnchorPane>
+                                 <children>
+                                    <TableView fx:id="TablePublic" onMouseClicked="#afficheDetailPublic" prefHeight="490.0" prefWidth="677.0">
+                                       <columns>
+                                          <TableColumn fx:id="idTabPublic" prefWidth="46.333335876464844" text="Id" />
+                                          <TableColumn fx:id="nameTabPublic" prefWidth="221.33331298828125" text="Company Name" />
+                                          <TableColumn fx:id="SectorTabPublic" prefWidth="213.00003051757812" text="Sector" />
+                                          <TableColumn fx:id="SharesValueTabPublic" minWidth="2.0" prefWidth="173.0" text="Bond value" />
+                                       </columns>
+                                       <contextMenu>
+                                          <ContextMenu>
+                                             <items>
+                                                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                             </items>
+                                          </ContextMenu>
+                                       </contextMenu>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <opaqueInsets>
+                                          <Insets right="55.0" top="54.0" />
+                                       </opaqueInsets>
+                                       <tooltip>
+                                          <Tooltip text="Empty Tooltip" />
+                                       </tooltip>
+                                    </TableView>
+                                    <TabPane layoutX="675.0" layoutY="-5.0" prefHeight="503.0" prefWidth="714.0" tabClosingPolicy="UNAVAILABLE">
+                                       <tabs>
+                                          <Tab text="Add Public Company">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="662.0">
+                                                   <children>
+                                                      <Label layoutX="49.0" layoutY="60.0" prefHeight="17.0" prefWidth="172.0" text="Name  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="60.0" />
+                                                      <Label layoutX="49.0" layoutY="100.0" text="Date of Incorporation  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="100.0" />
+                                                      <Label layoutX="49.0" layoutY="140.0" prefHeight="17.0" prefWidth="129.0" text="Code STICODEVAM  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="478.0" AnchorPane.topAnchor="140.0" />
+                                                      <Label layoutX="49.0" layoutY="180.0" prefHeight="17.0" prefWidth="104.0" text="Head of Office  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="503.0" AnchorPane.topAnchor="180.0" />
+                                                      <Label layoutX="49.0" layoutY="220.0" prefHeight="17.0" prefWidth="89.0" text="Phone :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="518.0" AnchorPane.topAnchor="220.0" />
+                                                      <Label layoutX="49.0" layoutY="260.0" prefHeight="17.0" prefWidth="87.0" text="Sector" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="520.0" AnchorPane.topAnchor="260.0" />
+                                                      <Label layoutX="49.0" layoutY="300.0" prefHeight="17.0" prefWidth="124.0" text="LOGO : " AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="483.0" AnchorPane.topAnchor="300.0" />
+                                                      <Label layoutX="49.0" layoutY="340.0" text="Social Capital :  " AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="340.0" />
+                                                      <TextField fx:id="namePublicCompany" layoutX="207.0" layoutY="56.0" prefHeight="25.0" prefWidth="196.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="253.0" />
+                                                      <TextField fx:id="CodePublicCompany" layoutX="207.0" layoutY="136.0" prefHeight="25.0" prefWidth="197.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="252.0" />
+                                                      <TextField fx:id="headPublicCompany" layoutX="205.0" layoutY="176.0" prefHeight="25.0" prefWidth="199.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="252.0" />
+                                                      <TextField fx:id="PhonePublicCompany" layoutX="203.0" layoutY="216.0" prefHeight="25.0" prefWidth="202.0" AnchorPane.leftAnchor="203.0" AnchorPane.rightAnchor="251.0" />
+                                                      <TextField fx:id="socialPublicCompany" layoutX="207.0" layoutY="336.0" prefHeight="25.0" prefWidth="198.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="251.0" />
+                                                      <Button fx:id="addCompanyPublicB" layoutX="519.0" layoutY="406.0" mnemonicParsing="false" onAction="#addCompanyPublic" prefHeight="25.0" prefWidth="84.0" text="Add" />
+                                                      <DatePicker fx:id="DatePublicCompany" layoutX="207.0" layoutY="96.0" prefHeight="39.0" prefWidth="254.0" />
+                                                      <ImageView fx:id="logoPublic" fitHeight="82.0" fitWidth="131.0" layoutX="486.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../../../../../../../../../Pictures/2-08-2013-08-56-38bna.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Button fx:id="openButtonPublic" layoutX="207.0" layoutY="296.0" mnemonicParsing="false" onAction="#openfileChooserPublic" prefHeight="29.0" prefWidth="249.0" text="Choose Picture" />
+                                                      <ComboBox fx:id="SectorPublicCompany" layoutX="204.0" layoutY="267.0" prefHeight="22.0" prefWidth="257.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="Bond Session">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="662.0">
+                                                   <children>
+                                                      <Label layoutX="47.0" layoutY="72.0" prefHeight="28.0" prefWidth="94.0" text="Opening Price :" />
+                                                      <Label layoutX="43.0" layoutY="117.0" prefHeight="31.0" prefWidth="122.0" text="Closing Price :" />
+                                                      <Label layoutX="42.0" layoutY="172.0" prefHeight="17.0" prefWidth="104.0" text="Heighest Price :" />
+                                                      <Label layoutX="44.0" layoutY="231.0" prefHeight="17.0" prefWidth="99.0" text="Lowest Price :" />
+                                                      <Label layoutX="44.0" layoutY="279.0" prefHeight="17.0" prefWidth="99.0" text="Nominal Value :" />
+                                                      <Label layoutX="366.0" layoutY="77.0" prefHeight="17.0" prefWidth="99.0" text="Emmision Value :" />
+                                                      <Label layoutX="354.0" layoutY="132.0" prefHeight="17.0" prefWidth="111.0" text="Redemption Value :" />
+                                                      <Label layoutX="377.0" layoutY="180.0" prefHeight="17.0" prefWidth="99.0" text="Date of  issue :" />
+                                                      <Label layoutX="377.0" layoutY="231.0" prefHeight="17.0" prefWidth="99.0" text="Closing  Date :" />
+                                                      <Label layoutX="377.0" layoutY="280.0" prefHeight="17.0" prefWidth="99.0" text="Nominal Rate :" />
+                                                      <TextField fx:id="bevalue" layoutX="453.0" layoutY="67.0" />
+                                                      <TextField fx:id="brvalue" layoutX="453.0" layoutY="122.0" />
+                                                      <TextField fx:id="bnrate" layoutX="454.0" layoutY="269.0" />
+                                                      <TextField fx:id="blprice" layoutX="143.0" layoutY="221.0" />
+                                                      <TextField fx:id="bnvalue" layoutX="143.0" layoutY="270.0" />
+                                                      <TextField fx:id="bclosing" layoutX="143.0" layoutY="114.0" />
+                                                      <Button fx:id="bupdate" layoutX="495.0" layoutY="333.0" mnemonicParsing="false" onAction="#addUpdateBond" prefHeight="110.0" prefWidth="127.0" text="Save Changes">
+                                                         <effect>
+                                                            <Glow level="0.7" />
+                                                         </effect>
+                                                      </Button>
+                                                      <TextField fx:id="bhprice" layoutX="143.0" layoutY="162.0" />
+                                                      <TextField fx:id="bopning" layoutX="143.0" layoutY="68.0" />
+                                                      <DatePicker fx:id="bodate" layoutX="455.0" layoutY="170.0" prefHeight="39.0" prefWidth="193.0" />
+                                                      <DatePicker fx:id="bcdate" layoutX="457.0" layoutY="218.0" prefHeight="39.0" prefWidth="193.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="Details">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <SplitPane dividerPositions="0.27697262479871176" layoutX="2.0" layoutY="-3.0" prefHeight="444.0" prefWidth="653.0">
+                                                         <items>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <SplitPane dividerPositions="0.3504273504273504" layoutY="-2.0" orientation="VERTICAL" prefHeight="469.0" prefWidth="176.0">
+                                                                     <items>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                                           <children>
+                                                                              <ImageView fx:id="detailPicturePublic" fitHeight="133.0" fitWidth="127.0" layoutX="18.0" layoutY="5.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="5.0">
+                                                                                 <image>
+                                                                                    <Image url="@../pic/1423951529_java-128.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="176.0">
+                                                                           <children>
+                                                                              <Label layoutX="18.0" layoutY="17.0" prefHeight="20.0" prefWidth="117.0" text="Head office:" AnchorPane.bottomAnchor="264.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="17.0" />
+                                                                              <Label layoutX="20.0" layoutY="81.0" text="Phone Number :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="37.0" />
+                                                                              <TextField fx:id="headOfficeUpdatePu" layoutX="10.0" layoutY="38.0" prefHeight="39.0" prefWidth="156.0" />
+                                                                              <TextField fx:id="PhoneNumberUpdatePu" layoutX="10.0" layoutY="106.0" prefHeight="39.0" prefWidth="156.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </items>
+                                                                  </SplitPane>
+                                                               </children>
+                                                            </AnchorPane>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="428.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <SplitPane dividerPositions="0.34810126582278483" layoutX="-4.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="475.0" prefWidth="475.0">
+                                                                     <items>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="92.0" prefWidth="475.0">
+                                                                           <children>
+                                                                              <Label layoutX="22.0" layoutY="14.0" prefHeight="40.0" prefWidth="103.0" text="Company name :" AnchorPane.bottomAnchor="108.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="348.0" AnchorPane.topAnchor="14.0" />
+                                                                              <Label layoutX="22.0" layoutY="73.0" text="Date of Incorporation    :" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="321.0" />
+                                                                              <Label layoutX="13.0" layoutY="121.0" prefHeight="17.0" prefWidth="123.0" text="CODE STICODEVAM :" />
+                                                                              <TextField fx:id="CmpanyNameUpdatePu" layoutX="142.0" layoutY="15.0" />
+                                                                              <TextField fx:id="dateofIncorUpdatePu" layoutX="142.0" layoutY="62.0" />
+                                                                              <TextField fx:id="codeSticoUpdatePu" layoutX="142.0" layoutY="110.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="315.0" prefWidth="475.0">
+                                                                           <children>
+                                                                              <Label layoutX="18.0" layoutY="35.0" prefHeight="17.0" prefWidth="102.0" text="Social Capital :" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="355.0" />
+                                                                              <Label layoutX="11.0" layoutY="80.0" prefHeight="17.0" prefWidth="109.0" text="Number of Bond :" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="355.0" />
+                                                                              <Label layoutX="14.0" layoutY="128.0" prefHeight="17.0" prefWidth="71.0" text="Share Value :" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="390.0" />
+                                                                              <Button fx:id="updatePublicCompany" layoutX="324.0" layoutY="236.0" mnemonicParsing="false" onAction="#updatePublicCompany" prefHeight="25.0" prefWidth="78.0" text="Update" />
+                                                                              <Label layoutX="14.0" layoutY="179.0" prefHeight="17.0" prefWidth="94.0" text=" Quoted Bond:" />
+                                                                              <Label layoutX="10.0" layoutY="225.0" prefHeight="17.0" prefWidth="102.0" text="No Quoted Bond :" />
+                                                                              <Label layoutX="243.0" layoutY="35.0" prefHeight="17.0" prefWidth="119.0" text="Bond heighest Price :" />
+                                                                              <Label layoutX="243.0" layoutY="80.0" prefHeight="17.0" prefWidth="119.0" text="Bond lowest Price :" />
+                                                                              <Label layoutX="243.0" layoutY="128.0" prefHeight="17.0" prefWidth="119.0" text="Opening Price :" />
+                                                                              <Label layoutX="243.0" layoutY="179.0" prefHeight="17.0" prefWidth="119.0" text="Closing Price :" />
+                                                                              <TextField fx:id="SocialCapitalUpdatePu" layoutX="120.0" layoutY="24.0" prefHeight="39.0" prefWidth="107.0" />
+                                                                              <TextField fx:id="NumberShareUpdatePu" layoutX="119.0" layoutY="69.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="shareValueUpdatePu" layoutX="119.0" layoutY="117.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="QuotedShareUpdatePu" layoutX="119.0" layoutY="168.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="noQuotedShareUpdatePu" layoutX="119.0" layoutY="214.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="ShareHeighPriceUpdatePu" layoutX="361.0" layoutY="24.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="SharelowPriceUpdatePu" layoutX="361.0" layoutY="69.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="opningPriceUpdatePu" layoutX="361.0" layoutY="117.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="ClosinfPriceUpdatePu" layoutX="361.0" layoutY="168.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </items>
+                                                                  </SplitPane>
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </items>
+                                                      </SplitPane>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                       </tabs>
+                                    </TabPane>
+                                 </children>
+                              </AnchorPane>
                            </content>
                         </Tab>
-                        <Tab fx:id="BankList" onSelectionChanged="#loadBank" text="Bank List">
+                        <Tab fx:id="BankListTab" text="Bank List">
                            <content>
-                              <TableView prefHeight="406.0" prefWidth="656.0">
-                                 <columns>
-                                    <TableColumn prefWidth="46.333335876464844" text="Id" />
-                                    <TableColumn prefWidth="142.66665649414062" text="Bank name" />
-                                    <TableColumn prefWidth="252.33334350585938" text="Performance(Daily)" />
-                                    <TableColumn minWidth="2.0" prefWidth="215.66665649414062" text="Share value" />
-                                 </columns>
-                                 <contextMenu>
-                                    <ContextMenu>
-                                       <items>
-                                          <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                                       </items>
-                                    </ContextMenu>
-                                 </contextMenu>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <opaqueInsets>
-                                    <Insets right="55.0" top="54.0" />
-                                 </opaqueInsets>
-                                 <tooltip>
-                                    <Tooltip text="Empty Tooltip" />
-                                 </tooltip>
-                              </TableView>
+                              <AnchorPane>
+                                 <children>
+                                    <TableView fx:id="TableBank" onMouseClicked="#afficheDetailBank" onMousePressed="#remplirListCurr" prefHeight="462.0" prefWidth="656.0">
+                                       <columns>
+                                          <TableColumn fx:id="idTabBank" prefWidth="46.333335876464844" text="Id" />
+                                          <TableColumn fx:id="nameTabBank" prefWidth="142.66665649414062" text="Bank name" />
+                                          <TableColumn fx:id="SocialTabbank" prefWidth="252.33334350585938" text="Social Capital" />
+                                          <TableColumn fx:id="nbSharesTabbank" minWidth="2.0" prefWidth="215.66665649414062" text="Number of shares" />
+                                       </columns>
+                                       <contextMenu>
+                                          <ContextMenu>
+                                             <items>
+                                                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                             </items>
+                                          </ContextMenu>
+                                       </contextMenu>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <opaqueInsets>
+                                          <Insets right="55.0" top="54.0" />
+                                       </opaqueInsets>
+                                       <tooltip>
+                                          <Tooltip text="Empty Tooltip" />
+                                       </tooltip>
+                                    </TableView>
+                                    <TabPane layoutX="654.0" layoutY="-4.0" prefHeight="486.0" prefWidth="703.0" tabClosingPolicy="UNAVAILABLE">
+                                       <tabs>
+                                          <Tab text="Add Bank ">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="662.0">
+                                                   <children>
+                                                      <Label layoutX="49.0" layoutY="20.0" prefHeight="17.0" prefWidth="172.0" text="Name  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="20.0" />
+                                                      <Label layoutX="49.0" layoutY="60.0" text="Date of Incorporation  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="60.0" />
+                                                      <Label layoutX="49.0" layoutY="100.0" prefHeight="17.0" prefWidth="129.0" text="Code STICODEVAM  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="478.0" AnchorPane.topAnchor="100.0" />
+                                                      <Label layoutX="49.0" layoutY="140.0" prefHeight="17.0" prefWidth="104.0" text="Head of Office  :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="503.0" AnchorPane.topAnchor="140.0" />
+                                                      <Label layoutX="49.0" layoutY="180.0" prefHeight="17.0" prefWidth="89.0" text="Phone :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="518.0" AnchorPane.topAnchor="180.0" />
+                                                      <Label layoutX="52.0" layoutY="240.0" prefHeight="17.0" prefWidth="124.0" text="LOGO : " AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="480.0" AnchorPane.topAnchor="240.0" />
+                                                      <Label layoutX="49.0" layoutY="300.0" text="Social Capital :  " AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="300.0" />
+                                                      <Label layoutX="49.0" layoutY="340.0" prefHeight="17.0" prefWidth="134.0" text="Number of shares :" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="473.0" AnchorPane.topAnchor="340.0" />
+                                                      <TextField fx:id="nameBank" layoutX="207.0" layoutY="16.0" prefHeight="25.0" prefWidth="196.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="253.0" />
+                                                      <TextField fx:id="CodeBank" layoutX="207.0" layoutY="96.0" prefHeight="25.0" prefWidth="197.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="252.0" />
+                                                      <TextField fx:id="headBank" layoutX="205.0" layoutY="136.0" prefHeight="25.0" prefWidth="199.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="252.0" />
+                                                      <TextField fx:id="PhoneBank" layoutX="203.0" layoutY="180.0" prefHeight="25.0" prefWidth="202.0" AnchorPane.leftAnchor="203.0" AnchorPane.rightAnchor="251.0" />
+                                                      <TextField fx:id="socialBank" layoutX="205.0" layoutY="281.0" prefHeight="25.0" prefWidth="198.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="253.0" />
+                                                      <TextField fx:id="bankNbSahre" layoutX="204.0" layoutY="329.0" prefHeight="25.0" prefWidth="201.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="251.0" />
+                                                      <Button fx:id="addBankB" layoutX="519.0" layoutY="406.0" mnemonicParsing="false" onAction="#addBankPrivate" prefHeight="25.0" prefWidth="84.0" text="Add" />
+                                                      <DatePicker fx:id="DateBank" layoutX="207.0" layoutY="56.0" prefHeight="25.0" prefWidth="196.0" />
+                                                      <Button fx:id="openButtonBank" layoutX="205.0" layoutY="234.0" mnemonicParsing="false" onAction="#openfileChooserBank" prefHeight="25.0" prefWidth="198.0" text="Choose Picture" />
+                                                      <Label layoutX="45.0" layoutY="381.0" prefHeight="17.0" prefWidth="113.0" text="Share Value :" />
+                                                      <TextField fx:id="bankShareValue" layoutX="205.0" layoutY="377.0" prefHeight="25.0" prefWidth="201.0" />
+                                                      <ImageView fx:id="logoBank" fitHeight="113.0" fitWidth="136.0" layoutX="483.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="Details">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <SplitPane dividerPositions="0.27697262479871176" layoutX="2.0" layoutY="-3.0" prefHeight="444.0" prefWidth="653.0">
+                                                         <items>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <SplitPane dividerPositions="0.3504273504273504" layoutY="-2.0" orientation="VERTICAL" prefHeight="469.0" prefWidth="176.0">
+                                                                     <items>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                                           <children>
+                                                                              <ImageView fitHeight="112.0" fitWidth="104.0" layoutX="36.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+                                                                              <ImageView fx:id="detailPictureBank" fitHeight="150.0" fitWidth="147.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="176.0">
+                                                                           <children>
+                                                                              <Label layoutX="18.0" layoutY="17.0" prefHeight="20.0" prefWidth="117.0" text="Head office:" AnchorPane.bottomAnchor="264.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="17.0" />
+                                                                              <TextField fx:id="headOfficeUpdateB" layoutX="10.0" layoutY="38.0" prefHeight="39.0" prefWidth="156.0" />
+                                                                              <TextField fx:id="PhoneNumberUpdateB" layoutX="10.0" layoutY="106.0" prefHeight="39.0" prefWidth="156.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </items>
+                                                                  </SplitPane>
+                                                               </children>
+                                                            </AnchorPane>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="428.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <SplitPane dividerPositions="0.34810126582278483" layoutX="-4.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="475.0" prefWidth="475.0">
+                                                                     <items>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="92.0" prefWidth="475.0">
+                                                                           <children>
+                                                                              <Label layoutX="22.0" layoutY="14.0" prefHeight="40.0" prefWidth="103.0" text="Company name :" AnchorPane.bottomAnchor="108.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="348.0" AnchorPane.topAnchor="14.0" />
+                                                                              <Label layoutX="22.0" layoutY="73.0" text="Date of Incorporation    :" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="321.0" />
+                                                                              <Label layoutX="13.0" layoutY="121.0" prefHeight="17.0" prefWidth="123.0" text="CODE STICODEVAM :" />
+                                                                              <TextField fx:id="Ok" layoutX="142.0" layoutY="15.0" />
+                                                                              <TextField fx:id="dateofIncorUpdateB" layoutX="142.0" layoutY="62.0" />
+                                                                              <TextField fx:id="codeSticoUpdateB" layoutX="142.0" layoutY="110.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="315.0" prefWidth="475.0">
+                                                                           <children>
+                                                                              <Label layoutX="18.0" layoutY="35.0" prefHeight="17.0" prefWidth="102.0" text="Social Capital :" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="355.0" />
+                                                                              <Label layoutX="11.0" layoutY="80.0" prefHeight="17.0" prefWidth="109.0" text="Number of shares :" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="355.0" />
+                                                                              <Label layoutX="14.0" layoutY="128.0" prefHeight="17.0" prefWidth="71.0" text="Share Value :" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="390.0" />
+                                                                              <Button fx:id="updatebank" layoutX="317.0" layoutY="238.0" mnemonicParsing="false" onAction="#updateBank" prefHeight="25.0" prefWidth="78.0" text="Update" />
+                                                                              <Label layoutX="14.0" layoutY="179.0" prefHeight="17.0" prefWidth="94.0" text=" Quoted Share:" />
+                                                                              <Label layoutX="10.0" layoutY="225.0" prefHeight="17.0" prefWidth="102.0" text="No Quoted Share :" />
+                                                                              <Label layoutX="243.0" layoutY="35.0" prefHeight="17.0" prefWidth="119.0" text="Share heighest Price :" />
+                                                                              <Label layoutX="243.0" layoutY="80.0" prefHeight="17.0" prefWidth="119.0" text="Share lowest Price :" />
+                                                                              <Label layoutX="243.0" layoutY="128.0" prefHeight="17.0" prefWidth="119.0" text="Opening Price :" />
+                                                                              <Label layoutX="243.0" layoutY="179.0" prefHeight="17.0" prefWidth="119.0" text="Closing Price :" />
+                                                                              <TextField fx:id="SocialCapitalUpdateB" layoutX="120.0" layoutY="24.0" prefHeight="39.0" prefWidth="107.0" />
+                                                                              <TextField fx:id="NumberShareUpdateB" layoutX="119.0" layoutY="69.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="shareValueUpdateB" layoutX="119.0" layoutY="117.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="QuotedShareUpdateB" layoutX="119.0" layoutY="168.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="noQuotedShareUpdateB" layoutX="119.0" layoutY="214.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="ShareHeighPriceUpdateB" layoutX="361.0" layoutY="24.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="SharelowPriceUpdateB" layoutX="361.0" layoutY="69.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="opningPriceUpdateB" layoutX="361.0" layoutY="117.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                              <TextField fx:id="ClosinfPriceUpdateB" layoutX="361.0" layoutY="168.0" prefHeight="23.0" prefWidth="109.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </items>
+                                                                  </SplitPane>
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </items>
+                                                      </SplitPane>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="Currency List">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="455.0" prefWidth="689.0">
+                                                   <children>
+                                                      <TableView fx:id="bclist" onMouseClicked="#getCurrency" prefHeight="348.0" prefWidth="667.0">
+                                                         <columns>
+                                                            <TableColumn fx:id="blcurr" prefWidth="139.0" text="Currency" />
+                                                            <TableColumn fx:id="blunity" prefWidth="139.0" text="Unity" />
+                                                            <TableColumn fx:id="blBP" prefWidth="173.0" text="Buy Price" />
+                                                            <TableColumn fx:id="blSP" prefWidth="196.0" text="Sell Price" />
+                                                         </columns>
+                                                      </TableView>
+                                                      <TextField fx:id="CurrencyName" layoutX="33.0" layoutY="361.0" prefHeight="37.0" prefWidth="150.0" promptText="Currency Name" />
+                                                      <Line endX="400.0" layoutX="118.0" layoutY="407.0" startX="-100.0" strokeMiterLimit="20.0">
+                                                         <stroke>
+                                                            <LinearGradient endX="1.0" endY="1.0">
+                                                               <stops>
+                                                                  <Stop color="#e10000f7" />
+                                                                  <Stop color="#f2f2f2" offset="1.0" />
+                                                               </stops>
+                                                            </LinearGradient>
+                                                         </stroke>
+                                                      </Line>
+                                                      <TextField fx:id="sellPriceadd" layoutX="318.0" layoutY="361.0" prefHeight="39.0" prefWidth="104.0" promptText="Sell Price" />
+                                                      <Button fx:id="addCurrency" layoutX="562.0" layoutY="366.0" mnemonicParsing="false" onAction="#addCurrency" prefHeight="25.0" prefWidth="94.0" text="ADD +" />
+                                                      <TextField fx:id="buyPriceadd" layoutX="436.0" layoutY="361.0" prefHeight="39.0" prefWidth="87.0" promptText="Buy Price" />
+                                                      <TextField fx:id="unityCurrency" layoutX="214.0" layoutY="361.0" prefHeight="37.0" prefWidth="78.0" promptText="Unity" />
+                                                      <TextField fx:id="buyPriceEdit" layoutX="258.0" layoutY="415.0" prefHeight="39.0" prefWidth="105.0" promptText="Buy Price" />
+                                                      <TextField fx:id="SellPriceEdit" layoutX="390.0" layoutY="415.0" prefHeight="39.0" prefWidth="98.0" promptText="Sell Price" />
+                                                      <Button fx:id="updateCurrency" layoutX="562.0" layoutY="415.0" mnemonicParsing="false" onAction="#editPriceCurrency" onMouseClicked="#editPriceCurrency" prefHeight="25.0" prefWidth="94.0" text="Update +" />
+                                                      <Label layoutX="147.0" layoutY="426.0" prefHeight="17.0" prefWidth="81.0" text="Edit Currency" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                       </tabs>
+                                    </TabPane>
+                                 </children>
+                              </AnchorPane>
                            </content>
                         </Tab>
                      </tabs>
                   </TabPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="dynamicPane" minHeight="0.0" minWidth="0.0" prefHeight="496.0" prefWidth="675.0" />
+            
+            
          </items>
       </SplitPane>
    </children>
