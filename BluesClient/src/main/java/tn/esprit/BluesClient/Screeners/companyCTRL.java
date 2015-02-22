@@ -65,7 +65,7 @@ public class companyCTRL implements Initializable, ControlledScreen {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
+	
 	}
 
 	@FXML
@@ -205,7 +205,7 @@ public class companyCTRL implements Initializable, ControlledScreen {
 	}
 
 	@FXML
-	private void loadPrivateCompany() {
+	public void loadPrivateCompany() {
 
 		try {
 
