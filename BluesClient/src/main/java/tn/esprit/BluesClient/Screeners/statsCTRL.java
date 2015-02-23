@@ -327,6 +327,18 @@ public class statsCTRL implements Initializable, ControlledScreen {
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
+	/**
+	 * this method updates the data when merging from one screen to the stat screen
+	 */
+	@FXML
+	private void updatedata(){
+		ObservableList<Customer> data1 = FXCollections.observableArrayList(c.remote
+				.findAll());
+		ObservableList<Company> data = FXCollections.observableArrayList(remoteo
+				.affiche1());
+		tab0.setItems(data1);
+		tab3.setItems(data);
+	}
 
 	/**
 	 * gotoscreen methods are available to navigate from screen to another one

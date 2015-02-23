@@ -5,12 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.TimeZone;
-import java.util.regex.Pattern;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -19,11 +14,9 @@ import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListCell;
@@ -659,6 +652,7 @@ public class companyCTRL implements Initializable, ControlledScreen {
 
 	// *************************start methods of public company
 	// ******************************************
+	@SuppressWarnings("deprecation")
 	@FXML
 	public void addCompanyPublic(ActionEvent event) {
 		// c.setDateIncorporation(DatePublicCompany.get);
@@ -759,6 +753,7 @@ public class companyCTRL implements Initializable, ControlledScreen {
 
 	// ************************ start methods of bank
 	// ***********************************
+	@SuppressWarnings("deprecation")
 	@FXML
 	public void addBankPrivate(ActionEvent event) {
 		// c.setDateIncorporation(DatePublicCompany.get);
@@ -943,6 +938,7 @@ public class companyCTRL implements Initializable, ControlledScreen {
 
 	}
 
+	@SuppressWarnings("deprecation")
 	@FXML
 	public void addCompanyPrivate(ActionEvent event) {
 		// c.setDateIncorporation(DatePublicCompany.get);
@@ -1146,6 +1142,7 @@ public class companyCTRL implements Initializable, ControlledScreen {
 
 	}
 
+	@SuppressWarnings("deprecation")
 	@FXML
 	public void afficheDetailPublic() {
 
@@ -1346,6 +1343,7 @@ if(publicCompany1.getQuotation()!=null){
 				.observableArrayList(remotePublic.findAllPublic());
 		this.remplirTabPublic();
 	}
+@SuppressWarnings("deprecation")
 @FXML
 	public void addUpdateBond(){
 	

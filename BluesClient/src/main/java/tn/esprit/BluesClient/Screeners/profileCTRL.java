@@ -1,5 +1,8 @@
 package tn.esprit.BluesClient.Screeners;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -7,6 +10,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
@@ -20,6 +24,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Callback;
 
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
 import tn.esprit.Blues.Services.BankServices;
@@ -256,7 +261,6 @@ public class profileCTRL implements Initializable, ControlledScreen {
 
 		home.setScaleX(1.0);
 		home.setScaleY(1.0);
-
 	}
 	/**
 	 * This method does a zoom on a picture when the mouse is entered on it
@@ -765,9 +769,16 @@ public class profileCTRL implements Initializable, ControlledScreen {
 	private void setimS() {
 		Share a = null;
 		a = (Share) data.get(sharestab.getSelectionModel().getSelectedIndex());
-		Image image = new Image(getClass().getResourceAsStream(
-				a.getCompany().getLogo()));
-		logoS.setImage(image);
+		File file1=new File(a.getCompany().getLogo()); 
+		try {
+			BufferedImage bufferedImage = ImageIO.read(file1);
+			Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+			logoS.setImage(image);
+			
+		} catch (IOException ex) {
+			System.out.println("image erreur");
+
+		}
 	}
 	/**
 	 * when we select a bond in share's table view this method allows to display the logo of the company that owns that bond
@@ -776,8 +787,30 @@ public class profileCTRL implements Initializable, ControlledScreen {
 	private void setimB() {
 		Bond a = null;
 		a = (Bond) bdata.get(bondstab.getSelectionModel().getSelectedIndex());
-		Image image = new Image(getClass().getResourceAsStream(
-				a.getCompany().getLogo()));
-		logoB.setImage(image);
+		File file1=new File(a.getCompany().getLogo()); 
+		try {
+			BufferedImage bufferedImage = ImageIO.read(file1);
+			Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+			logoB.setImage(image);
+			
+		} catch (IOException ex) {
+			System.out.println("image erreur");
+
+		}
+	}
+	/**
+	 * this method updates the data when merging from one screen to the estimation screen
+	 */
+	@FXML
+	private void updatedata(){
+		ObservableList<Share> data = FXCollections.observableArrayList(remotesh
+				.findAll());
+		ObservableList<Bond> bdata = FXCollections.observableArrayList(remotebd
+				.findAll());
+		ObservableList<Bank> badata = FXCollections.observableArrayList(remoteba
+				.findAll());
+		bankstab.setItems(badata);
+		bondstab.setItems(bdata);
+		sharestab.setItems(data);
 	}
 }
