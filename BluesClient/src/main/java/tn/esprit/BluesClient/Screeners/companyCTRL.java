@@ -34,6 +34,7 @@ import javafx.util.Callback;
 import javafx.util.StringConverter;
 
 import javax.imageio.ImageIO;
+import javax.resource.spi.AuthenticationMechanism;
 
 import tn.esprit.Blues.Services.BankShareServices;
 import tn.esprit.Blues.Services.CompanyServices;
@@ -629,6 +630,10 @@ public class companyCTRL implements Initializable, ControlledScreen {
 		myController.setScreen(ScreensFramework.screen4ID);
 	}
 
+	/**
+	 * @author Maleck
+	 * 
+	 */
 	@FXML
 	private void goToScreen5() {
 		myController.setScreen(ScreensFramework.screen5ID);
@@ -1038,7 +1043,7 @@ public class companyCTRL implements Initializable, ControlledScreen {
 			dateofIncorUpdateB.setText(bank1.getDateIncorporation().toString());
 		}
 
-		codeSticoUpdateB.setText(bank1.getSector().getName());
+		codeSticoUpdateB.setText("Bank sector");
 
 		headOfficeUpdateB.setText(bank1.getHeadOffice());
 
@@ -1064,6 +1069,7 @@ public class companyCTRL implements Initializable, ControlledScreen {
 				.setText(bank1.getQuotation().getClosingPrice() + "");
 
 		opningPriceUpdateB.setText(bank1.getQuotation().getOpningPrice() + "");
+		dateofIncorUpdateB.setText(bank1.getDateIncorporation().toString());
 		
 	File file1=new File(bank1.getLogo()); 
 		try {
